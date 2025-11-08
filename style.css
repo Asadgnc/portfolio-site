@@ -95,7 +95,7 @@ nav {
     margin: 0;
     padding: 0;
 }
-.nav-links li { margin: 0 15px; }
+.nav-links li { margin: 0 10px; } /* Boşluk azaltıldı */
 .nav-links li a {
     font-weight: 600;
     font-size: 1rem; 
@@ -166,86 +166,29 @@ section.hero {
     position: relative;
     z-index: 1; 
 }
-.hero-subtitle {
-    font-size: 0.9rem; 
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7); 
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
-    display: block; 
-    margin-bottom: 10px;
-}
-.hero h1 {
-    font-size: 3.5rem; 
-    font-weight: 700;
-    color: #ffffff; 
-    margin-bottom: 15px;
-    line-height: 1.2; 
-}
-.hero-description {
-    font-size: 1.25rem; 
-    color: rgba(255, 255, 255, 0.9); 
-    max-width: 600px; 
-    margin: 0 auto 30px auto; 
-}
+/* ... (Hero'nun kalan stilleri aynı) ... */
+.hero-subtitle { font-size: 0.9rem; font-weight: 600; color: rgba(255, 255, 255, 0.7); letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+.hero h1 { font-size: 3.5rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.2; }
+.hero-description { font-size: 1.25rem; color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto 30px auto; }
+
 
 /* --- 6. Buton Stilleri --- */
-.btn {
-    display: inline-block; 
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease; 
-    margin: 5px;
-    border: 2px solid transparent; 
-    cursor: pointer; 
-}
-.btn-primary {
-    background-color: var(--primary-color);
-    color: #ffffff;
-}
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-    color: #ffffff;
-    transform: translateY(-3px); 
-    box-shadow: var(--shadow-medium);
-}
-.btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-soft);
-}
-.hero .btn-primary {
-    background-color: #ffffff; 
-    color: var(--primary-color); 
-}
-.hero .btn-primary:hover {
-    background-color: #f0f0f0; 
-    color: var(--primary-hover);
-}
-.hero .btn-secondary {
-    background-color: transparent;
-    color: #ffffff; 
-    border: 2px solid #ffffff; 
-}
-.hero .btn-secondary:hover {
-    background-color: #ffffff; 
-    color: var(--primary-color); 
-}
+/* ... (Tüm buton stilleri aynı) ... */
+.btn { display: inline-block; padding: 12px 24px; font-size: 1rem; font-weight: 600; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; margin: 5px; border: 2px solid transparent; cursor: pointer; }
+.btn-primary { background-color: var(--primary-color); color: #ffffff; }
+.btn-primary:hover { background-color: var(--primary-hover); color: #ffffff; transform: translateY(-3px); box-shadow: var(--shadow-medium); }
+.btn-secondary { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
+.btn-secondary:hover { background-color: var(--primary-color); color: #ffffff; transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+.hero .btn-primary { background-color: #ffffff; color: var(--primary-color); }
+.hero .btn-primary:hover { background-color: #f0f0f0; color: var(--primary-hover); }
+.hero .btn-secondary { background-color: transparent; color: #ffffff; border: 2px solid #ffffff; }
+.hero .btn-secondary:hover { background-color: #ffffff; color: var(--primary-color); }
 
 /* ===============================================
    BÖLÜM 7. Hakkımda Bölümü Stilleri
 ===============================================
 */
-/* .about-content {} Boş kural kaldırıldı (Sarı çizgi çözümü) */
+/* .about-content {} Boş kural kaldırıldı */
 .about-text p { font-size: 1.1rem; line-height: 1.8; }
 .about-details {
     margin-top: 40px; 
@@ -273,166 +216,147 @@ section.hero {
 }
 
 /* ===============================================
+   YENİ BÖLÜM: 7.5. Timeline (Zaman Çizelgesi) Stilleri
+===============================================
+*/
+#timeline, #zaman-cizelgesi, #timeline-ru, #timeline-uz {
+    background-color: var(--background-light); /* Arka planı farklı */
+    box-shadow: none;
+}
+#timeline .section-subtitle,
+#zaman-cizelgesi .section-subtitle,
+#timeline-ru .section-subtitle,
+#timeline-uz .section-subtitle {
+    text-align: center; /* Alt başlık hep ortalı */
+}
+.timeline-container {
+    position: relative; /* Dikey çizgi için ana konteyner */
+    max-width: 900px; /* Biraz daha dar olsun */
+    margin: 0 auto;
+}
+/* Dikey Çizgi */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Çizgiyi ortala */
+    margin-left: -2px; /* 4px'in yarısı */
+}
+/* Timeline Öğesi (Kutu) */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%; /* Ekranın yarısını kapla */
+}
+/* Timeline Noktası (Çizgi üzerindeki) */
+.timeline-dot {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--background-white);
+    border: 4px solid var(--primary-color);
+    top: 25px; /* Tarihin ortasına denk gelsin */
+    border-radius: 50%;
+    z-index: 1; /* Çizginin üstünde */
+}
+/* İçerik Kutusu */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--background-white);
+    position: relative;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+}
+.timeline-content h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+.timeline-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+/* Tarih */
+.timeline-date {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-hover);
+}
+
+/* SAĞLI-SOLLU HİZALAMA (Yaratıcı Kısım) */
+
+/* Soldaki Kutular (Tek sayılılar) */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 30px; /* Çizgiye boşluk */
+    text-align: right; /* Tarihi sağa yasla */
+}
+/* Sağdaki Kutular (Çift sayılılar) */
+.timeline-item:nth-child(even) {
+    left: 50%; /* Konteynerin yarısından başla */
+    padding-left: 30px; /* Çizgiye boşluk */
+    text-align: left; /* Tarihi sola yasla */
+}
+/* Soldaki noktalar */
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -10px; /* Çizginin üzerine (genişliğin yarısı) */
+}
+/* Sağdaki noktalar */
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -10px; /* Çizginin üzerine (genişliğin yarısı) */
+}
+
+
+/* ===============================================
    BÖLÜM 8: Proje Kartları Stilleri
 ===============================================
 */
-#projeler, #projects {
-    background-color: var(--background-light);
-    box-shadow: none; 
-}
-.project-grid {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 30px; 
-}
-.project-card {
-    background-color: var(--background-white);
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    overflow: hidden; 
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
-    display: flex; 
-    flex-direction: column; 
-}
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-.project-image {
-    width: 100%;
-    height: 200px; 
-    object-fit: cover; 
-    border-bottom: 1px solid var(--border-light);
-}
-.project-content {
-    padding: 20px;
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
-}
-.project-content h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-.project-content p {
-    font-size: 0.9rem; 
-    color: var(--text-light);
-    flex-grow: 1; 
-}
-.project-content .btn {
-    margin: 0;
-    margin-top: 15px; 
-    align-self: flex-start; 
-}
+/* ... (Aynı) ... */
+#projeler, #projects { background-color: var(--background-light); box-shadow: none; }
+.project-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+.project-card { background-color: var(--background-white); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.3s ease; display: flex; flex-direction: column; }
+.project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-medium); }
+.project-image { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border-light); }
+.project-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.project-content h3 { margin-top: 0; margin-bottom: 10px; }
+.project-content p { font-size: 0.9rem; color: var(--text-light); flex-grow: 1; }
+.project-content .btn { margin: 0; margin-top: 15px; align-self: flex-start; }
 
 /* ===============================================
    BÖLÜM 8.5. İletişim Bölümü Stilleri
 ===============================================
 */
-#iletisim, #contact {
-    text-align: center; 
-    background-color: var(--background-light); 
-    box-shadow: none;
-}
-#iletisim .section-subtitle,
-#contact .section-subtitle {
-    text-align: center; 
-    max-width: 500px; 
-    margin-left: auto;
-    margin-right: auto;
-}
-.contact-links {
-    margin-top: 30px;
-}
-.contact-links .btn {
-    margin: 10px; 
-}
+/* ... (Aynı) ... */
+#iletisim, #contact { text-align: center; background-color: var(--background-light); box-shadow: none; }
+#iletisim .section-subtitle, #contact .section-subtitle { text-align: center; max-width: 500px; margin-left: auto; margin-right: auto; }
+.contact-links { margin-top: 30px; }
+.contact-links .btn { margin: 10px; }
 
 /* ===============================================
    BÖLÜM 9. Proje Detay Sayfası Stilleri
 ===============================================
 */
-.project-detail-page main {
-    background-color: var(--background-white);
-    padding: 40px 0;
-}
-/* Detay sayfasının section'ları ana sayfadakinden farklıdır */
-.project-detail-page section {
-    box-shadow: none;
-    padding: 40px 0;
-    margin-bottom: 0;
-    border-bottom: 1px solid var(--border-light);
-}
-.project-detail-page section:last-of-type {
-    border-bottom: none;
-}
-
-.btn-back {
-    display: inline-block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    text-decoration: none;
-    margin-bottom: 20px;
-}
-.btn-back:hover {
-    color: var(--primary-hover);
-}
-
-.project-detail-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-.project-subtitle {
-    text-align: left; /* Alt başlık sola yaslı */
-    font-size: 1.3rem;
-    margin-bottom: 0;
-}
-.project-detail-main-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    border: 1px solid var(--border-light);
-}
-.project-detail-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Mobilde tek sütun */
-    gap: 40px;
-}
-.project-detail-text h2 {
-    font-size: 2rem;
-    margin-top: 10px;
-    color: var(--primary-color);
-}
-.project-detail-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-.tech-box {
-    background-color: var(--background-light);
-    border-radius: 8px;
-    padding: 20px;
-    border: 1px solid var(--border-light);
-    margin-bottom: 20px;
-}
-.tech-box h3 {
-    margin-top: 0;
-    font-size: 1.3rem;
-}
-.tech-list {
-    list-style: none;
-    padding-left: 0;
-}
-.tech-list li {
-    color: var(--text-light);
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-light);
-}
-.tech-list li:last-child {
-    border-bottom: none;
-}
+/* ... (Aynı) ... */
+.project-detail-page main { background-color: var(--background-white); padding: 40px 0; }
+.project-detail-page section { box-shadow: none; padding: 40px 0; margin-bottom: 0; border-bottom: 1px solid var(--border-light); }
+.project-detail-page section:last-of-type { border-bottom: none; }
+.btn-back { display: inline-block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); text-decoration: none; margin-bottom: 20px; }
+.btn-back:hover { color: var(--primary-hover); }
+.project-detail-header h1 { font-size: 3rem; margin-bottom: 10px; }
+.project-subtitle { text-align: left; font-size: 1.3rem; margin-bottom: 0; }
+.project-detail-main-image { width: 100%; height: auto; border-radius: 8px; margin-bottom: 40px; border: 1px solid var(--border-light); }
+.project-detail-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+.project-detail-text h2 { font-size: 2rem; margin-top: 10px; color: var(--primary-color); }
+.project-detail-text p { font-size: 1.1rem; line-height: 1.8; }
+.tech-box { background-color: var(--background-light); border-radius: 8px; padding: 20px; border: 1px solid var(--border-light); margin-bottom: 20px; }
+.tech-box h3 { margin-top: 0; font-size: 1.3rem; }
+.tech-list { list-style: none; padding-left: 0; }
+.tech-list li { color: var(--text-light); padding: 8px 0; border-bottom: 1px solid var(--border-light); }
+.tech-list li:last-child { border-bottom: none; }
 
 
 /* ===============================================
@@ -440,82 +364,45 @@ section.hero {
 ===============================================
 */
 @media (max-width: 768px) {
-    /* Mobil için Menü (Alt alta) */
-    nav {
-        flex-direction: column; 
-        align-items: center; 
+    /* ... (Menü stilleri aynı) ... */
+    nav { flex-direction: column; align-items: center; }
+    .logo { margin-bottom: 15px; }
+    .nav-links { order: 3; width: 100%; text-align: center; flex-direction: column; margin-top: 15px; }
+    .nav-links li { margin: 0; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+    .nav-links li:last-child { border-bottom: none; }
+    .lang-switcher { order: 2; }
+    
+    /* YENİ: Timeline'ı Mobil İçin Düzeltme */
+    .timeline-container::after {
+        left: 20px; /* Dikey çizgiyi sola al */
+        margin-left: 0;
     }
-    .logo {
-        margin-bottom: 15px;
+    .timeline-item {
+        width: 100%; /* Tam genişlik */
+        padding-left: 50px; /* Soldaki çizgiye yer aç */
+        padding-right: 10px;
+        left: 0 !important; /* "left: 50%" kuralını ez */
+        text-align: left !important; /* "text-align: right" kuralını ez */
     }
-    .nav-links {
-        order: 3; 
-        width: 100%;
-        text-align: center;
-        flex-direction: column;
-        margin-top: 15px;
-    }
-    .nav-links li {
-        margin: 0;
-        padding: 10px 0;
-        border-bottom: 1px solid #f0f0f0;
-    }
-    .nav-links li:last-child {
-        border-bottom: none;
-    }
-    .lang-switcher {
-        order: 2; 
+    .timeline-dot {
+        left: 10px; /* Noktayı soldaki çizginin üzerine al */
     }
 }
 
 
 @media (min-width: 769px) {
-    /* --- Geniş Ekran: Navigasyon --- */
-    /* (Varsayılan stiller zaten geniş ekran içindi) */
-
-    /* --- Geniş Ekran: Hero Bölümü --- */
+    /* ... (Diğer geniş ekran stilleri aynı) ... */
     section.hero { padding: 120px 0; }
-    .hero-content {
-        display: flex; 
-        align-items: center; 
-        text-align: left; 
-    }
+    .hero-content { display: flex; align-items: center; text-align: left; }
     .hero-text { flex: 1; }
     .hero h1 { font-size: 4.5rem; }
-    .hero-description {
-        font-size: 1.3rem; 
-        max-width: 600px; 
-        margin-left: 0; 
-        margin-right: 0; 
-    }
+    .hero-description { font-size: 1.3rem; max-width: 600px; margin-left: 0; margin-right: 0; }
     .hero-image { flex: 1; }
-
-    /* --- Geniş Ekran: Hakkımda Bölümü --- */
-    .about-content {
-        display: flex; 
-        gap: 40px; 
-    }
+    .about-content { display: flex; gap: 40px; }
     .about-text { flex: 2; }
-    .about-details {
-        flex: 1; 
-        margin-top: 0; 
-    }
-
-    /* --- Geniş Ekran: Proje Kartları --- */
-    #projeler .section-subtitle,
-    #projects .section-subtitle {
-        text-align: left;
-    }
-    #iletisim .section-subtitle,
-    #contact .section-subtitle {
-        text-align: center;
-    }
-    .project-grid {
-        grid-template-columns: repeat(3, 1fr); 
-    }
-    
-    /* --- Geniş Ekran: Proje Detay Sayfası --- */
-    .project-detail-grid {
-        grid-template-columns: 2.5fr 1fr; /* Sol sütun daha geniş */
-    }
+    .about-details { flex: 1; margin-top: 0; }
+    #projeler .section-subtitle, #projects .section-subtitle { text-align: left; }
+    #iletisim .section-subtitle, #contact .section-subtitle { text-align: center; }
+    .project-grid { grid-template-columns: repeat(3, 1fr); }
+    .project-detail-grid { grid-template-columns: 2.5fr 1fr; }
 }
