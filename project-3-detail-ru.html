@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали проекта: Приложение для голосования на блокчейне - Мерт Хакан</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="ru.html" class="logo">Мерт Хакан</a>
+                <ul class="nav-links">
+                    <li><a href="ru.html#about">Обо мне</a></li>
+                    <li><a href="ru.html#timeline-ru">Хронология</a></li>
+                    <li><a href="ru.html#projects">Проекты</a></li>
+                    <li><a href="ru.html#contact">Контакты</a></li>
+                </ul>
+                <ul class="lang-switcher">
+                    <li><a href="project-3-detail.html" class="lang-inactive">EN</a></li>
+                    <li><a href="project-3-detail-tr.html" class="lang-inactive">TR</a></li>
+                    <li><a href="project-3-detail-ru.html" class="lang-active">RU</a></li>
+                    <li><a href="project-3-detail-uz.html" class="lang-inactive">UZ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="project-detail-page">
+        <div class="container">
+            <section class="project-detail-header">
+                <a href="ru.html#projects" class="btn-back">&larr; Вернуться к проектам</a>
+                <h1>Название проекта 3 (напр.: Децентрализованная система голосования)</h1>
+                <p class="section-subtitle project-subtitle">
+                    Концептуальное приложение (доказательство концепции), использующее технологию блокчейн 
+                    для обеспечения прозрачных и неизменяемых записей голосования.
+                </p>
+            </section>
+            <img src="images/proje-3.jpg" alt="Главное изображение проекта 3" class="project-detail-main-image">
+            <section class="project-detail-content">
+                <div class="project-detail-grid">
+                    <div class="project-detail-text">
+                        <h2>Задача</h2>
+                        <p>
+                            Традиционные системы голосования часто сталкиваются с проблемами доверия, централизованного контроля 
+                            и потенциальной фальсификации. Цель состояла в том, чтобы разработать систему, в которой каждый голос 
+                            записывается безопасно, прозрачно и неизменяемо, что делает весь процесс полностью проверяемым любым желающим.
+                        </p>
+                        <h2>Моё решение</h2>
+                        <p>
+                            Я разработал базовую модель, использующую Python для симуляции основных принципов блокчейн-реестра. 
+                            Каждый "голос" хранится как транзакция внутри блока, и эти блоки криптографически связаны между собой. 
+                            Система гарантирует, что после добавления блока голоса внутри него не могут быть изменены, 
+                            демонстрируя ключевые преимущества децентрализованной технологии для обеспечения целостности.
+                        </p>
+                        <h2>Ключевые результаты</h2>
+                        <p>
+                            Этот проект успешно продемонстрировал мое понимание криптографического хеширования, распределенных реестров 
+                            и того, как применять фундаментальные концепции информатики к реальным социальным проблемам. 
+                            Он служит прочной основой для изучения передовых архитектур распределенных систем.
+                        </p>
+                    </div>
+                    <div class="project-detail-sidebar">
+                        <div class="tech-box">
+                            <h3>Используемые технологии и концепции</h3>
+                            <ul class="tech-list">
+                                <li>Python (Основная логика)</li>
+                                <li>Базовое криптографическое хеширование (SHA-256)</li>
+                                <li>Концепции блокчейна / распределенного реестра</li>
+                                <li>Объектно-ориентированное программирование (ООП)</li>
+                            </ul>
+                        </div>
+                        <div class="tech-box">
+                            <h3>Статус проекта и ссылка</h3>
+                            <p>Это концептуальный проект, сосредоточенный на внутренней логике и базовых концепциях.</p>
+                            <a href="#" class="btn btn-secondary" target="_blank">Посмотреть код на GitHub (Скоро)</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Мерт Хакан. Все права защищены.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

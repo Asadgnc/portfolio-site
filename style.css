@@ -1,16 +1,16 @@
 /* --- 1. Temel Kurallar ve Tasarım Sistemi (CSS Değişkenleri) --- */
 :root {
-    --primary-color: #0a66c2; 
-    --primary-hover: #004182; 
-    --text-dark: #1A1A1A;     
-    --text-light: #555555;    
-    --background-light: #f8f9fa; 
-    --background-white: #ffffff; 
-    --border-light: #eeeeee; 
-    --hero-bg-dark: #0d1117; 
-    --font-main: 'Poppins', sans-serif;
-    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --primary-color: #FF7043; /* Canlı bir turuncu */
+    --primary-hover: #E64A19; /* Daha koyu turuncu */
+    --text-dark: #333333;     /* Koyu gri tonu */
+    --text-light: #666666;    /* Orta gri tonu */
+    --background-light: #FDF9F3; /* Kremsi açık arka plan */
+    --background-white: #FFFFFF; /* Temiz beyaz */
+    --border-light: #F0EAD6; /* Açık kahveye yakın bir sınır */
+    --hero-bg-dark: #2C3E50; /* Koyu gri/mavi tonu, parçacıklarla kontrast */
+    --font-main: 'Roboto', sans-serif; /* Poppins yerine Roboto */
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15); /* Orta gölge */
 }
 
 /* --- 2. Global Sıfırlama (Reset) --- */
@@ -22,8 +22,6 @@ body {
     color: var(--text-dark);
     line-height: 1.7; 
 }
-
-/* --- 3. Yeniden Kullanılabilir Bileşenler --- */
 .container {
     max-width: 1100px; 
     margin-left: auto;
@@ -31,378 +29,545 @@ body {
     padding-left: 20px;  
     padding-right: 20px; 
 }
-h1, h2, h3 {
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    font-weight: 600; 
-    line-height: 1.3; 
-}
+h1, h2, h3 { color: var(--text-dark); margin-bottom: 20px; font-weight: 700; line-height: 1.3; } /* Başlıklar daha kalın */
 h2 { font-size: 2.5rem; }
 h3 { font-size: 1.5rem; } 
-p {
-    color: var(--text-light);
-    margin-bottom: 15px;
-}
-.section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    text-align: center; 
-    margin-top: -15px;
-    margin-bottom: 40px;
-}
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
+p { color: var(--text-light); margin-bottom: 15px; }
+.section-subtitle { font-size: 1.1rem; color: var(--text-light); text-align: center; margin-top: -15px; margin-bottom: 40px; }
+a { color: var(--primary-color); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--primary-hover); }
-section {
-    padding: 60px 0; 
-    background-color: var(--background-white);
-    margin-bottom: 20px;
-    border-radius: 8px;
+
+/* Yeni eklenen buton stilleri */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px; /* Buton köşelerini yumuşattık */
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none; /* Varsayılan border'ı kaldır */
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-white);
     box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px); /* Hafif yukarı kalkma efekti */
+    box-shadow: var(--shadow-medium);
+}
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+.btn-back { /* Geri dön butonu için */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+.btn-back:hover {
+    color: var(--primary-color);
+}
+
+
+section { 
+    padding: 60px 0; 
+    background-color: var(--background-white); 
+    margin-bottom: 20px; 
+    border-radius: 12px; /* Köşeleri daha da yumuşattık */
+    box-shadow: var(--shadow-soft); /* Daha belirgin gölge */
 }
 
 /* ===============================================
-   BÖLÜM 4: Navigasyon (Menü)
-===============================================
-*/
-header {
-    background-color: var(--background-white);
-    padding: 20px 0;
-    box-shadow: var(--shadow-soft);
+   BÖLÜM 4: Navigasyon (Menü) & Dil Değiştirici
+=============================================== */
+header { 
+    background-color: var(--background-white); 
+    padding: 15px 0; /* Header paddingini azalttık */
+    box-shadow: var(--shadow-soft); 
     position: sticky; 
-    top: 0;
+    top: 0; 
     z-index: 1000; 
 }
-nav {
+nav { 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     flex-wrap: wrap; 
 }
-.logo {
-    font-size: 1.5rem; 
-    font-weight: 700;
-    color: var(--text-dark);
+.logo { 
+    font-size: 1.7rem; /* Logo biraz daha büyük */
+    font-weight: 700; 
+    color: var(--primary-color); /* Logoyu ana renkle vurgula */
     margin-bottom: 0; 
 }
-.logo:hover { color: var(--primary-color); }
-.nav-links {
-    list-style: none;
-    display: flex; 
-    margin: 0;
-    padding: 0;
-}
-.nav-links li { margin: 0 10px; } /* Boşluk azaltıldı */
-.nav-links li a {
-    font-weight: 600;
+.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+.nav-links li { margin: 0 15px; } /* Menü öğeleri arası boşluğu artırdık */
+.nav-links li a { 
+    font-weight: 600; 
     font-size: 1rem; 
     display: block; 
-    padding: 5px 0;
+    padding: 8px 0; /* Tıklama alanı için padding */
+    color: var(--text-dark); /* Nav link rengi */
 }
-.lang-switcher {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+.nav-links li a:hover {
+    color: var(--primary-color); /* Hover rengini ana renk yaptık */
 }
+
+.lang-switcher { list-style: none; display: flex; margin: 0; padding: 0; }
 .lang-switcher li { margin-left: 10px; }
-.lang-switcher li a {
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 5px 8px;
-    border-radius: 4px;
-    text-decoration: none;
+.lang-switcher li a { 
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    padding: 5px 10px; /* Dil butonu paddingini artırdık */
+    border-radius: 6px; /* Daha yuvarlak dil butonu */
+    text-decoration: none; 
 }
-.lang-inactive {
-    background-color: transparent;
-    color: var(--text-light);
+.lang-inactive { 
+    background-color: transparent; 
+    color: var(--text-light); 
 }
-.lang-inactive:hover {
-    background-color: var(--background-light);
-    color: var(--text-dark);
+.lang-inactive:hover { 
+    background-color: var(--border-light); /* Daha sıcak bir hover arka planı */
+    color: var(--primary-color); 
 }
-.lang-active {
-    background-color: var(--primary-color);
-    color: #ffffff;
+.lang-active { 
+    background-color: var(--primary-color); 
+    color: #ffffff; 
 }
-.lang-active:hover {
-    background-color: var(--primary-hover);
-    color: #ffffff;
+.lang-active:hover { 
+    background-color: var(--primary-hover); 
+    color: #ffffff; 
 }
-footer {
-    text-align: center;
-    padding: 30px 0;
-    color: var(--text-light);
-    font-size: 0.9rem;
+footer { 
+    text-align: center; 
+    padding: 30px 0; 
+    color: var(--text-light); 
+    font-size: 0.9rem; 
+    background-color: var(--background-white); /* Footer'ı da beyaz yaptık */
+    margin-top: 20px; /* Üstten boşluk */
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
 }
 
 /* ===============================================
-   BÖLÜM 5: Hero (Ana Karşılama)
-===============================================
-*/
-section.hero {
+   BÖLÜM 5: Hero (tsParticles)
+=============================================== */
+section.hero { 
     background-color: var(--hero-bg-dark); 
-    padding: 80px 0; 
+    padding: 100px 0; /* Hero paddingini artırdık */
     text-align: center; 
-    border-bottom: 1px solid var(--border-light); 
-    box-shadow: none; 
-    margin-bottom: 20px;
-    color: #ffffff; 
     position: relative; 
     overflow: hidden; 
+    color: #ffffff; 
+    border-radius: 12px; /* Hero'nun da köşelerini yumuşattık */
+    box-shadow: var(--shadow-medium); /* Daha belirgin gölge */
+    margin-bottom: 30px; /* Ana içerikten daha fazla boşluk */
 }
-#tsparticles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#tsparticles { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
     z-index: 0; 
 }
 .hero-content { 
-    position: relative;
+    position: relative; 
     z-index: 1; 
 }
-/* ... (Hero'nun kalan stilleri aynı) ... */
-.hero-subtitle { font-size: 0.9rem; font-weight: 600; color: rgba(255, 255, 255, 0.7); letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 10px; }
-.hero h1 { font-size: 3.5rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; line-height: 1.2; }
-.hero-description { font-size: 1.25rem; color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto 30px auto; }
-
-
-/* --- 6. Buton Stilleri --- */
-/* ... (Tüm buton stilleri aynı) ... */
-.btn { display: inline-block; padding: 12px 24px; font-size: 1rem; font-weight: 600; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; margin: 5px; border: 2px solid transparent; cursor: pointer; }
-.btn-primary { background-color: var(--primary-color); color: #ffffff; }
-.btn-primary:hover { background-color: var(--primary-hover); color: #ffffff; transform: translateY(-3px); box-shadow: var(--shadow-medium); }
-.btn-secondary { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
-.btn-secondary:hover { background-color: var(--primary-color); color: #ffffff; transform: translateY(-3px); box-shadow: var(--shadow-soft); }
-.hero .btn-primary { background-color: #ffffff; color: var(--primary-color); }
-.hero .btn-primary:hover { background-color: #f0f0f0; color: var(--primary-hover); }
-.hero .btn-secondary { background-color: transparent; color: #ffffff; border: 2px solid #ffffff; }
-.hero .btn-secondary:hover { background-color: #ffffff; color: var(--primary-color); }
+.hero-subtitle { 
+    font-size: 1rem; /* Subtitle biraz daha büyük */
+    font-weight: 600; 
+    color: rgba(255, 255, 255, 0.8); /* Opaklığı artır */
+    letter-spacing: 1.5px; /* Harf aralığını artır */
+    text-transform: uppercase; 
+    display: block; 
+    margin-bottom: 15px; /* Boşluğu artır */
+}
+.hero h1 { 
+    font-size: 4rem; /* H1 boyutunu artır */
+    font-weight: 700; 
+    color: #ffffff; 
+    margin-bottom: 20px; 
+    line-height: 1.1; 
+}
+.hero-description { 
+    font-size: 1.35rem; /* Açıklama boyutunu artır */
+    color: rgba(255, 255, 255, 0.95); /* Opaklığı artır */
+    max-width: 650px; /* Genişliği artır */
+    margin: 0 auto 40px auto; /* Boşluğu artır */
+}
+.hero .btn-primary { 
+    background-color: var(--primary-color); /* Primary rengi ile başlasın */
+    color: #ffffff; 
+    margin-right: 15px; /* Butonlar arası boşluk */
+    border: 2px solid var(--primary-color);
+}
+.hero .btn-primary:hover { 
+    background-color: var(--primary-hover); 
+    border-color: var(--primary-hover);
+}
+.hero .btn-secondary { 
+    background-color: transparent; 
+    color: #ffffff; 
+    border: 2px solid #ffffff; 
+}
+.hero .btn-secondary:hover { 
+    background-color: #ffffff; 
+    color: var(--primary-color); 
+}
 
 /* ===============================================
-   BÖLÜM 7. Hakkımda Bölümü Stilleri
-===============================================
-*/
-/* .about-content {} Boş kural kaldırıldı */
-.about-text p { font-size: 1.1rem; line-height: 1.8; }
+   BÖLÜM 6: Hakkımda
+=============================================== */
+#about { padding: 80px 0; }
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+.about-text, .about-details {
+    flex: 1;
+    min-width: 300px;
+}
+.about-text p {
+    margin-bottom: 20px;
+}
 .about-details {
-    margin-top: 40px; 
-    background-color: var(--background-light); 
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-light);
-}
-.about-details h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-.about-details ul { list-style: none; }
-.about-details ul li {
-    font-size: 1rem;
-    color: var(--text-light);
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border-light);
-}
-.about-details ul li:last-child { border-bottom: none; }
-.about-details ul li strong {
-    color: var(--text-dark); 
-    margin-right: 8px; 
-}
-
-/* ===============================================
-   YENİ BÖLÜM: 7.5. Timeline (Zaman Çizelgesi) Stilleri
-===============================================
-*/
-#timeline, #zaman-cizelgesi, #timeline-ru, #timeline-uz {
-    background-color: var(--background-light); /* Arka planı farklı */
-    box-shadow: none;
-}
-#timeline .section-subtitle,
-#zaman-cizelgesi .section-subtitle,
-#timeline-ru .section-subtitle,
-#timeline-uz .section-subtitle {
-    text-align: center; /* Alt başlık hep ortalı */
-}
-.timeline-container {
-    position: relative; /* Dikey çizgi için ana konteyner */
-    max-width: 900px; /* Biraz daha dar olsun */
-    margin: 0 auto;
-}
-/* Dikey Çizgi */
-.timeline-container::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: var(--primary-color);
-    top: 0;
-    bottom: 0;
-    left: 50%; /* Çizgiyi ortala */
-    margin-left: -2px; /* 4px'in yarısı */
-}
-/* Timeline Öğesi (Kutu) */
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%; /* Ekranın yarısını kapla */
-}
-/* Timeline Noktası (Çizgi üzerindeki) */
-.timeline-dot {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: var(--background-white);
-    border: 4px solid var(--primary-color);
-    top: 25px; /* Tarihin ortasına denk gelsin */
-    border-radius: 50%;
-    z-index: 1; /* Çizginin üstünde */
-}
-/* İçerik Kutusu */
-.timeline-content {
-    padding: 20px 30px;
-    background-color: var(--background-white);
-    position: relative;
-    border-radius: 8px;
+    background-color: var(--background-light);
+    padding: 30px;
+    border-radius: 10px; /* Yuvarlak köşeler */
     box-shadow: var(--shadow-soft);
 }
-.timeline-content h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: var(--primary-color);
+.tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid; /* Grid kullanarak daha düzenli liste */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+}
+.tech-list li {
+    background-color: var(--border-light); /* Teknoloji listesi öğelerinin arka planı */
+    color: var(--text-dark);
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* ===============================================
+   BÖLÜM 7.5: Timeline (Zaman Çizelgesi)
+=============================================== */
+#timeline, #zaman-cizelgesi, #timeline-ru, #timeline-uz { 
+    background-color: var(--background-light); 
+    box-shadow: none; 
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.timeline-container { 
+    position: relative; 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+/* Dikey Çizgi */
+.timeline-container::after { 
+    content: ''; 
+    position: absolute; 
+    width: 4px; 
+    background-color: var(--primary-color); 
+    top: 0; 
+    bottom: 0; 
+    left: 50%; 
+    margin-left: -2px; 
+}
+.timeline-item { 
+    padding: 10px 40px; 
+    position: relative; 
+    width: 50%; 
+}
+/* Nokta */
+.timeline-dot { 
+    content: ''; 
+    position: absolute; 
+    width: 24px; /* Noktayı büyüttük */
+    height: 24px; /* Noktayı büyüttük */
+    background-color: var(--primary-color); /* Nokta rengini ana renk yaptık */
+    border: 4px solid var(--background-white); /* Dış halka beyaz */
+    top: 22px; /* Dikey pozisyonu ayarladık */
+    border-radius: 50%; 
+    z-index: 1; 
+    box-shadow: var(--shadow-soft); /* Noktaya gölge */
+}
+.timeline-content { 
+    padding: 25px 30px; /* İçeriğin paddingini artırdık */
+    background-color: var(--background-white); 
+    position: relative; 
+    border-radius: 10px; /* Yuvarlak köşeler */
+    box-shadow: var(--shadow-soft); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti için transition */
+}
+.timeline-content:hover {
+    transform: translateY(-5px); /* Hafif yukarı kalkma */
+    box-shadow: var(--shadow-medium); /* Daha belirgin gölge */
+}
+.timeline-content h3 { 
+    margin-top: 0; 
+    font-size: 1.3rem; /* Başlık biraz daha büyük */
+    color: var(--primary-color); 
+    margin-bottom: 10px;
 }
 .timeline-content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 0;
 }
-/* Tarih */
 .timeline-date {
-    font-size: 1.1rem;
+    position: absolute;
+    top: 30px;
     font-weight: 600;
-    color: var(--primary-hover);
+    color: var(--primary-color); /* Tarih rengini ana renk yaptık */
+    font-size: 1.1rem;
+    z-index: 1;
 }
 
-/* SAĞLI-SOLLU HİZALAMA (Yaratıcı Kısım) */
-
-/* Soldaki Kutular (Tek sayılılar) */
-.timeline-item:nth-child(odd) {
-    left: 0;
-    padding-right: 30px; /* Çizgiye boşluk */
-    text-align: right; /* Tarihi sağa yasla */
+/* Sağlı Sollu Hizalama */
+.timeline-item:nth-child(odd) { 
+    left: 0; 
+    padding-right: 30px; 
+    text-align: right; 
 }
-/* Sağdaki Kutular (Çift sayılılar) */
-.timeline-item:nth-child(even) {
-    left: 50%; /* Konteynerin yarısından başla */
-    padding-left: 30px; /* Çizgiye boşluk */
-    text-align: left; /* Tarihi sola yasla */
+.timeline-item:nth-child(even) { 
+    left: 50%; 
+    padding-left: 30px; 
+    text-align: left; 
 }
-/* Soldaki noktalar */
-.timeline-item:nth-child(odd) .timeline-dot {
-    right: -10px; /* Çizginin üzerine (genişliğin yarısı) */
+.timeline-item:nth-child(odd) .timeline-dot { 
+    right: -12px; /* Noktanın pozisyonunu ayarladık */
 }
-/* Sağdaki noktalar */
-.timeline-item:nth-child(even) .timeline-dot {
-    left: -10px; /* Çizginin üzerine (genişliğin yarısı) */
+.timeline-item:nth-child(even) .timeline-dot { 
+    left: -12px; /* Noktanın pozisyonunu ayarladık */
+}
+.timeline-item:nth-child(odd) .timeline-date {
+    right: 60px; /* Tarih pozisyonu */
+}
+.timeline-item:nth-child(even) .timeline-date {
+    left: 60px; /* Tarih pozisyonu */
 }
 
 
 /* ===============================================
-   BÖLÜM 8: Proje Kartları Stilleri
-===============================================
-*/
-/* ... (Aynı) ... */
-#projeler, #projects { background-color: var(--background-light); box-shadow: none; }
-.project-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-.project-card { background-color: var(--background-white); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.3s ease; display: flex; flex-direction: column; }
-.project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-medium); }
-.project-image { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border-light); }
-.project-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-.project-content h3 { margin-top: 0; margin-bottom: 10px; }
-.project-content p { font-size: 0.9rem; color: var(--text-light); flex-grow: 1; }
-.project-content .btn { margin: 0; margin-top: 15px; align-self: flex-start; }
+   BÖLÜM 8: Projeler
+=============================================== */
+#projects { padding: 80px 0; }
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Proje kartları arası boşluk */
+}
+.project-card {
+    background-color: var(--background-white);
+    border-radius: 12px; /* Kart köşelerini yuvarladık */
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-8px); /* Hafif yukarı kalkma */
+    box-shadow: var(--shadow-medium);
+}
+.project-image {
+    width: 100%;
+    height: 200px; /* Sabit yükseklik */
+    object-fit: cover; /* Görselin oranını koruyarak doldur */
+    display: block;
+    border-bottom: 1px solid var(--border-light);
+}
+.project-content {
+    padding: 25px;
+    flex-grow: 1; /* İçeriğin esnemesini sağlar */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project-content h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.project-content p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    flex-grow: 1; /* Paragrafın esneyerek boşluğu doldurmasını sağlar */
+}
+.project-content .btn {
+    align-self: flex-start; /* Butonu sola hizalar */
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+}
+
 
 /* ===============================================
-   BÖLÜM 8.5. İletişim Bölümü Stilleri
-===============================================
-*/
-/* ... (Aynı) ... */
-#iletisim, #contact { text-align: center; background-color: var(--background-light); box-shadow: none; }
-#iletisim .section-subtitle, #contact .section-subtitle { text-align: center; max-width: 500px; margin-left: auto; margin-right: auto; }
-.contact-links { margin-top: 30px; }
-.contact-links .btn { margin: 10px; }
+   BÖLÜM 9: İletişim
+=============================================== */
+#contact {
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 0; /* Footer'dan önce boşluk bırakmaz */
+}
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+.contact-links .btn {
+    min-width: 200px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
 
 /* ===============================================
-   BÖLÜM 9. Proje Detay Sayfası Stilleri
-===============================================
-*/
-/* ... (Aynı) ... */
-.project-detail-page main { background-color: var(--background-white); padding: 40px 0; }
-.project-detail-page section { box-shadow: none; padding: 40px 0; margin-bottom: 0; border-bottom: 1px solid var(--border-light); }
-.project-detail-page section:last-of-type { border-bottom: none; }
-.btn-back { display: inline-block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); text-decoration: none; margin-bottom: 20px; }
-.btn-back:hover { color: var(--primary-hover); }
-.project-detail-header h1 { font-size: 3rem; margin-bottom: 10px; }
-.project-subtitle { text-align: left; font-size: 1.3rem; margin-bottom: 0; }
-.project-detail-main-image { width: 100%; height: auto; border-radius: 8px; margin-bottom: 40px; border: 1px solid var(--border-light); }
-.project-detail-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
-.project-detail-text h2 { font-size: 2rem; margin-top: 10px; color: var(--primary-color); }
-.project-detail-text p { font-size: 1.1rem; line-height: 1.8; }
-.tech-box { background-color: var(--background-light); border-radius: 8px; padding: 20px; border: 1px solid var(--border-light); margin-bottom: 20px; }
-.tech-box h3 { margin-top: 0; font-size: 1.3rem; }
-.tech-list { list-style: none; padding-left: 0; }
-.tech-list li { color: var(--text-light); padding: 8px 0; border-bottom: 1px solid var(--border-light); }
-.tech-list li:last-child { border-bottom: none; }
+   BÖLÜM 10: Proje Detay Sayfası Stilleri
+=============================================== */
+.project-detail-page section { 
+    box-shadow: none; 
+    padding: 40px 0; 
+    margin-bottom: 0; 
+    border-bottom: 1px solid var(--border-light); 
+    border-radius: 0; /* Detay sayfasında bölümlerin köşeleri düz olsun */
+}
+.project-detail-header {
+    text-align: left;
+    padding-top: 60px;
+    border-bottom: none;
+}
+.project-detail-header h1 {
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+.project-subtitle {
+    text-align: left;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+.project-detail-main-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 50px;
+}
+.project-detail-content {
+    padding-top: 0;
+    border-bottom: none;
+}
+.project-detail-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+}
+.project-detail-text h2 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-top: 30px;
+}
+.project-detail-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+.project-detail-sidebar .tech-box {
+    background-color: var(--background-light);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 30px;
+}
+.project-detail-sidebar .tech-box h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.project-detail-sidebar .tech-list {
+    display: block; /* Teknoloji listesi alt alta */
+}
+.project-detail-sidebar .tech-list li {
+    background-color: transparent; /* Detay sayfasında arkaplan olmasın */
+    text-align: left;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-light); /* Hafif çizgi */
+    border-radius: 0;
+}
+.project-detail-sidebar .tech-list li:last-child {
+    border-bottom: none;
+}
 
 
 /* ===============================================
-   BÖLÜM 10: Duyarlılık (Responsiveness)
-===============================================
-*/
-@media (max-width: 768px) {
-    /* ... (Menü stilleri aynı) ... */
-    nav { flex-direction: column; align-items: center; }
+   BÖLÜM 11: Responsive Kurallar (Aynı kalır, küçük ayarlamalar)
+=============================================== */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 3rem; }
+    .hero-description { font-size: 1.15rem; }
+    .nav-links { display: none; } /* Küçük ekranlarda menü gizli */
+    nav { justify-content: center; } /* Logo ve dil değiştirici ortalanır */
     .logo { margin-bottom: 15px; }
-    .nav-links { order: 3; width: 100%; text-align: center; flex-direction: column; margin-top: 15px; }
-    .nav-links li { margin: 0; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
-    .nav-links li:last-child { border-bottom: none; }
-    .lang-switcher { order: 2; }
-    
-    /* YENİ: Timeline'ı Mobil İçin Düzeltme */
-    .timeline-container::after {
-        left: 20px; /* Dikey çizgiyi sola al */
-        margin-left: 0;
-    }
-    .timeline-item {
-        width: 100%; /* Tam genişlik */
-        padding-left: 50px; /* Soldaki çizgiye yer aç */
-        padding-right: 10px;
-        left: 0 !important; /* "left: 50%" kuralını ez */
-        text-align: left !important; /* "text-align: right" kuralını ez */
-    }
-    .timeline-dot {
-        left: 10px; /* Noktayı soldaki çizginin üzerine al */
-    }
 }
-
 
 @media (min-width: 769px) {
-    /* ... (Diğer geniş ekran stilleri aynı) ... */
-    section.hero { padding: 120px 0; }
-    .hero-content { display: flex; align-items: center; text-align: left; }
-    .hero-text { flex: 1; }
-    .hero h1 { font-size: 4.5rem; }
-    .hero-description { font-size: 1.3rem; max-width: 600px; margin-left: 0; margin-right: 0; }
-    .hero-image { flex: 1; }
-    .about-content { display: flex; gap: 40px; }
-    .about-text { flex: 2; }
-    .about-details { flex: 1; margin-top: 0; }
-    #projeler .section-subtitle, #projects .section-subtitle { text-align: left; }
-    #iletisim .section-subtitle, #contact .section-subtitle { text-align: center; }
-    .project-grid { grid-template-columns: repeat(3, 1fr); }
     .project-detail-grid { grid-template-columns: 2.5fr 1fr; }
+    .timeline-container::after { left: 50%; margin-left: -2px; }
+}
+@media (max-width: 768px) {
+    h2 { font-size: 2rem; }
+    .section-subtitle { font-size: 1rem; }
+    .hero { padding: 60px 0; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-description { font-size: 1rem; }
+    .hero .btn { min-width: unset; width: 100%; margin: 10px 0; }
+    .hero .btn-primary { margin-right: 0; }
+
+    .about-content { flex-direction: column; }
+    .tech-list { grid-template-columns: 1fr; }
+
+    .timeline-container::after { left: 20px; margin-left: 0; }
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; left: 0 !important; text-align: left !important; }
+    .timeline-dot { left: 10px !important; right: auto !important; }
+    .timeline-date { left: 60px !important; right: auto !important; top: 5px; font-size: 0.9rem; } /* Tarih yukarı */
+    .timeline-content { padding: 15px 20px; }
+    .timeline-content h3 { font-size: 1.1rem; }
+
+    .project-grid { grid-template-columns: 1fr; }
+
+    .contact-links { flex-direction: column; align-items: center; }
+    .contact-links .btn { width: 90%; }
+
+    .project-detail-header h1 { font-size: 2rem; }
+    .project-subtitle { font-size: 1rem; }
+    .project-detail-text h2 { font-size: 1.6rem; }
+    .project-detail-main-image { max-height: 300px; }
 }
