@@ -245,7 +245,7 @@ section.hero {
    BÖLÜM 7. Hakkımda Bölümü Stilleri
 ===============================================
 */
-/* 248. SATIRDAKİ BOŞ KURAL SİLİNDİ (SARI ÇİZGİ GİTMELİ) */
+/* .about-content {} Boş kural kaldırıldı (Sarı çizgi çözümü) */
 .about-text p { font-size: 1.1rem; line-height: 1.8; }
 .about-details {
     margin-top: 40px; 
