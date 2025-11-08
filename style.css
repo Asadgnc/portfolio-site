@@ -1,16 +1,24 @@
 /* --- 1. Temel Kurallar ve Tasarım Sistemi (CSS Değişkenleri) --- */
 :root {
-    --primary-color: #FF7043; /* Canlı bir turuncu */
-    --primary-hover: #E64A19; /* Daha koyu turuncu */
-    --text-dark: #333333;     /* Koyu gri tonu */
-    --text-light: #666666;    /* Orta gri tonu */
-    --background-light: #FDF9F3; /* Kremsi açık arka plan */
-    --background-white: #FFFFFF; /* Temiz beyaz */
-    --border-light: #F0EAD6; /* Açık kahveye yakın bir sınır */
-    --hero-bg-dark: #2C3E50; /* Koyu gri/mavi tonu, parçacıklarla kontrast */
-    --font-main: 'Roboto', sans-serif; /* Poppins yerine Roboto */
-    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15); /* Orta gölge */
+    /* Renk Paleti (Sıcak & Neumorfik Taban) */
+    --primary-color: #FF7043; /* Canlı Turuncu */
+    --primary-hover: #E64A19; /* Koyu Turuncu */
+    --text-dark: #333333;     /* Koyu Gri (Metin) */
+    --text-light: #666666;    /* Orta Gri (Metin/Alt Başlık) */
+    --background-light: #FDF9F3; /* Kremsi Açık Arka Plan (Genel Zemin) */
+    --background-white: #FFFFFF; /* Temiz Beyaz (Kartların Üzeri) */
+    --border-light: #F0EAD6; /* Açık Kahve Sınır */
+    --hero-bg-dark: #2C3E50; /* Koyu Gri/Mavi (Hero Kontrastı) */
+
+    /* Tipografi */
+    --font-main: 'Roboto', sans-serif; 
+    --font-heading: 'Oswald', sans-serif; /* Başlıklar için daha güçlü font */
+    
+    /* Neumorfik Gölgeler */
+    --shadow-neumo-up: 6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.9);
+    --shadow-neumo-in: inset 3px 3px 6px rgba(163, 177, 198, 0.4), inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.1); /* Genel yumuşak gölge */
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15); 
 }
 
 /* --- 2. Global Sıfırlama (Reset) --- */
@@ -18,7 +26,7 @@
 html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-main);
-    background-color: var(--background-light);
+    background-color: var(--background-light); /* Genel arka plan kremsi */
     color: var(--text-dark);
     line-height: 1.7; 
 }
@@ -29,47 +37,67 @@ body {
     padding-left: 20px;  
     padding-right: 20px; 
 }
-h1, h2, h3 { color: var(--text-dark); margin-bottom: 20px; font-weight: 700; line-height: 1.3; } 
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.5rem; } 
+
+/* Yeni Başlık Stilleri (Oswald Fontu) */
+h1, h2, h3 { 
+    color: var(--text-dark); 
+    margin-bottom: 20px; 
+    font-weight: 700; 
+    line-height: 1.3; 
+    font-family: var(--font-heading); /* Oswald */
+    text-transform: uppercase; /* Başlıklar büyük harf olsun */
+} 
+h2 { font-size: 2.8rem; } /* H2 biraz büyüdü */
+h3 { font-size: 1.8rem; } /* H3 biraz büyüdü */ 
+
 p { color: var(--text-light); margin-bottom: 15px; }
 .section-subtitle { font-size: 1.1rem; color: var(--text-light); text-align: center; margin-top: -15px; margin-bottom: 40px; }
 a { color: var(--primary-color); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--primary-hover); }
 
-/* Yeni eklenen buton stilleri */
+/* Neumorfik Ana Section Stili */
+section { 
+    padding: 60px 0; 
+    background-color: var(--background-white); /* Bölümler temiz beyaz */
+    margin-bottom: 30px; 
+    border-radius: 20px; /* Köşeleri daha da yumuşattık (Neumorfizm) */
+    box-shadow: var(--shadow-soft); /* Yumuşak genel gölge */
+}
+
+/* Buton Stilleri (Neumorfik) */
 .btn {
     display: inline-block;
-    padding: 12px 25px;
-    border-radius: 8px; 
+    padding: 14px 30px;
+    border-radius: 12px; /* Buton köşeleri yuvarlatıldı */
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
     border: none; 
     cursor: pointer;
+    box-shadow: var(--shadow-soft); /* Genel yumuşak gölge */
 }
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--background-white);
-    box-shadow: var(--shadow-soft);
 }
 .btn-primary:hover {
     background-color: var(--primary-hover);
     transform: translateY(-2px); 
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-neumo-up); /* Hover'da daha belirgin kalkış */
 }
 .btn-secondary {
-    background-color: transparent;
+    background-color: var(--background-light); /* Açık arka plan */
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--border-light);
+    box-shadow: var(--shadow-neumo-up); /* Kalkık görünüm */
 }
 .btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: var(--background-white);
+    background-color: var(--background-white);
+    color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-neumo-up);
 }
-.btn-back { 
+.btn-back { /* Geri dön butonu için */
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -81,25 +109,17 @@ a:hover { color: var(--primary-hover); }
     color: var(--primary-color);
 }
 
-
-section { 
-    padding: 60px 0; 
-    background-color: var(--background-white); 
-    margin-bottom: 20px; 
-    border-radius: 12px; 
-    box-shadow: var(--shadow-soft); 
-}
-
 /* ===============================================
    BÖLÜM 4: Navigasyon (Menü) & Dil Değiştirici
 =============================================== */
 header { 
-    background-color: var(--background-white); 
+    background-color: var(--background-light); /* Kremsi arkaplan */
     padding: 15px 0; 
     box-shadow: var(--shadow-soft); 
     position: sticky; 
     top: 0; 
     z-index: 1000; 
+    border-radius: 0; 
 }
 nav { 
     display: flex; 
@@ -108,9 +128,10 @@ nav {
     flex-wrap: wrap; 
 }
 .logo { 
-    font-size: 1.7rem; 
-    font-weight: 700; 
+    font-size: 1.8rem; 
+    font-weight: 800; 
     color: var(--primary-color); 
+    font-family: var(--font-heading);
     margin-bottom: 0; 
 }
 .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
@@ -131,12 +152,13 @@ nav {
 .lang-switcher li a { 
     font-weight: 700; 
     font-size: 0.9rem; 
-    padding: 5px 10px; 
-    border-radius: 6px; 
+    padding: 5px 12px; 
+    border-radius: 8px;
+    box-shadow: var(--shadow-neumo-up); /* Neumorfik buton gölgesi */
     text-decoration: none; 
 }
 .lang-inactive { 
-    background-color: transparent; 
+    background-color: var(--background-white); 
     color: var(--text-light); 
 }
 .lang-inactive:hover { 
@@ -149,7 +171,7 @@ nav {
 }
 .lang-active:hover { 
     background-color: var(--primary-hover); 
-    color: #ffffff; 
+    box-shadow: var(--shadow-neumo-in); /* Tıklanmış hissi için iç gölge */
 }
 footer { 
     text-align: center; 
@@ -167,14 +189,14 @@ footer {
 =============================================== */
 section.hero { 
     background-color: var(--hero-bg-dark); 
-    padding: 100px 0; 
+    padding: 120px 0; /* Daha yüksek Hero */
     text-align: center; 
     position: relative; 
     overflow: hidden; 
     color: #ffffff; 
-    border-radius: 12px; 
+    border-radius: 20px; /* Neumorfik uyum */
     box-shadow: var(--shadow-medium); 
-    margin-bottom: 30px; 
+    margin-bottom: 40px; 
 }
 #tsparticles { 
     position: absolute; 
@@ -198,11 +220,11 @@ section.hero {
     margin-bottom: 15px; 
 }
 .hero h1 { 
-    font-size: 4rem; 
+    font-size: 4.5rem; /* H1 boyutu büyüdü */
     font-weight: 700; 
     color: #ffffff; 
     margin-bottom: 20px; 
-    line-height: 1.1; 
+    line-height: 1; /* Satır aralığı daraldı */
 }
 .hero-description { 
     font-size: 1.35rem; 
@@ -250,8 +272,8 @@ section.hero {
 .about-details {
     background-color: var(--background-light);
     padding: 30px;
-    border-radius: 10px; 
-    box-shadow: var(--shadow-soft);
+    border-radius: 15px; 
+    box-shadow: var(--shadow-neumo-up); /* Neumorfik Kalkık Kutu */
 }
 .tech-list {
     list-style: none;
@@ -262,13 +284,14 @@ section.hero {
     gap: 10px;
 }
 .tech-list li {
-    background-color: var(--border-light); 
+    background-color: var(--background-white); /* Kutu içindeki beyaz arka plan */
     color: var(--text-dark);
     padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 10px;
     font-weight: 500;
     font-size: 0.95rem;
     text-align: center;
+    box-shadow: var(--shadow-neumo-up); /* Liste elemanları da kalkık */
 }
 
 /* ===============================================
@@ -308,29 +331,31 @@ section.hero {
     width: 24px; 
     height: 24px; 
     background-color: var(--primary-color); 
-    border: 4px solid var(--background-white); 
+    border: 5px solid var(--background-light); /* Arka plan rengini kullandık */
     top: 22px; 
     border-radius: 50%; 
     z-index: 1; 
-    box-shadow: var(--shadow-soft); 
+    box-shadow: var(--shadow-neumo-in); /* Noktanın içine gömülmüş hissi */
 }
 .timeline-content { 
     padding: 25px 30px; 
     background-color: var(--background-white); 
     position: relative; 
-    border-radius: 10px; 
-    box-shadow: var(--shadow-soft); 
+    border-radius: 15px; /* Neumorfik uyum */
+    box-shadow: var(--shadow-neumo-up); /* Neumorfik kalkık görünüm */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 .timeline-content:hover {
     transform: translateY(-5px); 
-    box-shadow: var(--shadow-medium); 
+    box-shadow: 10px 10px 20px rgba(163, 177, 198, 0.7), -10px -10px 20px rgba(255, 255, 255, 0.8); /* Hover'da daha belirgin gölge */
 }
 .timeline-content h3 { 
     margin-top: 0; 
     font-size: 1.3rem; 
     color: var(--primary-color); 
     margin-bottom: 10px;
+    font-family: var(--font-main); /* Timeline başlıkları Oswald değil, daha yumuşak olsun */
+    text-transform: none; 
 }
 .timeline-content p {
     font-size: 0.95rem;
@@ -345,45 +370,30 @@ section.hero {
     z-index: 1;
 }
 
-/* Sağlı Sollu Hizalama */
-.timeline-item:nth-child(odd) { 
-    left: 0; 
-    padding-right: 30px; 
-    text-align: right; 
-}
-.timeline-item:nth-child(even) { 
-    left: 50%; 
-    padding-left: 30px; 
-    text-align: left; 
-}
-.timeline-item:nth-child(odd) .timeline-dot { 
-    right: -12px; 
-}
-.timeline-item:nth-child(even) .timeline-dot { 
-    left: -12px; 
-}
-.timeline-item:nth-child(odd) .timeline-date {
-    right: 60px; 
-}
-.timeline-item:nth-child(even) .timeline-date {
-    left: 60px; 
-}
+/* Sağlı Sollu Hizalama (Neumorfik yapıda aynı kalır) */
+.timeline-item:nth-child(odd) { left: 0; padding-right: 30px; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; padding-left: 30px; text-align: left; }
+.timeline-item:nth-child(odd) .timeline-dot { right: -12px; }
+.timeline-item:nth-child(even) .timeline-dot { left: -12px; }
+.timeline-item:nth-child(odd) .timeline-date { right: 60px; }
+.timeline-item:nth-child(even) .timeline-date { left: 60px; }
+
 
 /* ===============================================
-   BÖLÜM 7.7: Galeri (Yeni Eklendi)
+   BÖLÜM 7.7: Galeri
 =============================================== */
 #gallery, #galeri-tr, #galeri-ru, #galeri-uz {
     padding-top: 80px;
     padding-bottom: 80px;
-    background-color: var(--background-light); /* Hafif arka plan */
+    background-color: var(--background-light); 
     box-shadow: none;
 }
 .gallery-group {
     margin-bottom: 60px;
     padding: 30px;
     background-color: var(--background-white);
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
+    border-radius: 20px;
+    box-shadow: var(--shadow-neumo-up); /* Galeri grupları da kalkık */
 }
 .gallery-group h3 {
     font-size: 2rem;
@@ -403,7 +413,7 @@ section.hero {
 }
 .gallery-item {
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: var(--shadow-soft);
     position: relative;
     cursor: pointer;
@@ -417,14 +427,14 @@ section.hero {
     transition: transform 0.4s ease;
 }
 .gallery-item:hover img {
-    transform: scale(1.05); /* Zoom efekti */
+    transform: scale(1.05); 
 }
 .gallery-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(44, 62, 80, 0.75); /* Koyu Hero rengi şeffaf kullanıldı */
     color: #fff;
     padding: 10px 15px;
     font-size: 0.9rem;
@@ -433,12 +443,12 @@ section.hero {
     transition: opacity 0.3s ease;
 }
 .gallery-item:hover .gallery-overlay {
-    opacity: 1; /* Açıklama hover'da görünür */
+    opacity: 1; 
 }
 
 
 /* ===============================================
-   BÖLÜM 8: Projeler
+   BÖLÜM 8: Projeler (Neumorfik Kartlar)
 =============================================== */
 #projects { padding: 80px 0; }
 .project-grid {
@@ -448,16 +458,16 @@ section.hero {
 }
 .project-card {
     background-color: var(--background-white);
-    border-radius: 12px; 
-    box-shadow: var(--shadow-soft);
+    border-radius: 20px; /* Neumorfik uyum */
+    box-shadow: var(--shadow-neumo-up); /* Kalkık Neumorfik görünüm */
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 .project-card:hover {
-    transform: translateY(-8px); 
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-5px); 
+    box-shadow: 10px 10px 20px rgba(163, 177, 198, 0.7), -10px -10px 20px rgba(255, 255, 255, 0.8);
 }
 .project-image {
     width: 100%;
@@ -474,9 +484,11 @@ section.hero {
     justify-content: space-between;
 }
 .project-content h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
     margin-bottom: 10px;
+    font-family: var(--font-main); /* Proje kart başlıkları yumuşak kalsın */
+    text-transform: none;
 }
 .project-content p {
     font-size: 0.95rem;
@@ -488,7 +500,7 @@ section.hero {
     align-self: flex-start; 
     padding: 10px 20px;
     font-size: 0.9rem;
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 
@@ -511,7 +523,7 @@ section.hero {
     min-width: 200px;
     padding: 15px 30px;
     font-size: 1.1rem;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
 /* ===============================================
@@ -534,6 +546,7 @@ section.hero {
     margin-top: 10px;
     margin-bottom: 15px;
     color: var(--primary-color);
+    font-family: var(--font-heading);
 }
 .project-subtitle {
     text-align: left;
@@ -545,7 +558,7 @@ section.hero {
     width: 100%;
     max-height: 500px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 15px;
     box-shadow: var(--shadow-medium);
     margin-bottom: 50px;
 }
@@ -562,6 +575,7 @@ section.hero {
     font-size: 2rem;
     color: var(--text-dark);
     margin-top: 30px;
+    font-family: var(--font-heading);
 }
 .project-detail-text p {
     font-size: 1rem;
@@ -570,14 +584,15 @@ section.hero {
 .project-detail-sidebar .tech-box {
     background-color: var(--background-light);
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-soft);
+    border-radius: 15px;
+    box-shadow: var(--shadow-neumo-up);
     margin-bottom: 30px;
 }
 .project-detail-sidebar .tech-box h3 {
     font-size: 1.3rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    font-family: var(--font-main);
 }
 .project-detail-sidebar .tech-list {
     display: block; 
@@ -588,6 +603,7 @@ section.hero {
     padding: 8px 0;
     border-bottom: 1px dashed var(--border-light); 
     border-radius: 0;
+    box-shadow: none;
 }
 .project-detail-sidebar .tech-list li:last-child {
     border-bottom: none;
@@ -595,7 +611,7 @@ section.hero {
 
 
 /* ===============================================
-   BÖLÜM 11: Responsive Kurallar (Aynı kalır, küçük ayarlamalar)
+   BÖLÜM 11: Responsive Kurallar 
 =============================================== */
 @media (max-width: 992px) {
     .hero h1 { font-size: 3rem; }
