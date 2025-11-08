@@ -1,0 +1,447 @@
+/* --- 1. Temel Kurallar ve Tasarım Sistemi (CSS Değişkenleri) --- */
+:root {
+    --primary-color: #0a66c2; 
+    --primary-hover: #004182; 
+    --text-dark: #1A1A1A;     
+    --text-light: #555555;    
+    --background-light: #f8f9fa; 
+    --background-white: #ffffff; 
+    --border-light: #eeeeee; 
+    --hero-bg-dark: #0d1117; 
+    --font-main: 'Poppins', sans-serif;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 2. Global Sıfırlama (Reset) --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.7; 
+}
+
+/* --- 3. Yeniden Kullanılabilir Bileşenler --- */
+.container {
+    max-width: 1100px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;  
+    padding-right: 20px; 
+}
+h1, h2, h3 {
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: 600; 
+    line-height: 1.3; 
+}
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; } 
+p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-align: center; 
+    margin-top: -15px;
+    margin-bottom: 40px;
+}
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+a:hover { color: var(--primary-hover); }
+section {
+    padding: 60px 0; 
+    background-color: var(--background-white);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ===============================================
+   BÖLÜM 4: Navigasyon (Menü) - GÜNCELLENDİ
+===============================================
+*/
+header {
+    background-color: var(--background-white);
+    padding: 20px 0;
+    box-shadow: var(--shadow-soft);
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+}
+nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+.logo {
+    font-size: 1.5rem; 
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0; 
+}
+.logo:hover { color: var(--primary-color); }
+
+/* Menü Linkleri (Ana Linkler) */
+.nav-links {
+    list-style: none;
+    display: flex; 
+    margin: 0;
+    padding: 0;
+}
+.nav-links li {
+    margin: 0 15px; 
+}
+.nav-links li a {
+    font-weight: 600;
+    font-size: 1rem; 
+    display: block; 
+    padding: 5px 0;
+}
+
+/* Dil Değiştirici */
+.lang-switcher {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.lang-switcher li {
+    margin-left: 10px;
+}
+.lang-switcher li a {
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+/* Aktif olmayan dil */
+.lang-inactive {
+    background-color: transparent;
+    color: var(--text-light);
+}
+.lang-inactive:hover {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+/* O an seçili olan dil */
+.lang-active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+.lang-active:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+}
+
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ===============================================
+   BÖLÜM 5: Hero (Ana Karşılama)
+===============================================
+*/
+section.hero {
+    background-color: var(--hero-bg-dark); 
+    padding: 80px 0; 
+    text-align: center; 
+    border-bottom: 1px solid var(--border-light); 
+    box-shadow: none; 
+    margin-bottom: 20px;
+    color: #ffffff; 
+    position: relative; 
+    overflow: hidden; 
+}
+#tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; 
+}
+.hero-content { 
+    position: relative;
+    z-index: 1; 
+}
+.hero-subtitle {
+    font-size: 0.9rem; 
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7); 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+    display: block; 
+    margin-bottom: 10px;
+}
+.hero h1 {
+    font-size: 3.5rem; 
+    font-weight: 700;
+    color: #ffffff; 
+    margin-bottom: 15px;
+    line-height: 1.2; 
+}
+.hero-description {
+    font-size: 1.25rem; 
+    color: rgba(255, 255, 255, 0.9); 
+    max-width: 600px; 
+    margin: 0 auto 30px auto; 
+}
+
+/* --- 6. Buton Stilleri --- */
+.btn {
+    display: inline-block; 
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease; 
+    margin: 5px;
+    border: 2px solid transparent; 
+    cursor: pointer; 
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+    transform: translateY(-3px); 
+    box-shadow: var(--shadow-medium);
+}
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+.hero .btn-primary {
+    background-color: #ffffff; 
+    color: var(--primary-color); 
+}
+.hero .btn-primary:hover {
+    background-color: #f0f0f0; 
+    color: var(--primary-hover);
+}
+.hero .btn-secondary {
+    background-color: transparent;
+    color: #ffffff; 
+    border: 2px solid #ffffff; 
+}
+.hero .btn-secondary:hover {
+    background-color: #ffffff; 
+    color: var(--primary-color); 
+}
+
+/* ===============================================
+   BÖLÜM 7. Hakkımda Bölümü Stilleri
+===============================================
+*/
+.about-content {}
+.about-text p { font-size: 1.1rem; line-height: 1.8; }
+.about-details {
+    margin-top: 40px; 
+    background-color: var(--background-light); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+}
+.about-details h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+.about-details ul { list-style: none; }
+.about-details ul li {
+    font-size: 1rem;
+    color: var(--text-light);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+.about-details ul li:last-child { border-bottom: none; }
+.about-details ul li strong {
+    color: var(--text-dark); 
+    margin-right: 8px; 
+}
+
+/* ===============================================
+   BÖLÜM 8: Proje Kartları Stilleri
+===============================================
+*/
+#projeler, #projects, #about, #contact, #hakkimda, #iletisim { /* YENİ: TÜM ID'leri hedefle */
+    /* Bu kural, ID'lerin çalışmasını sağlar */
+}
+
+#projeler, #projects {
+    background-color: var(--background-light);
+    box-shadow: none; 
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+}
+.project-card {
+    background-color: var(--background-white);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    display: flex; 
+    flex-direction: column; 
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+.project-image {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-bottom: 1px solid var(--border-light);
+}
+.project-content {
+    padding: 20px;
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+}
+.project-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.project-content p {
+    font-size: 0.9rem; 
+    color: var(--text-light);
+    flex-grow: 1; 
+}
+.project-content .btn {
+    margin: 0;
+    margin-top: 15px; 
+    align-self: flex-start; 
+}
+
+/* ===============================================
+   BÖLÜM 8.5. İletişim Bölümü Stilleri
+===============================================
+*/
+#iletisim, #contact {
+    text-align: center; 
+    background-color: var(--background-light); 
+    box-shadow: none;
+}
+#iletisim .section-subtitle,
+#contact .section-subtitle {
+    text-align: center; 
+    max-width: 500px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-links {
+    margin-top: 30px;
+}
+.contact-links .btn {
+    margin: 10px; 
+}
+
+
+/* ===============================================
+   BÖLÜM 9: Duyarlılık (Responsiveness)
+===============================================
+*/
+@media (max-width: 768px) {
+    /* Mobil için Menü (Alt alta) */
+    nav {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    .nav-links {
+        order: 3; 
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .nav-links li {
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    .lang-switcher {
+        order: 2; 
+    }
+}
+
+
+@media (min-width: 769px) {
+    /* --- Geniş Ekran: Navigasyon --- */
+    /* (Varsayılan stiller zaten geniş ekran içindi) */
+
+    /* --- Geniş Ekran: Hero Bölümü --- */
+    section.hero { padding: 120px 0; }
+    .hero-content {
+        display: flex; 
+        align-items: center; 
+        text-align: left; 
+    }
+    .hero-text { flex: 1; }
+    .hero h1 { font-size: 4.5rem; }
+    .hero-description {
+        font-size: 1.3rem; 
+        max-width: 600px; 
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+    .hero-image { flex: 1; }
+
+    /* --- Geniş Ekran: Hakkımda Bölümü --- */
+    .about-content {
+        display: flex; 
+        gap: 40px; 
+    }
+    .about-text { flex: 2; }
+    .about-details {
+        flex: 1; 
+        margin-top: 0; 
+    }
+
+    /* --- Geniş Ekran: Proje Kartları --- */
+    #projeler .section-subtitle,
+    #projects .section-subtitle {
+        text-align: left;
+    }
+    #iletisim .section-subtitle,
+    #contact .section-subtitle {
+        text-align: center;
+    }
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
