@@ -29,7 +29,7 @@ body {
     padding-left: 20px;  
     padding-right: 20px; 
 }
-h1, h2, h3 { color: var(--text-dark); margin-bottom: 20px; font-weight: 700; line-height: 1.3; } /* Başlıklar daha kalın */
+h1, h2, h3 { color: var(--text-dark); margin-bottom: 20px; font-weight: 700; line-height: 1.3; } 
 h2 { font-size: 2.5rem; }
 h3 { font-size: 1.5rem; } 
 p { color: var(--text-light); margin-bottom: 15px; }
@@ -41,11 +41,11 @@ a:hover { color: var(--primary-hover); }
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    border-radius: 8px; /* Buton köşelerini yumuşattık */
+    border-radius: 8px; 
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
-    border: none; /* Varsayılan border'ı kaldır */
+    border: none; 
     cursor: pointer;
 }
 .btn-primary {
@@ -55,7 +55,7 @@ a:hover { color: var(--primary-hover); }
 }
 .btn-primary:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-2px); /* Hafif yukarı kalkma efekti */
+    transform: translateY(-2px); 
     box-shadow: var(--shadow-medium);
 }
 .btn-secondary {
@@ -69,7 +69,7 @@ a:hover { color: var(--primary-hover); }
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
 }
-.btn-back { /* Geri dön butonu için */
+.btn-back { 
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -86,8 +86,8 @@ section {
     padding: 60px 0; 
     background-color: var(--background-white); 
     margin-bottom: 20px; 
-    border-radius: 12px; /* Köşeleri daha da yumuşattık */
-    box-shadow: var(--shadow-soft); /* Daha belirgin gölge */
+    border-radius: 12px; 
+    box-shadow: var(--shadow-soft); 
 }
 
 /* ===============================================
@@ -95,7 +95,7 @@ section {
 =============================================== */
 header { 
     background-color: var(--background-white); 
-    padding: 15px 0; /* Header paddingini azalttık */
+    padding: 15px 0; 
     box-shadow: var(--shadow-soft); 
     position: sticky; 
     top: 0; 
@@ -108,22 +108,22 @@ nav {
     flex-wrap: wrap; 
 }
 .logo { 
-    font-size: 1.7rem; /* Logo biraz daha büyük */
+    font-size: 1.7rem; 
     font-weight: 700; 
-    color: var(--primary-color); /* Logoyu ana renkle vurgula */
+    color: var(--primary-color); 
     margin-bottom: 0; 
 }
 .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
-.nav-links li { margin: 0 15px; } /* Menü öğeleri arası boşluğu artırdık */
+.nav-links li { margin: 0 15px; } 
 .nav-links li a { 
     font-weight: 600; 
     font-size: 1rem; 
     display: block; 
-    padding: 8px 0; /* Tıklama alanı için padding */
-    color: var(--text-dark); /* Nav link rengi */
+    padding: 8px 0; 
+    color: var(--text-dark); 
 }
 .nav-links li a:hover {
-    color: var(--primary-color); /* Hover rengini ana renk yaptık */
+    color: var(--primary-color); 
 }
 
 .lang-switcher { list-style: none; display: flex; margin: 0; padding: 0; }
@@ -131,8 +131,8 @@ nav {
 .lang-switcher li a { 
     font-weight: 700; 
     font-size: 0.9rem; 
-    padding: 5px 10px; /* Dil butonu paddingini artırdık */
-    border-radius: 6px; /* Daha yuvarlak dil butonu */
+    padding: 5px 10px; 
+    border-radius: 6px; 
     text-decoration: none; 
 }
 .lang-inactive { 
@@ -140,7 +140,7 @@ nav {
     color: var(--text-light); 
 }
 .lang-inactive:hover { 
-    background-color: var(--border-light); /* Daha sıcak bir hover arka planı */
+    background-color: var(--border-light); 
     color: var(--primary-color); 
 }
 .lang-active { 
@@ -156,8 +156,8 @@ footer {
     padding: 30px 0; 
     color: var(--text-light); 
     font-size: 0.9rem; 
-    background-color: var(--background-white); /* Footer'ı da beyaz yaptık */
-    margin-top: 20px; /* Üstten boşluk */
+    background-color: var(--background-white); 
+    margin-top: 20px; 
     border-radius: 12px;
     box-shadow: var(--shadow-soft);
 }
@@ -167,14 +167,14 @@ footer {
 =============================================== */
 section.hero { 
     background-color: var(--hero-bg-dark); 
-    padding: 100px 0; /* Hero paddingini artırdık */
+    padding: 100px 0; 
     text-align: center; 
     position: relative; 
     overflow: hidden; 
     color: #ffffff; 
-    border-radius: 12px; /* Hero'nun da köşelerini yumuşattık */
-    box-shadow: var(--shadow-medium); /* Daha belirgin gölge */
-    margin-bottom: 30px; /* Ana içerikten daha fazla boşluk */
+    border-radius: 12px; 
+    box-shadow: var(--shadow-medium); 
+    margin-bottom: 30px; 
 }
 #tsparticles { 
     position: absolute; 
@@ -189,31 +189,31 @@ section.hero {
     z-index: 1; 
 }
 .hero-subtitle { 
-    font-size: 1rem; /* Subtitle biraz daha büyük */
+    font-size: 1rem; 
     font-weight: 600; 
-    color: rgba(255, 255, 255, 0.8); /* Opaklığı artır */
-    letter-spacing: 1.5px; /* Harf aralığını artır */
+    color: rgba(255, 255, 255, 0.8); 
+    letter-spacing: 1.5px; 
     text-transform: uppercase; 
     display: block; 
-    margin-bottom: 15px; /* Boşluğu artır */
+    margin-bottom: 15px; 
 }
 .hero h1 { 
-    font-size: 4rem; /* H1 boyutunu artır */
+    font-size: 4rem; 
     font-weight: 700; 
     color: #ffffff; 
     margin-bottom: 20px; 
     line-height: 1.1; 
 }
 .hero-description { 
-    font-size: 1.35rem; /* Açıklama boyutunu artır */
-    color: rgba(255, 255, 255, 0.95); /* Opaklığı artır */
-    max-width: 650px; /* Genişliği artır */
-    margin: 0 auto 40px auto; /* Boşluğu artır */
+    font-size: 1.35rem; 
+    color: rgba(255, 255, 255, 0.95); 
+    max-width: 650px; 
+    margin: 0 auto 40px auto; 
 }
 .hero .btn-primary { 
-    background-color: var(--primary-color); /* Primary rengi ile başlasın */
+    background-color: var(--primary-color); 
     color: #ffffff; 
-    margin-right: 15px; /* Butonlar arası boşluk */
+    margin-right: 15px; 
     border: 2px solid var(--primary-color);
 }
 .hero .btn-primary:hover { 
@@ -250,19 +250,19 @@ section.hero {
 .about-details {
     background-color: var(--background-light);
     padding: 30px;
-    border-radius: 10px; /* Yuvarlak köşeler */
+    border-radius: 10px; 
     box-shadow: var(--shadow-soft);
 }
 .tech-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid; /* Grid kullanarak daha düzenli liste */
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 10px;
 }
 .tech-list li {
-    background-color: var(--border-light); /* Teknoloji listesi öğelerinin arka planı */
+    background-color: var(--border-light); 
     color: var(--text-dark);
     padding: 10px 15px;
     border-radius: 6px;
@@ -305,30 +305,30 @@ section.hero {
 .timeline-dot { 
     content: ''; 
     position: absolute; 
-    width: 24px; /* Noktayı büyüttük */
-    height: 24px; /* Noktayı büyüttük */
-    background-color: var(--primary-color); /* Nokta rengini ana renk yaptık */
-    border: 4px solid var(--background-white); /* Dış halka beyaz */
-    top: 22px; /* Dikey pozisyonu ayarladık */
+    width: 24px; 
+    height: 24px; 
+    background-color: var(--primary-color); 
+    border: 4px solid var(--background-white); 
+    top: 22px; 
     border-radius: 50%; 
     z-index: 1; 
-    box-shadow: var(--shadow-soft); /* Noktaya gölge */
+    box-shadow: var(--shadow-soft); 
 }
 .timeline-content { 
-    padding: 25px 30px; /* İçeriğin paddingini artırdık */
+    padding: 25px 30px; 
     background-color: var(--background-white); 
     position: relative; 
-    border-radius: 10px; /* Yuvarlak köşeler */
+    border-radius: 10px; 
     box-shadow: var(--shadow-soft); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti için transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 .timeline-content:hover {
-    transform: translateY(-5px); /* Hafif yukarı kalkma */
-    box-shadow: var(--shadow-medium); /* Daha belirgin gölge */
+    transform: translateY(-5px); 
+    box-shadow: var(--shadow-medium); 
 }
 .timeline-content h3 { 
     margin-top: 0; 
-    font-size: 1.3rem; /* Başlık biraz daha büyük */
+    font-size: 1.3rem; 
     color: var(--primary-color); 
     margin-bottom: 10px;
 }
@@ -340,7 +340,7 @@ section.hero {
     position: absolute;
     top: 30px;
     font-weight: 600;
-    color: var(--primary-color); /* Tarih rengini ana renk yaptık */
+    color: var(--primary-color); 
     font-size: 1.1rem;
     z-index: 1;
 }
@@ -357,16 +357,16 @@ section.hero {
     text-align: left; 
 }
 .timeline-item:nth-child(odd) .timeline-dot { 
-    right: -12px; /* Noktanın pozisyonunu ayarladık */
+    right: -12px; 
 }
 .timeline-item:nth-child(even) .timeline-dot { 
-    left: -12px; /* Noktanın pozisyonunu ayarladık */
+    left: -12px; 
 }
 .timeline-item:nth-child(odd) .timeline-date {
-    right: 60px; /* Tarih pozisyonu */
+    right: 60px; 
 }
 .timeline-item:nth-child(even) .timeline-date {
-    left: 60px; /* Tarih pozisyonu */
+    left: 60px; 
 }
 
 
@@ -377,11 +377,11 @@ section.hero {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Proje kartları arası boşluk */
+    gap: 30px; 
 }
 .project-card {
     background-color: var(--background-white);
-    border-radius: 12px; /* Kart köşelerini yuvarladık */
+    border-radius: 12px; 
     box-shadow: var(--shadow-soft);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -389,19 +389,19 @@ section.hero {
     flex-direction: column;
 }
 .project-card:hover {
-    transform: translateY(-8px); /* Hafif yukarı kalkma */
+    transform: translateY(-8px); 
     box-shadow: var(--shadow-medium);
 }
 .project-image {
     width: 100%;
-    height: 200px; /* Sabit yükseklik */
-    object-fit: cover; /* Görselin oranını koruyarak doldur */
+    height: 200px; 
+    object-fit: cover; 
     display: block;
     border-bottom: 1px solid var(--border-light);
 }
 .project-content {
     padding: 25px;
-    flex-grow: 1; /* İçeriğin esnemesini sağlar */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -415,10 +415,10 @@ section.hero {
     font-size: 0.95rem;
     color: var(--text-light);
     margin-bottom: 20px;
-    flex-grow: 1; /* Paragrafın esneyerek boşluğu doldurmasını sağlar */
+    flex-grow: 1; 
 }
 .project-content .btn {
-    align-self: flex-start; /* Butonu sola hizalar */
+    align-self: flex-start; 
     padding: 10px 20px;
     font-size: 0.9rem;
     border-radius: 6px;
@@ -431,7 +431,7 @@ section.hero {
 #contact {
     text-align: center;
     padding: 80px 0;
-    margin-bottom: 0; /* Footer'dan önce boşluk bırakmaz */
+    margin-bottom: 0; 
 }
 .contact-links {
     display: flex;
@@ -455,7 +455,7 @@ section.hero {
     padding: 40px 0; 
     margin-bottom: 0; 
     border-bottom: 1px solid var(--border-light); 
-    border-radius: 0; /* Detay sayfasında bölümlerin köşeleri düz olsun */
+    border-radius: 0; 
 }
 .project-detail-header {
     text-align: left;
@@ -513,13 +513,13 @@ section.hero {
     margin-bottom: 15px;
 }
 .project-detail-sidebar .tech-list {
-    display: block; /* Teknoloji listesi alt alta */
+    display: block; 
 }
 .project-detail-sidebar .tech-list li {
-    background-color: transparent; /* Detay sayfasında arkaplan olmasın */
+    background-color: transparent; 
     text-align: left;
     padding: 8px 0;
-    border-bottom: 1px dashed var(--border-light); /* Hafif çizgi */
+    border-bottom: 1px dashed var(--border-light); 
     border-radius: 0;
 }
 .project-detail-sidebar .tech-list li:last-child {
@@ -533,8 +533,8 @@ section.hero {
 @media (max-width: 992px) {
     .hero h1 { font-size: 3rem; }
     .hero-description { font-size: 1.15rem; }
-    .nav-links { display: none; } /* Küçük ekranlarda menü gizli */
-    nav { justify-content: center; } /* Logo ve dil değiştirici ortalanır */
+    .nav-links { display: none; } 
+    nav { justify-content: center; } 
     .logo { margin-bottom: 15px; }
 }
 
@@ -557,7 +557,7 @@ section.hero {
     .timeline-container::after { left: 20px; margin-left: 0; }
     .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; left: 0 !important; text-align: left !important; }
     .timeline-dot { left: 10px !important; right: auto !important; }
-    .timeline-date { left: 60px !important; right: auto !important; top: 5px; font-size: 0.9rem; } /* Tarih yukarı */
+    .timeline-date { left: 60px !important; right: auto !important; top: 5px; font-size: 0.9rem; } 
     .timeline-content { padding: 15px 20px; }
     .timeline-content h3 { font-size: 1.1rem; }
 
