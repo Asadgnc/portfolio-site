@@ -8,174 +8,225 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-    <header>
-    <div class="container">
-        <nav>
-            <a href="tr.html" class="logo">Asadbek Kenjaev/a>
-            
-            <ul class="nav-links">
-                <li><a href="about-tr.html">Hakkımda</a></li>
-                <li><a href="timeline-tr.html">Zaman Çizelgesi</a></li> 
-                <li><a href="gallery-tr.html">Galeri</a></li> 
-                <li><a href="#projeler">Projeler</a></li> <li><a href="contact-tr.html">İletişim</a></li>
-            </ul>
+    <div id="tsparticles"></div>
 
-            <ul class="lang-switcher">
-                <li><a href="index.html" class="lang-inactive">EN</a></li>
-                <li><a href="tr.html" class="lang-active">TR</a></li>
-                <li><a href="ru.html" class="lang-inactive">RU</a></li>
-                <li><a href="uz.html" class="lang-inactive">UZ</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="tr.html" class="logo">Asadbek Kenjaev</a>
+                
+                <ul class="nav-links">
+                    <li><a href="about-tr.html">Hakkımda</a></li>
+                    <li><a href="timeline-tr.html">Zaman Tüneli</a></li> 
+                    <li><a href="gallery-tr.html">Galeri</a></li> 
+                    <li><a href="projects-tr.html">Projeler</a></li>
+                    <li><a href="contact-tr.html">İletişim</a></li>
+                </ul>
+
+                <ul class="lang-switcher">
+                    <li><a href="index.html" class="lang-inactive">EN</a></li>
+                    <li><a href="tr.html" class="lang-active">TR</a></li>
+                    <li><a href="ru.html" class="lang-inactive">RU</a></li>
+                    <li><a href="uz.html" class="lang-inactive">UZ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <section class="hero">
-        <div id="tsparticles"></div>
         <div class="container hero-content">
+            
             <div class="hero-text">
                 <span class="hero-subtitle">BİLGİSAYAR MÜHENDİSLİĞİ ADAYI</span>
                 <h1>Merhaba, ben Asadbek Kenjaev.</h1>
                 <p class="hero-description">
-                    Yapay zeka ve web teknolojileri üzerine tutkulu, 
-                    problemleri kod yazarak çözmeyi seven bir geliştiriciyim.
+                    Kodlarla problem çözmeyi seven, yapay zeka ve web teknolojilerine odaklanmış tutkulu bir geliştiriciyim.
                 </p>
-                <a href="#projeler" class="btn btn-primary">Projelerime Göz At</a>
-                <a href="contact-tr.html" class="btn btn-secondary">Bana Ulaşın</a>
+                <a href="#project-preview" class="btn btn-primary">Projelerimi Gör</a>
+                <a href="#contact" class="btn btn-secondary">İletişime Geç</a>
             </div>
-            <div class="hero-image"></div>
+            
+            <div class="hero-image">
+                <img src="images/my-photo.jpg" alt="Asadbek Kenjaev'in Profesyonel Fotoğrafı">
+            </div>
+            
         </div>
     </section>
 
     <main>
         <div class="container">
             
-            <section id="hakkimda">
-                <h2>Hakkımda</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            Selam, ben Asadbek Kenjaev! 👋 Benim dünyam, büyük ve dağınık fikirleri alıp temiz, işlevsel kodlara dönüştürmek etrafında dönüyor. Ben sadece bir Bilgisayar Mühendisliği adayı değilim; sınırsız merak ve dijital şeyleri *çalışır* hale getirme arzusuyla hareket eden tutkulu bir üreticiyim. Mantık dilini akıcı konuştuğumu söyleyebiliriz, ama aynı zamanda akıcı yaratıcılık dili de biliyorum. 🧠✨
-                        </p>
-                        <p>
-                            Burada gördüğünüz projeler—web uygulamalarından Blockchain'e yaptığım ilk dalışlara kadar—uykusuz gecelerin ve saf heyecanın bir sonucu. Onlar, lise birinciliğinden 🥇 bir sonraki büyük zorluğun üstesinden gelmeye hevesli bir geliştiriciye dönüşme yolculuğumu temsil ediyor. İnanıyorum ki en iyi çözümler, analitik düşüncenin tasarıma olan yetenekle buluştuğu yerde doğar (bu sitenin neden havalı parçacık efektlerine sahip olduğunu şimdi anladınız! 😉).
-                        </p>
-                        <p>
-                            Temel görevim mi? Yapay zeka (AI) ve dağıtık sistemler dünyasına derinlemesine dalmak, sınırları zorlamak ve karmaşıklığın bile güzel olabileceğini kanıtlamak. Ben buraya inşa etmeye, öğrenmeye ve bağlanmaya geldim. Masaya hem titiz detay hem de içten bir coşku getiren birini arıyorsanız, haydi konuşalım! 🚀
-                        </p>
+            <section id="about" class="fade-in-on-scroll">
+                <h2>Hakkımda Kısa Bir Not</h2>
+                
+                <a href="about-tr.html" class="about-preview-link">
+                    <div class="about-preview-box">
+                        <div class="about-preview-image">
+                            <img src="images/my-photo.jpg" alt="Asadbek Kenjaev">
+                        </div>
+                        <div class="about-preview-text">
+                            <p>
+                                Hey, ben Asadbek Kenjaev! 👋 Dünyam, büyük, karmaşık fikirleri temiz ve işlevsel koda dönüştürmek etrafında dönüyor. Ben sadece bir Bilgisayar Mühendisliği adayı değilim; sınırsız bir merakla hareket eden tutkulu bir inşaatçıyım...
+                            </p>
+                            <span class="btn btn-secondary">Devamını Oku</span>
+                        </div>
                     </div>
-                    <div class="about-details">
-                        <h3>Temel Yetkinliklerim</h3>
-                        <ul class="tech-list">
-                            <li>HTML5 & CSS3</li>
-                            <li>JavaScript</li>
-                            <li>Python</li>
-                            <li>Yapay Zeka (AI) Konseptleri</li>
-                            <li>Blockchain Konseptleri</li>
-                        </ul>
-                    </div>
-                </div>
+                </a>
             </section>
 
-            <section id="zaman-cizelgesi">
-                <h2>Zaman Çizelgem</h2>
-                <p class="section-subtitle">Şu ana kadarki akademik ve kişisel gelişim yolculuğum.</p>
+
+            <section id="timeline" class="fade-in-on-scroll">
+                <h2>Zaman Tünelim</h2>
+                <p class="section-subtitle">Şimdiye kadarki akademik ve kişisel gelişim yolculuğum.</p>
                 <div class="timeline-container">
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024</div><div class="timeline-content"><h3>Lise Birinciliği</h3><p>Okulumdan 95.53 ortalama ile birinci olarak mezun oldum. 🥇</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024</div><div class="timeline-content"><h3>SAT Superscore: 1400</h3><p>SAT sınavından 1400 superscore elde ettim. 📚</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2023</div><div class="timeline-content"><h3>Lise Okul Temsilcisi</h3><p>Öğrenci kurulunu temsil etmek üzere seçildim. 🗣️</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2023/Eyl</div><div class="timeline-content"><h3>Python'a Derin Dalış 🐍</h3><p>Veri yapıları ve algoritmalar üzerine yoğunlaşarak Python'da uzmanlaşmaya başladım.</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2023/Kas</div><div class="timeline-content"><h3>İlk Hackathon Deneyimi 💡</h3><p>Yerel bir hackathona katıldım ve 24 saatte hızlı prototip geliştirme sanatını öğrendim.</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2023/Ara</div><div class="timeline-content"><h3>JS ile Tanışma (DOM Manipülasyonu)</h3><p>Dinamik web sitelerinin gücünü keşfederek, JavaScript ve DOM manipülasyonuna ilk adımı attım.</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024/Şub</div><div class="timeline-content"><h3>Blockchain Konseptleri Sertifikası</h3><p>Dağıtık defter teknolojileri ve kriptografi üzerine kapsamlı bir online kursu tamamladım.</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024/Nis</div><div class="timeline-content"><h3>Mobil Öncelikli Tasarım Odaklılığı</h3><p>Tüm projelerimde önce mobil cihazları düşünerek (Mobile-First) tasarım felsefesini benimsedim.</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024/Tem</div><div class="timeline-content"><h3>Yapay Zeka (AI) Giriş Çalışmaları</h3><p>Temel makine öğrenimi modellerini ve veri kümelerini inceleyerek AI'ın temellerini araştırdım.</p></div></div>
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024/Eyl</div><div class="timeline-content"><h3>Portfolyo Sitesi Lansmanı 🎉</h3><p>Tüm bilgi ve becerilerimi bir araya getirerek bu 4 dilli portfolyo sitesini GitHub Pages'te yayınladım.</p></div></div>
+                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2017</span><h3>Taşkent Matematik Yarışmaları</h3><p>Okulumda 1., Taşkent şehrinde (Özbekistan'ın Başkenti) 10. oldum. 🥇</p></div></div>
+                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2019</span><h3>Tam Puanla Ortaokul Mezuniyeti</h3><p>Özbekistan'da ortaokuldan tüm derslerden '5' (en yüksek not) ile mezun oldum. 📚</p></div></div>
+                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2020</span><h3>Lise Birincisi (9. Sınıf)</h3><p>Puanım 96.8291, GPA 4.0'a yakın. 🗣️</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2021</span><h3>Okul Temsilcisi ve Başkanı Seçildim</h3><p>Ankara'da 1900 lise temsilcisi arasında okulumu temsil ettim. Ayrıca okulumun öğrenci meclisi başkanıydım.</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2021</span><h3>Lise Birincisi (10. Sınıf)</h3><p>Puanım 93.8375, GPA 4.0'a yakın. 🗣️</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2022</span><h3>Lise Edebiyat Kulübünü Kurdum</h3><p>Kulüpler haftasında Edebiyat Kulübü başkanı seçildim ve o yıl birçok organizasyon düzenledim. 🗣️</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2023</span><h3>Lise Birincisi (12. Sınıf)</h3><p>Puanım 93.8375, GPA 4.0'a yakın.</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2024</span><h3>Lise Genel Birincisi</h3><p>Final puanım 95.53, tüm öğrenciler arasında birinci olarak mezun oldum. 🗣️</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2025</span><h3>SAT Hazırlığı</h3><p>YKS sınavına hazırlanmaya başladım ancak 9 ay sonra SAT'ye girmeye karar verdim. 🗣️</p></div></div>
+                </div>
+                <div class="timeline-button-container">
+                    <button id="timeline-load-more" class="btn btn-primary">Tüm Zaman Tünelini Göster</button>
                 </div>
             </section>
 
-            <section id="galeri-tr">
+
+            <section id="gallery" class="fade-in-on-scroll">
                 <h2>Dijital Galerim 📸</h2>
                 <p class="section-subtitle">Yolculuğumu tanımlayan anlar, sertifikalar ve teknik konseptler.</p>
-                
                 <div class="gallery-group">
                     <h3>Akademik Başarılar ve Sertifikalar 📜</h3>
-                    <p>Sürekli öğrenme ve yeni beceriler edinme konusundaki adanmışlığımın kanıtları.</p>
+                    <p>Sürekli öğrenmemin ve yeni becerilerde uzmanlaşma konusundaki kararlılığımın kanıtları.</p>
                     <div class="gallery-grid">
                         <div class="gallery-item">
                             <img src="images/gallery-1.jpg" alt="Sertifika 1">
-                            <div class="gallery-overlay">Python OOP Kurs Sertifikası</div>
+                            <div class="gallery-overlay">Python OOP Kursu Sertifikası</div>
                         </div>
                         <div class="gallery-item">
                             <img src="images/gallery-2.jpg" alt="Akademik Ödül">
-                            <div class="gallery-overlay">Lise Birinciliği Ödül Töreni</div>
+                            <div class="gallery-overlay">Lise Birinciliği Töreni</div>
                         </div>
                         <div class="gallery-item">
                             <img src="images/gallery-3.jpg" alt="Teknik Konsept">
-                            <div class="gallery-overlay">Blockchain Hashleme Algoritması Diyagramı</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/gallery-4.jpg" alt="Kod Ekran Görüntüsü">
-                            <div class="gallery-overlay">İlk 1000 satır JavaScript kodum!</div>
+                            <div class="gallery-overlay">Blockchain Hashing Algoritması Diyagramı</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="gallery-group">
-                    <h3>Etkinlikler ve Kişisel Gelişim 💡</h3>
-                    <p>Hackathonlar, atölye çalışmaları ve öğrenci konseyi faaliyetlerinden önemli anlar.</p>
-                    <div class="gallery-grid">
-                        </div>
+                <div class="gallery-button-container">
+                    <a href="gallery-tr.html" class="btn btn-primary">Tüm Galeriyi Gör</a>
                 </div>
             </section>
 
-            <section id="projeler">
+
+            <section id="project-preview" class="fade-in-on-scroll">
                 <h2>Projelerim</h2>
-                <p class="section-subtitle">Yeteneklerimi ve tutkumu gösteren çalışmalarım.</p>
+                <p class="section-subtitle">Becerilerimi ve tutkumu sergileyen çalışmalarım.</p>
                 <div class="project-grid">
                     <div class="project-card">
-                        <img src="images/proje-1.jpg" alt="Proje 1'in Ekran Görüntüsü" class="project-image">
+                        <img src="images/proje-1.jpg" alt="Proje 1 Ekran Görüntüsü">
                         <div class="project-content">
-                            <h3>Proje Adı 1 (Örn: Eğitim Platformu)</h3>
-                            <p>Bu projede...</p>
+                            <h3>UniVerse Türkiye</h3>
+                            <p>Türkiye'deki öğrenciler için üniversite seçme sürecini ve sınav danışmanlığını merkezileştirmeyi planlayan dijital bir platform.</p>
                             <a href="project-1-detail-tr.html" class="btn btn-secondary">Detayları Gör</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="images/proje-2.jpg" alt="Proje 2'nin Ekran Görüntüsü" class="project-image">
+                        <img src="images/proje-2.jpg" alt="Proje 2 Ekran Görüntüsü">
                         <div class="project-content">
-                            <h3>Proje Adı 2 (Örn: Kişisel Web Sitesi)</h3>
-                            <p>Bu gördüğünüz portfolyo sitesini...</p>
+                            <h3>Lise Web Sitesi</h3>
+                            <p>Lisem (9-12. sınıflar) için ders notları ve örnek sınav soruları sağlayan merkezi bir akademik platform.</p>
                             <a href="project-2-detail-tr.html" class="btn btn-secondary">Detayları Gör</a>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="images/proje-3.jpg" alt="Proje 3'ün Ekran Görüntüsü" class="project-image">
+                        <img src="images/proje-3.jpg" alt="Proje 3 Ekran Görüntüsü">
                         <div class="project-content">
-                            <h3>Proje Adı 3 (Örn: Blockchain Uyg.)</h3>
-                            <p>Merkeziyetsiz bir oylama sistemi...</p>
+                            <h3>Temel YZ Modeli (TR-LLM Girişimi)</h3>
+                            <p>Türkiye için profesyonel düzeyde, egemen bir büyük dil modeli oluşturmaya yönelik devam eden bir Ar-Ge girişimi.</p>
                             <a href="project-3-detail-tr.html" class="btn btn-secondary">Detayları Gör</a>
                         </div>
                     </div>
                 </div>
-            </section>
-            
-            <section id="iletisim">
-                <h2>İletişime Geçelim</h2>
-                <p class="section-subtitle">
-                    Projelerim ilginizi çektiyse veya sadece bir merhaba demek isterseniz...
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:a.kenja3683@gmail.com" class="btn btn-primary">E-posta Gönder</a>
-                    <a href="https://linkedin.com/in/asadnc" target="_blank" class="btn btn-secondary">LinkedIn Profilim</a>
-                    <a href="https://github.com/Asadgnc" target="_blank" class="btn btn-secondary">GitHub Hesabım</a>
+                <div class="projects-button-container">
+                    <a href="projects-tr.html" class="btn btn-primary">Tüm Projeleri Gör</a>
                 </div>
             </section>
 
-        </div>
+            
+            <section id="testimonials" class="fade-in-on-scroll">
+                <h2>Başkaları Ne Diyor</h2>
+                <p class="section-subtitle">Meslektaşlardan, mentorlardan ve öğrencilerden referanslar.</p>
+                <div class="testimonial-grid">
+                    
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Asadbek'in problem çözme konusundaki kararlılığı benzersizdir. Hızlı öğrenir ve her takım için gerçek bir kazançtır."
+                        </p>
+                        <p class="author">John Doe</p>
+                        <p class="title">Kıdemli Geliştirici, TechCorp</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Asadbek'e mentorluk yapma zevkini yaşadım. Merakı bulaşıcı ve karmaşık YZ kavramlarını kavrama yeteneği gerçekten etkileyici. Önünde parlak bir gelecek var."
+                        </p>
+                        <p class="author">Dr. Jane Smith</p>
+                        <p class="title">Bilgisayar Bilimleri Profesörü</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Lise web sitesi projesinde Asadbek ile birlikte çalışmak harika bir deneyimdi. Doğuştan bir lider ve son derece yetenekli bir işbirlikçi."
+                        </p>
+                        <p class="author">Alex Johnson</p>
+                        <p class="title">Sınıf Arkadaşı & Proje Partneri</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
+                        </p>
+                        <p class="author">Emily White</p>
+                        <p class="title">Öğrenci</p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="contact" class="fade-in-on-scroll">
+                <h2>İletişime Geçelim</h2>
+                <p class="section-subtitle">
+                    Beni bu platformlarda bulun veya bir e-posta gönderin.
+                </p>
+                <div class="social-icons">
+                    <a href="https://linkedin.com/in/asadnc" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Asadgnc" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:a.kenja3683@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/asadnc/" target="_blank" aria-label="Instagram"> <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/asadknc" target="_blank" aria-label="X (Twitter)"> <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="http://www.youtube.com/@Asad-yz9zn" target="_blank" aria-label="YouTube"> <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </section>
+            </div>
     </main>
 
     <footer>
@@ -186,5 +237,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="app.js"></script>
+
 </body>
 </html>

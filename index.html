@@ -13,6 +13,8 @@
 </head>
 <body>
 
+    <div id="tsparticles"></div>
+
     <header>
         <div class="container">
             <nav>
@@ -20,10 +22,10 @@
                 
                 <ul class="nav-links">
                     <li><a href="about.html">About Me</a></li>
-                    <li><a href="#timeline">Timeline</a></li> 
-                    <li><a href="gallery.html" target="_blank">Gallery</a></li> 
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="timeline.html">Timeline</a></li> 
+                    <li><a href="gallery.html">Gallery</a></li> 
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
 
                 <ul class="lang-switcher">
@@ -37,7 +39,6 @@
     </header>
 
     <section class="hero">
-        <div id="tsparticles"></div>
         <div class="container hero-content">
             
             <div class="hero-text">
@@ -47,7 +48,7 @@
                     A passionate developer who loves solving problems with code, 
                     focusing on AI and web technologies.
                 </p>
-                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="#project-preview" class="btn btn-primary">View My Projects</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
             
@@ -61,7 +62,7 @@
     <main>
         <div class="container">
             
-            <section id="about">
+            <section id="about" class="fade-in-on-scroll">
                 <h2>A Little Bit About Me</h2>
                 
                 <a href="about.html" class="about-preview-link">
@@ -80,33 +81,29 @@
             </section>
 
 
-            <section id="timeline">
+            <section id="timeline" class="fade-in-on-scroll">
                 <h2>My Timeline</h2>
                 <p class="section-subtitle">My academic and personal development journey so far.</p>
                 <div class="timeline-container">
-                    
-                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2017</span><h3>Math Competitions in Tashkent</h3><p>I was 1st in my school and 10th in Tashkent City (Capital of Uzbekistan). 🥇</p></div></div>
+                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2017</span><h3>Math Competitions in Tashkent</h3><p>I placed 1st in my school and 10th in Tashkent City (Capital of Uzbekistan). 🥇</p></div></div>
                     <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2019</span><h3>Graduated Middle School with Full Marks</h3><p>Graduated from middle school in Uzbekistan with a '5' (the top score) in all subjects. 📚</p></div></div>
                     <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2020</span><h3>High School Valedictorian (9th Grade)</h3><p>My score was 96.8291, with a GPA near 4.0. 🗣️</p></div></div>
-                    
-                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2021</span><h3>Elected as School Representative & President</h3><p>I represented my school in Ankara among 1900 high school student representatives. Also, I was president of the student body at my school.</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2021</span><h3>Elected as School Representative & President</h3><p>I represented my school in Ankara among 1,900 high school student representatives. I was also elected president of my school's student body.</p></div></div>
                     <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2021</span><h3>High School Valedictorian (10th Grade)</h3><p>My score was 93.8375, with a GPA near 4.0. 🗣️</p></div></div>
-                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2022</span><h3>Founded High School Literature Club</h3><p>Elected as president of the Literature Club during clubs week and organized many events that year. 🗣️</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2022</span><h3>Founded High School Literature Club</h3><p>Elected as president of the Literature Club during clubs week and organized numerous events that year. 🗣️</p></div></div>
                     <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2023</span><h3>High School Valedictorian (12th Grade)</h3><p>My score was 93.8375, with a GPA near 4.0.</p></div></div>
                     <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2024</span><h3>High School Valedictorian (Overall)</h3><p>My final score was 95.53, graduating as valedictorian among all students. 🗣️</p></div></div>
-                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2025</span><h3>SAT Preparation</h3><p>I started preparing for the Turkish YKS Exam but after 9 months chose to take the SAT instead. 🗣️</p></div></div>
+                    <div class="timeline-item timeline-item-hidden"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2025</span><h3>SAT Preparation</h3><p>I started preparing for the Turkish YKS Exam but, after 9 months, chose to take the SAT instead. 🗣️</p></div></div>
                 </div>
-
                 <div class="timeline-button-container">
                     <button id="timeline-load-more" class="btn btn-primary">Show Full Timeline</button>
                 </div>
             </section>
 
 
-            <section id="gallery">
+            <section id="gallery" class="fade-in-on-scroll">
                 <h2>My Digital Gallery 📸</h2>
                 <p class="section-subtitle">Moments, certifications, and technical concepts that define my journey.</p>
-                
                 <div class="gallery-group">
                     <h3>Academic Achievements & Certificates 📜</h3>
                     <p>Proofs of my continuous learning and dedication to mastering new skills.</p>
@@ -125,18 +122,16 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="gallery-button-container">
-                    <a href="gallery.html" target="_blank" class="btn btn-primary">View Full Gallery</a>
+                    <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
                 </div>
             </section>
 
 
-            <section id="projects">
+            <section id="project-preview" class="fade-in-on-scroll">
                 <h2>My Projects</h2>
                 <p class="section-subtitle">My work that showcases my skills and passion.</p>
                 <div class="project-grid">
-
                     <div class="project-card">
                         <img src="images/proje-1.jpg" alt="Project 1 Screenshot" class="project-image">
                         <div class="project-content">
@@ -145,7 +140,6 @@
                             <a href="project-1-detail.html" class="btn btn-secondary">View Details</a>
                         </div>
                     </div>
-
                     <div class="project-card">
                         <img src="images/proje-2.jpg" alt="Project 2 Screenshot" class="project-image">
                         <div class="project-content">
@@ -154,7 +148,6 @@
                             <a href="project-2-detail.html" class="btn btn-secondary">View Details</a>
                         </div>
                     </div>
-
                     <div class="project-card">
                         <img src="images/proje-3.jpg" alt="Project 3 Screenshot" class="project-image">
                         <div class="project-content">
@@ -164,10 +157,54 @@
                         </div>
                     </div>
                 </div>
+                <div class="projects-button-container">
+                    <a href="projects.html" class="btn btn-primary">View All Projects</a>
+                </div>
             </section>
 
             
-            <section id="contact">
+            <section id="testimonials" class="fade-in-on-scroll">
+                <h2>What Others Say</h2>
+                <p class="section-subtitle">Testimonials from colleagues, mentors, and students.</p>
+                <div class="testimonial-grid">
+                    
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Asadbek's dedication to problem-solving is unparalleled. He's a quick learner and a true asset to any team."
+                        </p>
+                        <p class="author">John Doe</p>
+                        <p class="title">Senior Developer at TechCorp</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "I had the pleasure of mentoring Asadbek. His curiosity is infectious and his ability to grasp complex AI concepts is truly impressive. He has a bright future ahead."
+                        </p>
+                        <p class="author">Dr. Jane Smith</p>
+                        <p class="title">Professor of Computer Science</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Working alongside Asadbek on the high school website project was a fantastic experience. He is a natural leader and a highly skilled collaborator."
+                        </p>
+                        <p class="author">Alex Johnson</p>
+                        <p class="title">Classmate & Project Partner</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."
+                        </p>
+                        <p class="author">Emily White</p>
+                        <p class="title">Mentee</p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="contact" class="fade-in-on-scroll">
                 <h2>Let's Get In Touch</h2>
                 <p class="section-subtitle">
                     Find me on these platforms or send me an email.
@@ -201,22 +238,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="app.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loadMoreButton = document.getElementById('timeline-load-more');
-            
-            if (loadMoreButton) {
-                loadMoreButton.addEventListener('click', () => {
-                    const hiddenItems = document.querySelectorAll('.timeline-item-hidden');
-                    hiddenItems.forEach(item => {
-                        item.classList.remove('timeline-item-hidden');
-                    });
-                    loadMoreButton.style.display = 'none';
-                });
-            }
-        });
-    </script>
 
 </body>
 </html>

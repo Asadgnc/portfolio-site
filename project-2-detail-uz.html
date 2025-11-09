@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asadbek Kenjaev - Digital Portfolio</title>
-    
+    <title>Loyiha: Litsiy Veb-sayti - Asadbek Kenjaev</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -19,9 +16,11 @@
             <nav>
                 <a href="uz.html" class="logo">Asadbek Kenjaev</a>
                 <ul class="nav-links">
-                    <li><a href="uz.html#about">Men haqimda</a></li>
-                    <li><a href="uz.html#projects">Loyihalar</a></li>
-                    <li><a href="uz.html#contact">Aloqa</a></li>
+                    <li><a href="about-uz.html">Men Haqimda</a></li>
+                    <li><a href="timeline-uz.html">Vaqt Jadvali</a></li> 
+                    <li><a href="gallery-uz.html">Galereya</a></li> 
+                    <li><a href="projects-uz.html" class="nav-active">Loyihalar</a></li>
+                    <li><a href="contact-uz.html">Aloqa</a></li>
                 </ul>
                 <ul class="lang-switcher">
                     <li><a href="project-2-detail.html" class="lang-inactive">EN</a></li>
@@ -36,47 +35,52 @@
     <main class="project-detail-page">
         <div class="container">
             <section class="project-detail-header">
-                <a href="uz.html#projects" class="btn-back">&larr; Loyihalarga qaytish</a>
-                <h1>Loyiha Nomi 2 (Masalan: Shaxsiy veb-sayt)</h1>
+                <a href="projects-uz.html" class="btn-back">&larr; Loyihalarga Qaytish</a>
+                <h1>Litsiy Veb-sayti: Tengdoshlar Uchun Akademik Yordam Markazi</h1>
                 <p class="section-subtitle project-subtitle">
-                    Ayni paytda siz ko'rib turgan ushbu portfolio saytini men 4 tilda noldan kodladim.
+                    Ushbu loyiha mening veb-ishlab chiqishdagi eng dastlabki tajribalarimdan biri bo'lib, o'quvchi do'stlarimga yordam berish istagidan tug'ilgan. Do'stim bilan ishlab chiqilgan bu loyiha umumiy muammoga to'g'ridan-to'g'ri javob edi: o'quv materiallari uchun yagona, tartibli platformaning yo'qligi.
                 </p>
             </section>
+            
             <img src="images/proje-2.jpg" alt="Loyiha 2 asosiy rasmi" class="project-detail-main-image">
+            
             <section class="project-detail-content">
                 <div class="project-detail-grid">
                     <div class="project-detail-text">
                         <h2>Muammo</h2>
                         <p>
-                            Mening vazifam yangi o'rgangan HTML, CSS va asosiy JavaScript ko'nikmalarimni 
-                            real dunyo, funktsional loyihada qo'llash edi. Maqsad shunchaki sahifa yaratish emas, 
-                            balki universitetga kirish arizalarim uchun 4 tilda gaplashadigan, to'liq sezgir (responsive) va 
-                            vizual ijodiy sayt yaratish edi.
+                            Litsiyning dastlabki yillarida sinfdoshlarim va men umumiy muammoga duch keldik: o'quv materiallari, imtihon ma'lumotlari va akademik manbalar butunlay tarqoq edi. O'quvchilar namuna savollarini topish uchun turli manbalarni qidirishga yoki og'zaki ma'lumotlarga tayanishga majbur bo'lishardi, bu esa imtihonga tayyorgarlikni samarasiz va stressli qilib qo'yardi. Bizda akademik yordam uchun yagona, ishonchli markaz yo'q edi.
                         </p>
-                        <h2>Mening yechimim</h2>
-                        <p>
-                            Men bu saytni bosqichma-bosqich qurdum. "Avval mobil" (mobile-first) dizayniga e'tibor qaratib, 
-                            ish stoli versiyasiga o'tishdan oldin uning telefonlarda yaxshi ko'rinishini ta'minladim. 
-                            Men ko'p tilli fayl strukturasini joriy qildim va bosh sahifada ijodiy teginish uchun 
-                            `tsParticles` JavaScript kutubxonasidan foydalandim.
-                        </p>
+                        
+                        <h2>Mening Yechimim</h2>
+                        <p>Bunga javoban, bir do'stim bilan "Litsiy Veb-sayti"ni yaratish tashabbusini o'z zimmamizga oldik. Biz aynan o'quvchilar uchun mo'ljallangan sodda, markazlashgan veb-platformani ishlab chiqdik. Sayt quyidagilarni tashkillashtiruvchi va taqdim etuvchi "tengdoshdan-tengdoshga" resurs markazi bo'lib xizmat qildi:</p>
+                        
+                        <ul>
+                            <li><strong>Saralangan Imtihon Materiallari:</strong> Barcha sinflar (9-12) uchun yaqinlashib kelayotgan imtihonlarga oid namuna savollari va asosiy mavzu rejalarini to'pladik va baham ko'rdik.</li>
+                            <li><strong>Maktab Analitikasi va Yo'riqnomalari:</strong> Maktabimiz o'quv dasturi va akademik talablarini tushunish uchun sodda tahlillar va maslahatlar taklif qildik.</li>
+                        </ul>
+
+                        <p>Platforma tarqoq tizimni yagona, qulay markazga muvaffaqiyatli aylantirib, o'quvchilarning muvaffaqiyatga erishishlari uchun kerakli yordamni topishlarini osonlashtirdi.</p>
+
+                        <h3>Mening Xulosam</h3>
+                        <p>Bugungi kun standartlari bo'yicha murakkab tizim bo'lmasa-da, bu loyiha juda muhim birinchi qadam edi. U menga loyiha hamkorligi, foydalanuvchiga yo'naltirilgan dizayn va tashabbus ko'rsatishning ulkan qiymati asoslarini o'rgatdi. Bu mening jamiyat uchun real muammolarni hal qiladigan amaliy vositalarni yaratishga bo'lgan qiziqishimni mustahkamladi.</p>
                     </div>
+                    
                     <div class="project-detail-sidebar">
                         <div class="tech-box">
-                            <h3>Foydalanilgan texnologiyalar</h3>
+                            <h3>Foydalanilgan Texnologiyalar</h3>
                             <ul class="tech-list">
                                 <li>HTML5 (Semantik)</li>
                                 <li>CSS3 (Flexbox, Grid, Animatsiyalar)</li>
                                 <li>JavaScript (tsParticles kutubxonasi)</li>
-                                <li>Git & GitHub Pages (Versiyalarni boshqarish va joylashtirish)</li>
+                                <li>Git & GitHub Pages (Versiyalarni Boshqarish va Joylashtirish)</li>
                             </ul>
                         </div>
                         <div class="tech-box">
                             <h3>Loyiha Maqsadlari</h3>
                             <ul class="tech-list">
-                                <li>Kodlash va muammolarni hal qilish qobiliyatimni isbotlash</li>
-                                <li>Git va veb-saytlarni joylashtirishni o'rganish</li>
-                                <li>Professional 4 tilli portfolio yaratish</li>
+                                <li>Dasturlash va Muammo Yechish Qobiliyatimni Isbotlash</li>
+                                <li>Git va Veb-saytni Joylashtirishni O'rganish</li>
                             </ul>
                         </div>
                     </div>

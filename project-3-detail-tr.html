@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asadbek Kenjaev - Digital Portfolio</title>
+    <title>Proje: TR-LLM Girişimi - Asadbek Kenjaev</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -20,10 +18,11 @@
             <nav>
                 <a href="tr.html" class="logo">Asadbek Kenjaev</a>
                 <ul class="nav-links">
-                    <li><a href="tr.html#hakkimda">Hakkımda</a></li>
-                    <li><a href="tr.html#zaman-cizelgesi">Zaman Çizelgesi</a></li>
-                    <li><a href="tr.html#projeler">Projeler</a></li>
-                    <li><a href="tr.html#iletisim">İletişim</a></li>
+                    <li><a href="about-tr.html">Hakkımda</a></li>
+                    <li><a href="timeline-tr.html">Zaman Tüneli</a></li> 
+                    <li><a href="gallery-tr.html">Galeri</a></li> 
+                    <li><a href="projects-tr.html" class="nav-active">Projeler</a></li>
+                    <li><a href="contact-tr.html">İletişim</a></li>
                 </ul>
                 <ul class="lang-switcher">
                     <li><a href="project-3-detail.html" class="lang-inactive">EN</a></li>
@@ -38,51 +37,76 @@
     <main class="project-detail-page">
         <div class="container">
             <section class="project-detail-header">
-                <a href="tr.html#projeler" class="btn-back">&larr; Projelere Geri Dön</a>
-                <h1>Proje Adı 3 (Örn: Merkeziyetsiz Oylama Sistemi)</h1>
+                <a href="projects-tr.html" class="btn-back">&larr; Projelere Geri Dön</a>
+                <h1>Ar-Ge: TR-LLM Girişimi</h1>
                 <p class="section-subtitle project-subtitle">
-                    Şeffaf ve değişmez oylama kayıtları sağlamak için blockchain teknolojisinden yararlanan 
-                    kavramsal bir "proof-of-concept" uygulaması.
+                    Türkiye'nin ilk egemen, profesyonel düzeyde büyük dil modelini oluşturmak için iddialı bir Ar-Ge girişimi. Bu devam eden proje, küresel modellerin kaçırdığı veri egemenliği ve dilsel/kültürel nüanslardaki kritik boşlukları gidermeyi amaçlamaktadır.
                 </p>
             </section>
+            
             <img src="images/proje-3.jpg" alt="Proje 3 ana görseli" class="project-detail-main-image">
+            
             <section class="project-detail-content">
                 <div class="project-detail-grid">
                     <div class="project-detail-text">
+                        
+                        <h2>Projeye Genel Bakış</h2>
+                        <p>
+                            TR-LLM Girişimi, kritik bir ulusal teknoloji açığını (yerli, son teknoloji bir Büyük Dil Modeli'nin yokluğu) gidermek için kurucu ortağı olduğum devam eden bir Ar-Ge projesidir. Teknolojik bağımlılığın uzun vadeli risklerini ve mevcut yapay zekanın Türk dilinin derin nüanslarını yakalayamadığını fark ederek, sıfırdan güvenli, verimli ve kültürel olarak duyarlı bir model araştırmak ve oluşturmak için temel çalışmalara başladık.
+                        </p>
+                        
                         <h2>Zorluk</h2>
                         <p>
-                            Geleneksel oylama sistemleri genellikle güven, merkezi kontrol ve potansiyel tahrifat sorunlarıyla karşılaşır.
-                            Amaç, her oyun güvenli, şeffaf ve değişmez bir şekilde kaydedildiği,
-                            böylece tüm sürecin herkes tarafından tamamen denetlenebilir olduğu bir sistem tasarlamaktı.
+                            Küresel bir yapay zeka devriminin ortasında, Türkiye için kritik bir stratejik boşluk tespit ettik: egemen, profesyonel düzeyde bir büyük dil modelinin (LLM) olmaması. Yalnızca yabancı geliştirilmiş modellere güvenmek, aşağıdakiler de dahil olmak üzere önemli uzun vadeli riskler yaratmaktadır:
                         </p>
-                        <h2>Çözümüm</h2>
+                        <ul>
+                            <li><strong>Veri Egemenliği:</strong> Ulusal verilerin harici olarak işlenmesi konusundaki hassasiyet.</li>
+                            <li><strong>Kültürel/Dilsel Nüans:</strong> Küresel modeller genellikle Türk dilinin derin karmaşıklığını, bağlamını ve benzersiz nüanslarını yakalayamaz.</li>
+                            <li><strong>Teknolojik Bağımlılık:</strong> Dönüştürücü bir teknolojide yerli uzmanlık ve altyapı eksikliği.</li>
+                        </ul>
+                        <p>Bir ulusun dijital bağımsızlığının yakında kendi temel yapay zeka teknolojilerini geliştirme kapasitesiyle tanımlanacağına inanıyoruz.</p>
+                        
+                        <h2>Çözümümüz</h2>
                         <p>
-                            Bir blockchain defterinin temel prensiplerini simüle etmek için Python kullanarak basit bir model geliştirdim. 
-                            Her "oy", bir blok içinde bir işlem olarak depolanır ve bu bloklar kriptografik olarak birbirine bağlanır. 
-                            Sistem, bir blok eklendikten sonra içindeki oyların değiştirilememesini sağlayarak, 
-                            merkeziyetsiz teknolojinin bütünlük açısından temel faydalarını göstermektedir.
+                            Bu açığı kapatmak için kurucu ortağımla birlikte bu iddialı Ar-Ge projesini başlattık. Şu anda bu uzun vadeli girişimin kritik erken aşamalarındayız.
                         </p>
-                        <h2>Temel Çıktılar</h2>
+                        <p>Mevcut odak noktamız:</p>
+                        <ul>
+                            <li><strong>Mimari Araştırması:</strong> Son teknoloji model mimarilerini analiz etmek ve bunları Türkçenin özel dilsel yapısına uyarlamak.</li>
+                            <li><strong>Altyapı Kurulumu:</strong> Büyük ölçekli veri işleme için gerekli teknik ortamı oluşturma sürecine başlamak.</li>
+                            <li><strong>Veri Stratejisi:</strong> Devasa, yüksek kaliteli ve kültürel olarak alakalı bir Türkçe veri seti oluşturmak için metodolojiler araştırmak.</li>
+                        </ul>
                         <p>
-                            Bu proje, kriptografik hashing, dağıtılmış defterler ve temel bilgisayar bilimi kavramlarının gerçek dünyadaki 
-                            sosyal problemlere nasıl uygulanacağına dair anlayışımı başarıyla gösterdi. 
-                            Gelişmiş dağıtık sistem mimarilerini keşfetmek için güçlü bir temel görevi görmektedir.
+                            Bu temel bir çaba olsa da, nihai hedefimiz Türkiye'nin akademik, ekonomik ve kamu sektörleri için teknolojik bir temel taşı olarak hizmet edebilecek güvenli, nüanslı ve güçlü bir yapay zeka yaratmaktır.
                         </p>
+                        
+                        <h2>Anahtar Çıktılar</h2>
+                        <p>
+                            Bu iddialı, devam eden bir Ar-Ge projesi olduğundan, bugüne kadarki temel çıktılarımız temel ve stratejiktir:
+                        </p>
+                        <ul>
+                            <li><strong>Derinlemesine Alan Bilgisi:</strong> Son teknoloji LLM mimarileri, eğitim metodolojileri ve Türk dilinin ortaya çıkardığı benzersiz hesaplama zorlukları konusunda önemli alan uzmanlığı edindik.</li>
+                            <li><strong>Tanımlanmış Teknik Yol Haritası:</strong> Yüksek seviyeli bir "fikir"den yapılandırılmış bir Ar-Ge planına başarıyla geçiş yaptık. Çeşitli mimari seçenekleri analiz ettik ve model seçimi ve veri oluşturma için net bir araştırma yolu tanımladık.</li>
+                            <li><strong>Temel Ortam Kurulumu:</strong> İlk veri işleme ve model araştırma denemelerimize başlamak için gereken çekirdek teknik altyapı ve geliştirme ortamının kurulumunu başlattık.</li>
+                            <li><strong>Doğrulanmış Stratejik İhtiyaç:</strong> İlk araştırmamız, bu projenin stratejik önemini doğruladı ve yerli bir LLM'nin ulusal dijital egemenlik için kritik bir gelecek varlığı olduğu hipotezimizi güçlendirdi.</li>
+                        </ul>
                     </div>
+                    
                     <div class="project-detail-sidebar">
                         <div class="tech-box">
                             <h3>Kullanılan Teknolojiler ve Konseptler</h3>
                             <ul class="tech-list">
-                                <li>Python (Temel Mantık)</li>
-                                <li>Temel Kriptografik Hashleme (SHA-256)</li>
-                                <li>Blockchain / Dağıtık Defter Konseptleri</li>
-                                <li>Nesne Yönelimli Programlama (OOP)</li>
+                                <li>Python</li>
+                                <li>Yapay Zeka (YZ) Kavramları</li>
+                                <li>Doğal Dil İşleme (NLP)</li>
+                                <li>LLM Mimari Araştırması</li>
+                                <li>Büyük Ölçekli Veri Kürasyonu</li>
                             </ul>
                         </div>
                         <div class="tech-box">
-                            <h3>Proje Durumu ve Bağlantı</h3>
-                            <p>Bu, arka uç mantığına ve temel konseptlere odaklanan kavramsal bir projedir.</p>
-                            <a href="#" class="btn btn-secondary" target="_blank">GitHub'da Kodu Gör (Yakında)</a>
+                            <h3>Proje Durumu ve Linki</h3>
+                            <p>Bu, temel araştırmalara odaklanan, devam eden kavramsal bir Ar-Ge projesidir.</p>
+                            <a href="#" class="btn btn-secondary" target="_blank">Kodu GitHub'da Gör (Yakında)</a>
                         </div>
                     </div>
                 </div>
@@ -95,7 +119,5 @@
             <p>&copy; 2025 Asadbek Kenjaev. Tüm hakları saklıdır.</p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-    <script src="app.js"></script>
 </body>
 </html>
