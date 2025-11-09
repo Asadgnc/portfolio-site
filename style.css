@@ -1,16 +1,16 @@
 /* --- 1. Temel Kurallar ve Tasarım Sistemi (CSS Değişkenleri) --- */
 :root {
-    --primary-color: #FF7043; /* Canlı bir turuncu */
-    --primary-hover: #E64A19; /* Daha koyu turuncu */
-    --text-dark: #333333;     /* Koyu gri tonu */
-    --text-light: #666666;    /* Orta gri tonu */
-    --background-light: #FDF9F3; /* Kremsi açık arka plan */
-    --background-white: #FFFFFF; /* Temiz beyaz */
-    --border-light: #F0EAD6; /* Açık kahveye yakın bir sınır */
-    --hero-bg-dark: #2C3E50; /* Koyu gri/mavi tonu, parçacıklarla kontrast */
-    --font-main: 'Roboto', sans-serif; /* Roboto fontu (varsayalım) */
-    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15); /* Orta gölge */
+    --primary-color: #1976D2; /* canlı mavi */
+    --primary-hover: #0D47A1; /* koyu mavi */
+    --text-dark: #102A43;     /* koyu mavi-gri */
+    --text-light: #4A6FA5;    /* orta mavi-gri */
+    --background-light: #F5F9FF; /* çok açık mavimsi arka plan */
+    --background-white: #FFFFFF; /* temiz beyaz */
+    --border-light: #E6F0FF; /* açık mavi sınır */
+    --hero-bg-dark: #0B2545; /* derin lacivert */
+    --font-main: 'Roboto', sans-serif; /* Roboto fontu */
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* --- 2. Global Sıfırlama (Reset) --- */
@@ -233,8 +233,8 @@ section.hero {
     }
     .hero-image {
         margin: 0; /* Kenar boşluğu kaldırıldı */
-        width: 200px; /* Masaüstünde fotoğraf büyüdü */
-        height: 200px;
+        width: 300px; /* Masaüstünde fotoğraf büyüdü */
+        height: 300px;
         order: 2; /* Fotoğrafı metnin sağına taşı */
     }
     .hero-text {
