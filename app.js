@@ -1,12 +1,8 @@
 // @ts-nocheck
-// YUKARIDAKİ BU SATIR, VS CODE'DAKİ HATAYI GİDERECEKTİR.
-
-// Sayfanın tamamen yüklendiğinden emin olmak için tüm kodları bu bloğa alıyoruz.
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. tsParticles (Ağ Efekti) Kodu ---
     const particlesElement = document.getElementById('tsparticles');
-    
     if (particlesElement && typeof tsParticles !== 'undefined') { 
         tsParticles.load("tsparticles", {
             fpsLimit: 60,
@@ -23,13 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                // DÜZELTME: Renk, "Su Mavisi" temada görünmesi için koyu gri yapıldı
                 color: { value: "#495057" }, 
                 shape: { type: "circle" },
                 opacity: { value: 0.3, random: false }, 
                 size: { value: 3, random: true },
                 links: {
-                    // DÜZELTME: Renk, "Su Mavisi" temada görünmesi için koyu gri yapıldı
                     color: "#495057",
                     distance: 150,
                     enable: true,
@@ -50,18 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // --- 2. Timeline "Daha Fazla Göster" Butonu ---
     const loadMoreButton = document.getElementById('timeline-load-more');
-    
     if (loadMoreButton) {
         loadMoreButton.addEventListener('click', () => {
             const hiddenItems = document.querySelectorAll('.timeline-item-hidden');
-            
             hiddenItems.forEach(item => {
                 item.classList.remove('timeline-item-hidden');
             });
-            
             if (loadMoreButton instanceof HTMLElement) {
                 loadMoreButton.style.display = 'none';
             }
@@ -70,35 +60,152 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // --- 3. "Fade In On Scroll" Animasyonu ---
-    
-    // Animasyon uygulanacak tüm elemanları seç
     const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
-
     if (elementsToAnimate.length > 0) {
-        
         const observerCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Ekrana girdi: Görünür yap
                     entry.target.classList.add('is-visible');
                 } else {
-                    // Ekrana çıktı: Tekrar gizle (Kullanıcı isteği: "yukarı çıktıkça da kaybolsun")
                     entry.target.classList.remove('is-visible');
                 }
             });
         };
-
         const observerOptions = {
-            root: null, // null = viewport (tarayıcı ekranı)
+            root: null, 
             rootMargin: '0px',
-            threshold: 0.1 // Elemanın %10'u göründüğünde tetiklensin
+            threshold: 0.1 
         };
-
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        // Seçilen her elemanı izle
         elementsToAnimate.forEach(el => {
             observer.observe(el);
+        });
+    }
+
+    
+    // --- 4. Galeri Yıl Filtreleme Kodu ---
+    const filterContainer = document.querySelector('.filter-bar');
+    const galleryItems = document.querySelectorAll('.gallery-card');
+    if (filterContainer && galleryItems.length > 0) {
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                filterContainer.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+                
+                const filterValue = e.target.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-year') === filterValue) {
+                        item.style.display = 'block'; 
+                    } else {
+                        item.style.display = 'none'; 
+                    }
+                });
+            }
+        });
+    }
+    
+
+    // --- 5. "AKILLI" VİDEO LIGHTBOX KODU ---
+    // Bu kod, hem Instagram videolarını, hem normal videoları, hem de YouTube videolarını algılar.
+    
+    // Tüm tıklanabilir video kartlarını seç (farklı sınıflara sahip olsalar bile)
+    const allVideoCards = document.querySelectorAll('.video-card, .instagram-story-frame');
+    const lightbox = document.getElementById('video-lightbox');
+    const lightboxContent = document.querySelector('#video-lightbox .video-modal-content');
+    const closeButton = document.getElementById('video-modal-close');
+
+    if (lightbox && lightboxContent && closeButton && allVideoCards.length > 0) {
+        
+        // Modalı kapatma fonksiyonu
+        const closeModal = () => {
+            lightbox.style.display = 'none';
+            lightboxContent.innerHTML = ''; // Videoyu durdurmak için içeriği temizle
+            // CSS stillerini sıfırla (farklı video türleri için)
+            lightboxContent.style = ""; 
+            lightboxContent.removeAttribute('data-aspect-ratio');
+        };
+
+        closeButton.addEventListener('click', closeModal);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeModal();
+            }
+        });
+
+        // Tüm video kartlarına tıklama olayı ekle
+        allVideoCards.forEach(card => {
+            const videoSrc = card.getAttribute('data-video-src');
+            if (!videoSrc) return;
+
+            card.addEventListener('click', () => {
+                let newContent = '';
+                
+                // 1. KONTROL: Bu bir YouTube linki mi?
+                if (videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be')) {
+                    
+                    // Modal'ı yatay (16:9) moda ayarla
+                    lightboxContent.setAttribute('data-aspect-ratio', '16:9');
+                    
+                    newContent = `
+                        <iframe 
+                            src="${videoSrc}?autoplay=1&modestbranding=1&rel=0" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    `;
+                } 
+                // 2. KONTROL: Bu bir Instagram çerçevesi mi? (Her zaman dikey 9:16)
+                else if (card.classList.contains('instagram-story-frame')) {
+                    
+                    // Modal'ı dikey (9:16) moda ayarla
+                    lightboxContent.setAttribute('data-aspect-ratio', '9:16');
+                    
+                    newContent = `
+                        <video controls autoplay loop>
+                            <source src="${videoSrc}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                }
+                // 3. KONTROL: Bu normal bir lokal .mp4 videosu mu?
+                else if (videoSrc.endsWith('.mp4')) {
+                    
+                    // Modal'ı dikey (9:16) moda ayarla (Veya videonun kendi oranına)
+                    // Dikey videoları kırpmamak için 9:16 iyidir.
+                    lightboxContent.setAttribute('data-aspect-ratio', '9:16'); 
+                    
+                    newContent = `
+                        <video controls autoplay loop style="object-fit: contain;">
+                            <source src="${videoSrc}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                }
+
+                // Lightbox'ı aç ve içeriği yükle
+                lightbox.style.display = 'flex';
+                lightboxContent.innerHTML = newContent;
+            });
+
+            // Kartın içinde <video> etiketi varsa (Instagram ve Normal Video önizlemeleri)
+            // fare üzerine gelince oynatma mantığını ekle.
+            const smallVideo = card.querySelector('video');
+            if (smallVideo) {
+                const playButton = card.querySelector('.story-play-button');
+                
+                card.addEventListener('mouseenter', () => {
+                    smallVideo.play();
+                    if (playButton) playButton.style.opacity = '0';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    smallVideo.pause();
+                    if (playButton) playButton.style.opacity = '1';
+                });
+            }
         });
     }
 

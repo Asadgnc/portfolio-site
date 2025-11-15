@@ -31,10 +31,10 @@ body {
     z-index: 0;
 }
 .container {
-    max-width: 1100px; /* Kullanıcının seçtiği 1100px */
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;  /* Sitenin ana kenar boşluğu */
+    padding-left: 20px;  
     padding-right: 20px; 
 }
 h1, h2, h3 { color: var(--text-dark); margin-bottom: 20px; font-weight: 700; line-height: 1.3; } 
@@ -97,7 +97,6 @@ main, footer {
 }
 
 section { 
-    /* DÜZELTME: Kartlara yatay iç boşluk (padding) eklendi */
     padding: 60px 40px; 
     background-color: var(--background-white); 
     margin-bottom: 20px; 
@@ -116,9 +115,8 @@ section > h2 {
     box-shadow: none;
     border-radius: 0;
     margin-bottom: 0;
-    padding-top: 40px; 
+    padding: 40px 0;
 }
-/* Ayrı sayfalardaki başlıkları (h2) sola hizala */
 .page-content section > h2 {
     text-align: left;
 }
@@ -143,7 +141,6 @@ nav {
     justify-content: space-between; 
     align-items: center; 
     flex-wrap: wrap; 
-    /* DÜZELTME: Navigasyon da konteyner padding'ini kullansın */
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
@@ -199,7 +196,7 @@ nav {
 }
 footer { 
     text-align: center; 
-    padding: 30px 40px; /* DÜZELTME: Yatay padding eklendi */
+    padding: 30px 40px; 
     color: var(--text-light); 
     font-size: 0.9rem; 
     background-color: var(--background-white); 
@@ -218,7 +215,7 @@ footer {
 =============================================== */
 section.hero { 
     background-color: transparent; 
-    padding: 80px 40px; /* DÜZELTME: Yatay padding eklendi */
+    padding: 80px 40px; 
     text-align: center; 
     position: relative; 
     overflow: hidden; 
@@ -364,7 +361,6 @@ a.about-preview-link:hover {
     box-shadow: var(--shadow-medium);
 }
 
-/* DÜZELTME: about-preview-box padding aldığı için, h2'nin ekstra padding'e ihtiyacı yok */
 #about h2, 
 #about .section-subtitle {
     padding-left: 0;
@@ -374,8 +370,8 @@ a.about-preview-link:hover {
 .about-preview-image img {
     width: 100%;
     height: auto;
+    object-fit: cover; 
     border-radius: 8px;
-    object-fit: cover;
 }
 
 .about-preview-text p {
@@ -397,7 +393,6 @@ a.about-preview-link:hover {
     padding-top: 20px;
 }
 
-/* Yandaki büyük başlık ("MY STORY") */
 .about-side-heading {
     display: none; 
 }
@@ -415,11 +410,9 @@ a.about-preview-link:hover {
     top: 100px; 
 }
 
-/* Ana metin ve fotoğraf alanı */
 .about-main-content {
 }
 
-/* Her bir metin bloğu */
 .about-text-block {
     margin-bottom: 40px;
 }
@@ -435,19 +428,19 @@ a.about-preview-link:hover {
     margin-bottom: 20px;
 }
 
-/* Her bir fotoğraf bloğu */
 .about-image-block {
     margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    background-color: var(--background-light); 
 }
 .about-image-block img {
     width: 100%; 
     height: 400px; 
-    object-fit: cover; 
+    object-fit: contain; 
     border-radius: 8px;
-    box-shadow: var(--shadow-soft);
 }
 
-/* Metin içine gömülü skills listesi */
 .about-details-inline {
     background-color: var(--background-light); 
     padding: 30px;
@@ -483,15 +476,13 @@ a.about-preview-link:hover {
 #timeline { 
     background-color: var(--background-light); 
     box-shadow: none; 
-    /* DÜZELTME: Özel padding, timeline-container'a bırakıldı */
     padding: 80px 0;
 }
 .timeline-container { 
     position: relative; 
-    max-width: 900px; /* Kullanıcının seçtiği 900px */
+    max-width: 900px; 
     margin: 0 auto; 
 }
-/* Dikey Çizgi (Ortada) */
 .timeline-container::after { 
     content: ''; 
     position: absolute; 
@@ -507,7 +498,6 @@ a.about-preview-link:hover {
     position: relative; 
     width: 50%; 
 }
-/* Nokta */
 .timeline-dot { 
     content: ''; 
     position: absolute; 
@@ -583,84 +573,513 @@ a.about-preview-link:hover {
 
 
 /* ===============================================
-    BÖLÜM 7.7: Galeri
+    BÖLÜM 7.7: Galeri (YENİ STİLLER)
 =============================================== */
-#gallery {
+#gallery-preview {
     background-color: var(--background-light); 
     box-shadow: none;
-    /* DÜZELTME: Özel padding, gallery-group'a bırakıldı */
-    padding: 80px 0;
+    padding: 80px 40px;
 }
-.gallery-group {
-    margin-bottom: 60px;
-    padding: 30px;
-    background-color: var(--background-white); 
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
+.gallery-preview-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 50px auto;
 }
-.gallery-group h3 {
-    font-size: 2rem;
-    color: var(--primary-hover);
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--border-light); 
+.gallery-preview-header h2 {
+    color: var(--text-dark);
 }
-.gallery-group p {
-    font-size: 1.1rem;
+.gallery-preview-header p {
+    font-size: 1.15rem;
+    color: var(--text-light);
     margin-bottom: 30px;
 }
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.gallery-preview-features {
+    text-align: center;
+    margin-bottom: 60px;
 }
-.gallery-item {
-    overflow: hidden;
+.gallery-preview-features h3 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+}
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.feature-card {
+    background-color: var(--background-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+}
+.feature-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.feature-card h4 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+.gallery-preview-cta {
+    text-align: center;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    padding: 50px 40px;
+    box-shadow: var(--shadow-medium);
+}
+.gallery-preview-cta h3 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+.gallery-preview-cta p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+.gallery-preview-cta .btn-secondary {
+    background-color: var(--background-white);
+    color: var(--primary-color);
+    border-color: var(--background-white);
+}
+.gallery-preview-cta .btn-secondary:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+/* gallery.html - Ana Galeri Sayfası */
+.gallery-hero {
+    background-color: var(--primary-color);
+    padding: 60px 40px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+.gallery-hero h1 {
+    color: #ffffff;
+    font-size: 3rem;
+}
+.gallery-hero p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    margin-bottom: 0;
+}
+
+.filter-bar {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.filter-btn {
+    background: none;
+    border: 2px solid var(--border-light);
+    color: var(--text-light);
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.filter-btn:hover {
+    background-color: var(--border-light);
+    color: var(--text-dark);
+}
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+}
+
+.gallery-main-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.gallery-card {
+    text-decoration: none;
+    background-color: var(--background-white);
     border-radius: 8px;
     box-shadow: var(--shadow-soft);
-    position: relative;
-    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
-.gallery-item img {
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 250px; 
+    background-color: var(--background-light);
+}
+.card-image img {
     width: 100%;
     height: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
+    object-fit: contain; 
 }
-.gallery-item:hover img {
-    transform: scale(1.05); 
-}
-.gallery-overlay {
+.card-tag {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 10px 15px;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.card-content {
+    padding: 20px;
+}
+.card-title {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+.card-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+.card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-size: 0.9rem;
-    font-weight: 500;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    color: var(--text-light);
 }
-.gallery-item:hover .gallery-overlay {
-    opacity: 1; 
+.card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.gallery-button-container {
-    text-align: center;
+.card-meta i {
+    color: var(--primary-color);
+}
+
+/* gallery-item-1.html - Galeri Detay Sayfası */
+.gallery-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+.gallery-detail-image {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+}
+.gallery-detail-image img {
+    width: 100%;
+    max-height: 70vh; 
+    object-fit: contain; 
+    border-radius: 8px;
+    display: block; 
+}
+.gallery-detail-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+.gallery-detail-content .card-tag {
+    position: static; 
+    display: inline-block;
+    background-color: var(--border-light);
+    color: var(--primary-hover);
+    margin-bottom: 15px;
+}
+.gallery-detail-content .card-meta {
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+.gallery-detail-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+.gallery-detail-memory {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-top: 30px;
-    position: relative;
-    z-index: 2;
+    font-weight: 600;
+    color: var(--text-light);
+}
+.gallery-detail-memory i {
+    color: var(--primary-color);
 }
 
 
 /* ===============================================
-    BÖLÜM 8: Projeler
+    SECTION 10.5: Gallery Detail Page (Video)
+=============================================== */
+.photo-gallery-bottom {
+    background-color: var(--background-light); 
+    box-shadow: none;
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+.photo-gallery-bottom h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* 4-column grid for photos */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+}
+.photo-grid a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--background-light);
+}
+.photo-grid img {
+    width: 100%;
+    height: 200px; 
+    object-fit: contain; 
+    display: block;
+    transition: transform 0.3s ease;
+}
+.photo-grid a:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+.photo-grid a:hover img {
+    transform: scale(1.05);
+}
+
+/* 4-column grid for videos */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Instagram Phone frame */
+.instagram-story-frame {
+    position: relative;
+    width: 250px; 
+    height: 445px; 
+    background-color: #1A1A1A;
+    border: 10px solid #111;
+    border-radius: 40px; 
+    box-shadow: var(--shadow-soft);
+    overflow: hidden; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.instagram-story-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+.instagram-story-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.story-header {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3;
+}
+.story-header img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: contain;
+}
+.story-header span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.story-footer {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 3;
+}
+.story-footer input {
+    flex-grow: 1;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 8px 12px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+.story-footer input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+.story-footer i {
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.story-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+/* Normal Video Grid (non-Instagram) */
+.video-grid-normal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+}
+.video-card {
+    background: var(--background-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+.video-preview-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px; 
+    background-color: #000; 
+    border-radius: 8px 8px 0 0; 
+    overflow: hidden; 
+}
+.video-card video,
+.video-preview-wrapper img { /* DÜZELTME: img de eklendi */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* KIRPMA YOK */
+    display: block;
+}
+.video-card .story-play-button {
+    /* Style already exists, will be applied */
+}
+.video-card p {
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+
+/* ===============================================
+    SECTION 10.6: Video Lightbox (Modal)
+=============================================== */
+.video-modal-overlay {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); 
+    overflow: hidden; 
+    display: none;
+    align-items: center; 
+    justify-content: center; 
+    animation: fadeIn 0.3s ease-out;
+}
+.video-modal-content {
+    position: relative;
+    background-color: #000;
+    
+    /* Varsayılan olarak Dikey (9:16) video stilini ayarla */
+    width: auto;
+    height: 90vh;
+    max-width: 90vw;
+    aspect-ratio: 9 / 16;
+}
+
+/* YENİ: YouTube (16:9) videoları için stil */
+.video-modal-content[data-aspect-ratio="16:9"] {
+    width: 90vw;
+    height: auto;
+    max-height: 90vh;
+    aspect-ratio: 16 / 9;
+}
+
+.video-modal-content video,
+.video-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+    object-fit: contain; /* Güvenlik için, ama aspect-ratio halletmeli */
+}
+.modal-close {
+    color: #FFFFFF; 
+    opacity: 0.8;
+    position: absolute; 
+    top: 25px;
+    right: 35px;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 2001; 
+}
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    opacity: 1;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* ===============================================
+    SECTION 8: Projects
 =============================================== */
 #project-preview { 
-    padding: 60px 40px; /* DÜZELTME: Yatay padding eklendi */
+    padding: 60px 40px; 
 }
 .project-grid {
     display: grid;
@@ -683,9 +1102,14 @@ a.about-preview-link:hover {
 .project-image {
     width: 100%;
     height: 200px; 
-    object-fit: cover; 
+    background-color: var(--background-light);
     display: block;
     border-bottom: 1px solid var(--border-light); 
+}
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .project-content {
     padding: 25px;
@@ -720,12 +1144,11 @@ a.about-preview-link:hover {
 
 
 /* ===============================================
-    BÖLÜM 8.5: Referanslar
+    SECTION 8.5: Testimonials
 =============================================== */
 #testimonials {
     background-color: var(--background-light); 
     box-shadow: none; 
-    /* DÜZELTME: Özel padding, timeline-container'a bırakıldı */
     padding: 80px 0;
 }
 .testimonial-grid {
@@ -762,11 +1185,11 @@ a.about-preview-link:hover {
 
 
 /* ===============================================
-    BÖLÜM 9: İletişim (Sosyal İkon Stili)
+    SECTION 9: Contact (Social Icons)
 =============================================== */
 #contact {
     text-align: center;
-    padding: 60px 40px; /* DÜZELTME: Yatay padding eklendi */
+    padding: 60px 40px; 
     margin-bottom: 0; 
 }
 .social-icons {
@@ -800,11 +1223,11 @@ a.about-preview-link:hover {
 
 
 /* ===============================================
-    BÖLÜM 10: Proje Detay Sayfası Stilleri
+    SECTION 10: Project Detail Page Styles
 =============================================== */
 .project-detail-page section { 
     box-shadow: none; 
-    padding: 40px 40px; /* DÜZELTME: Yatay padding eklendi */
+    padding: 40px 0; 
     margin-bottom: 0; 
     border-bottom: 1px solid var(--border-light); 
     border-radius: 0; 
@@ -829,10 +1252,11 @@ a.about-preview-link:hover {
 .project-detail-main-image {
     width: 100%;
     max-height: 500px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 12px;
     box-shadow: var(--shadow-medium);
     margin-bottom: 50px;
+    background-color: var(--background-light);
 }
 .project-detail-content {
     padding-top: 0;
@@ -897,7 +1321,7 @@ a.about-preview-link:hover {
 
 
 /* ===============================================
-    BÖLÜM 11: Responsive Kurallar
+    SECTION 11: Responsive Rules
 =============================================== */
 @media (max-width: 992px) {
     .hero h1 { font-size: 3rem; }
@@ -905,12 +1329,16 @@ a.about-preview-link:hover {
     .nav-links { display: none; } 
     nav { justify-content: center; } 
     .logo { margin-bottom: 15px; }
+
+    .gallery-main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 769px) {
     .project-detail-grid { grid-template-columns: 2.5fr 1fr; }
 
-    /* about.html için masaüstü grid stilleri */
+    /* about.html desktop grid */
     .about-page-grid {
         grid-template-columns: 200px 1fr; 
         gap: 60px; 
@@ -960,25 +1388,30 @@ a.about-preview-link:hover {
         grid-row: 5;
     }
 
+    /* Gallery Detail Page Desktop */
+    .gallery-detail-grid {
+        grid-template-columns: 3fr 2fr; 
+    }
 }
 @media (max-width: 768px) {
-    /* Mobildeki padding'i 20px olarak tut */
     .container {
         padding-left: 20px;
         padding-right: 20px;
     }
     section, 
     #project-preview, 
-    #contact, 
-    .project-detail-page section,
-    section.hero {
+    #contact {
         padding-left: 20px;
         padding-right: 20px;
     }
-    /* Timeline ve Galeri'nin mobil padding'ini sıfırla */
-    #timeline, #gallery, #testimonials {
-        padding-left: 0;
-        padding-right: 0;
+    section.hero,
+    .page-content section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #timeline, #gallery-preview, #testimonials {
+        padding-left: 20px;
+        padding-right: 20px;
     }
     
     h2 { font-size: 2rem; }
@@ -1007,7 +1440,7 @@ a.about-preview-link:hover {
         padding: 1.5rem;
     }
 
-    /* Responsive Timeline (zaten düzeltilmişti) */
+    /* Responsive Timeline */
     .timeline-container::after { 
         left: 20px; 
         margin-left: 0; 
@@ -1037,14 +1470,33 @@ a.about-preview-link:hover {
 
     .project-grid { grid-template-columns: 1fr; }
     
-    /* Responsive Galeri */
-    .gallery-grid { 
+    /* Responsive Gallery */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-main-grid { 
         grid-template-columns: 1fr; 
     }
+    .gallery-hero h1 {
+        font-size: 2.2rem;
+    }
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    .video-grid-normal {
+        grid-template-columns: 1fr;
+    }
+    .video-preview-wrapper {
+        height: 400px; 
+    }
 
-    /* Responsive Referanslar */
+
+    /* Responsive Testimonials */
     .testimonial-grid {
-        grid-template-columns: 1fr; /* Mobilde tek sütun */
+        grid-template-columns: 1fr; 
     }
 
     .social-icons a {
@@ -1066,11 +1518,11 @@ a.about-preview-link:hover {
 }
 
 /* ===============================================
-    BÖLÜM 12: Scroll Animasyonu
+    SECTION 12: Scroll Animation
 =============================================== */
 .fade-in-on-scroll {
     opacity: 0;
-    transform: translateY(30px); /* Aşağıdan gelme efekti */
+    transform: translateY(30px); 
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
