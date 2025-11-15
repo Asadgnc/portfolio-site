@@ -3,190 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Asadbek Kenjaev</title>
+    <title>Asadbek Kenjaev - Digital Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="style.css"> 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Asadbek Kenjaev</a>
-                
-                <ul class="nav-links">
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="timeline.html">Timeline</a></li> 
-                    <li><a href="gallery.html" class="nav-active">Gallery</a></li> 
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+    <div id="tsparticles"></div>
 
-                <ul class="lang-switcher">
-                    <li><a href="gallery.html" class="lang-active">EN</a></li>
-                    <li><a href="gallery-tr.html" class="lang-inactive">TR</a></li>
-                    <li><a href="gallery-ru.html" class="lang-inactive">RU</a></li>
-                    <li><a href="gallery-uz.html" class="lang-inactive">UZ</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Asadbek Kenjaev</a>
+            <ul class="nav-links">
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <ul class="lang-switcher">
+                <li><a href="index.html" class="lang-active">EN</a></li>
+                <li><a href="tr.html" class="lang-inactive">TR</a></li>
+                <li><a href="ru.html" class="lang-inactive">RU</a></li>
+                <li><a href="uz.html" class="lang-inactive">UZ</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main class="page-content">
+    <main class="container">
         
-        <section class="gallery-hero">
-            <div class="container">
-                <h1>My High School Journey</h1>
-                <p>A collection of memories, moments, and milestones that shaped who I am today.</p>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-subtitle">COMPUTER ENGINEERING CANDIDATE</span>
+                    <h1>Hello, I'm Asadbek Kenjaev.</h1>
+                    <p class="hero-description">
+                        A passionate developer who loves solving problems with code, 
+                        focusing on AI and web technologies.
+                    </p>
+                    <a href="#project-preview" class="btn btn-primary">View My Projects</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/my-photo.jpg" alt="Asadbek Kenjaev's Professional Photo">
+                </div>
             </div>
         </section>
 
-        <div class="container">
-            <section id="gallery-full-page">
-                
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all">All Years</button>
-                    <button class="filter-btn" data-filter="2019">2019</button>
-                    <button class="filter-btn" data-filter="2020">2020</button>
-                    <button class="filter-btn" data-filter="2021">2021</button>
-                    <button class="filter-btn" data-filter="2022">2022</button>
-                    <button class="filter-btn" data-filter="2023">2023</button>
-                    <button class="filter-btn" data-filter="2024">2024</button>
+        <section id="about" class="fade-in-on-scroll">
+            <h2>A Little Bit About Me</h2>
+            <p class="section-subtitle">My passion for technology and my personal journey.</p>
+            <a href="about.html" class="about-preview-link">
+                <div class="about-preview-box">
+                    <div class="about-preview-image">
+                        <img src="images/my-photo.jpg" alt="Asadbek Kenjaev">
+                    </div>
+                    <div class="about-preview-text">
+                        <p>
+                            Hey, I'm Asadbek Kenjaev! 👋 My world revolves around turning big, messy ideas into clean, functional code. I'm not just a Computer Engineering candidate; I'm a passionate builder driven by boundless curiosity...
+                        </p>
+                        <span class="btn btn-secondary">Click to Read More</span>
+                    </div>
                 </div>
+            </a>
+        </section>
 
-                <div class="gallery-main-grid">
-                    
-                    <a href="gallery-item-1.html" class="gallery-card" data-year="2019">
-                        <div class="card-image">
-                            <img src="images/item1-main-1.jpg" alt="First Day of High School">
-                            <span class="card-tag">School Life</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">First Day of High School</h3>
-                            <p class="card-description">The very beginning of an unforgettable journey. So many new faces and experiences.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar-alt"></i> September 2019</span>
-                                <span><i class="fas fa-map-marker-alt"></i> School Campus</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="gallery-item-2.html" class="gallery-card" data-year="2021">
-                        <div class="card-image">
-                            <img src="images/item2-main-1.jpg" alt="10th Grade Valedictorian Award">
-                            <span class="card-tag">Achievements</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">10th Grade Valedictorian</h3>
-                            <p class="card-description">A snapshot of the 10th-grade awards ceremony, marking a huge personal achievement.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar-alt"></i> June 2021</span>
-                                <span><i class="fas fa-map-marker-alt"></i> School Auditorium</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="gallery-item-3.html" class="gallery-card" data-year="2022">
-                        <div class="card-image">
-                            <img src="images/item3-main-1.jpg" alt="National Student Representative Summit">
-                            <span class="card-tag">Leadership</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">National Student Summit</h3>
-                            <p class="card-description">Representing my high school as School President at a 3-day national summit in Ankara.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar-alt"></i> May 2022</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Kızılcahamam, Ankara</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="gallery-item-4.html" class="gallery-card" data-year="2022">
-                        <div class="card-image">
-                            <img src="images/item4-main-1.jpg" alt="Literature Club President">
-                            <span class="card-tag">Leadership</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Literature Club President</h3>
-                            <p class="card-description">Organizing debates, symposiums, and library events as club president in 11th grade.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar-alt"></i> 2022-2023</span>
-                                <span><i class="fas fa-map-marker-alt"></i> School Library & Hall</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="gallery-item-5.html" class="gallery-card" data-year="2023">
-                        <div class="card-image">
-                            <img src="images/item5-main-1.jpg" alt="Çanakkale Trip">
-                            <span class="card-tag">Events</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Çanakkale (Gallipoli) Trip</h3>
-                            <p class="card-description">A deeply moving journey to the historical battlefields of Çanakkale, a trip that changed my perspective.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar-alt"></i> Spring 2023</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Çanakkale, Turkey</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="gallery-item-6.html" class="gallery-card" data-year="2023">
-                        <div class="card-image">
-                            <img src="images/item6-main-1.jpg" alt="Teknofest 2023">
-                            <span class="card-tag">Technology</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Teknofest 2023</h3>
-                            <p class="card-description">Organizing the school trip to Turkey's largest technology festival in Istanbul. An inspiring look at the future.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-calendar-alt"></i> April 2023</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="gallery-item-7.html" class="gallery-card" data-year="2022"><div class="card-image"><img src="images/item7-main-1.jpg" alt="Placeholder Image 7"><span class="card-tag">School Life</span></div><div class="card-content"><h3 class="card-title">Library Study Sessions</h3><p class="card-description">Late nights preparing for final exams with friends. We learned a lot together.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> May 2022</span><span><i class="fas fa-map-marker-alt"></i> School Library</span></div></div></a>
-                    <a href="gallery-item-8.html" class="gallery-card" data-year="2021"><div class="card-image"><img src="images/item8-main-1.jpg" alt="Placeholder Image 8"><span class="card-tag">Arts</span></div><div class="card-content"><h3 class="card-title">Art Class Project</h3><p class="card-description">My final painting for the advanced art class. Proud of how this turned out.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> October 2021</span><span><i class="fas fa-map-marker-alt"></i> Art Room</span></div></div></a>
-                    <a href="gallery-item-9.html" class="gallery-card" data-year="2023"><div class="card-image"><img src="images/item9-main-1.jpg" alt="Placeholder Image 9"><span class="card-tag">Events</span></div><div class="card-content"><h3 class="card-title">Charity Bake Sale</h3><p class="card-description">We raised over $500 for the local children's hospital. A very rewarding day.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> February 2023</span><span><i class="fas fa-map-marker-alt"></i> School Courtyard</span></div></div></a>
-                    <a href="gallery-item-10.html" class="gallery-card" data-year="2023"><div class="card-image"><img src="images/item10-main-1.jpg" alt="Placeholder Image 10"><span class="card-tag">Sports</span></div><div class="card-content"><h3 class="card-title">Soccer Team Finals</h3><p class="card-description">A tough game, but we played our hearts out. Proud of this team.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> April 2023</span><span><i class="fas fa-map-marker-alt"></i> City Stadium</span></div></div></a>
-                    <a href="gallery-item-11.html" class="gallery-card" data-year="2024"><div class="card-image"><img src="images/item11-main-1.jpg" alt="Placeholder Image 11"><span class="card-tag">Milestones</span></div><div class="card-content"><h3 class="card-title">First University Acceptance</h3><p class="card-description">The moment I received my first acceptance letter. Pure happiness.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> March 2024</span><span><i class="fas fa-map-marker-alt"></i> Home</span></div></div></a>
-                    <a href="gallery-item-12.html" class="gallery-card" data-year="2020"><div class="card-image"><img src="images/item12-main-1.jpg" alt="Placeholder Image 12"><span class="card-tag">Achievements</span></div><div class="card-content"><h3 class="card-title">Coding Competition</h3><p class="card-description">My first hackathon. Didn't win, but learned an incredible amount in 24 hours.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> January 2020</span><span><i class="fas fa-map-marker-alt"></i> Tech Hub</span></div></div></a>
-                    <a href="gallery-item-13.html" class="gallery-card" data-year="2021"><div class="card-image"><img src="images/item13-main-1.jpg" alt="Placeholder Image 13"><span class="card-tag">School Life</span></div><div class="card-content"><h3 class="card-title">School Trip to Museum</h3><p class="card-description">Learning about history outside the classroom was a great experience.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> June 2021</span><span><i class="fas fa-map-marker-alt"></i> History Museum</span></div></div></a>
-                    <a href="gallery-item-14.html" class="gallery-card" data-year="2022"><div class="card-image"><img src="images/item14-main-1.jpg" alt="Placeholder Image 14"><span class="card-tag">Events</span></div><div class="card-content"><h3 class="card-title">School Prom</h3><p class="card-description">A night to remember with all my friends before graduation.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> May 2022</span><span><i class="fas fa-map-marker-alt"></i> Event Hall</span></div></div></a>
-                    <a href="gallery-item-15.html" class="gallery-card" data-year="2019"><div class="card-image"><img src="images/item15-main-1.jpg" alt="Placeholder Image 15"><span class="card-tag">Sports</span></div><div class="card-content"><h3 class="card-title">Track and Field Meet</h3><p class="card-description">Pushing my limits in the 400m dash. A personal best time.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> October 2019</span><span><i class="fas fa-map-marker-alt"></i> School Track</span></div></div></a>
-                    <a href="gallery-item-16.html" class="gallery-card" data-year="2023"><div class="card-image"><img src="images/item16-main-1.jpg" alt="Placeholder Image 16"><span class="card-tag">Achievements</span></div><div class="card-content"><h3 class="card-title">Chess Tournament</h3><p class="card-description">Winning the regional chess tournament after a long final match.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> November 2023</span><span><i class="fas fa-map-marker-alt"></i> Community Center</span></div></div></a>
-                    <a href="gallery-item-17.html" class="gallery-card" data-year="2024"><div class="card-image"><img src="images/item17-main-1.jpg" alt="Placeholder Image 17"><span class="card-tag">Milestones</span></div><div class="card-content"><h3 class="card-title">Driver's License</h3><p class="card-description">Finally got my driver's license. The feeling of freedom!</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> January 2024</span><span><i class="fas fa-map-marker-alt"></i> DMV</span></div></div></a>
-                    <a href="gallery-item-18.html" class="gallery-card" data-year="2022"><div class="card-image"><img src="images/item18-main-1.jpg" alt="Placeholder Image 18"><span class="card-tag">Arts</span></div><div class="card-content"><h3 class="card-title">Band Practice</h3><p class="card-description">Long hours practicing for the school's 'Battle of the Bands'.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> March 2022</span><span><i class="fas fa-map-marker-alt"></i> Music Room</span></div></div></a>
-                    <a href="gallery-item-19.html" class="gallery-card" data-year="2021"><div class="card-image"><img src="images/item19-main-1.jpg" alt="Placeholder Image 19"><span class="card-tag">School Life</span></div><div class="card-content"><h3 class="card-title">Volunteering Day</h3><p class="card-description">Helping clean up the local park with the student council.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> September 2021</span><span><i class="fas fa-map-marker-alt"></i> City Park</span></div></div></a>
-                    <a href="gallery-item-20.html" class="gallery-card" data-year="2023"><div class="card-image"><img src="images/item20-main-1.jpg" alt="Placeholder Image 20"><span class="card-tag">Events</span></div><div class="card-content"><h3 class="card-title">Robotics Club</h3><p class="card-description">Building our first competition robot from scratch.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> October 2023</span><span><i class="fas fa-map-marker-alt"></i> Workshop</span></div></div></a>
-                    <a href="gallery-item-21.html" class="gallery-card" data-year="2020"><div class="card-image"><img src="images/item21-main-1.jpg" alt="Placeholder Image 21"><span class="card-tag">School Life</span></div><div class="card-content"><h3 class="card-title">Physics Lab</h3><p class="card-description">The moment an experiment finally worked as intended. Science is cool.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> December 2020</span><span><i class="fas fa-map-marker-alt"></i> Physics Lab</span></div></div></a>
-                    <a href="gallery-item-22.html" class="gallery-card" data-year="2024"><div class="card-image"><img src="images/item22-main-1.jpg" alt="Placeholder Image 22"><span class="card-tag">Milestones</span></div><div class="card-content"><h3 class="card-title">Final Project Presentation</h3><p class="card-description">Presenting my final year computer science project. A mix of relief and pride.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> May 2024</span><span><i class="fas fa-map-marker-alt"></i> University Hall</span></div></div></a>
-                    <a href="gallery-item-23.html" class="gallery-card" data-year="2022"><div class="card-image"><img src="images/item23-main-1.jpg" alt="Placeholder Image 23"><span class="card-tag">Sports</span></div><div class="card-content"><h3 class="card-title">Cross Country Meet</h3><p class="card-description">A long and muddy race, but we all finished strong as a team.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> October 2022</span><span><i class="fas fa-map-marker-alt"></i> Hillside Park</span></div></div></a>
-                    <a href="gallery-item-24.html" class="gallery-card" data-year="2023"><div class="card-image"><img src="images/item24-main-1.jpg" alt="Placeholder Image 24"><span class="card-tag">Arts</span></div><div class="card-content"><h3 class="card-title">Photography Club Walk</h3><p class="card-description">Learning about composition and light during a walk downtown.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> August 2023</span><span><i class="fas fa-map-marker-alt"></i> Downtown</span></div></div></a>
-                    <a href="gallery-item-25.html" class="gallery-card" data-year="2019"><div class="card-image"><img src="images/item25-main-1.jpg" alt="Placeholder Image 25"><span class="card-tag">School Life</span></div><div class="card-content"><h3 class="card-title">First Snow Day</h3><p class="card-description">Campus covered in snow. Classes were cancelled!</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> December 2019</span><span><i class="fas fa-map-marker-alt"></i> School Campus</span></div></div></a>
-                    <a href="gallery-item-26.html" class="gallery-card" data-year="2024"><div class="card-image"><img src="images/item26-main-1.jpg" alt="Placeholder Image 26"><span class="card-tag">Events</span></div><div class="card-content"><h3 class="card-title">Tech Conference</h3><p class="card-description">Attending my first professional tech conference and networking.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> June 2024</span><span><i class="fas fa-map-marker-alt"></i> Convention Center</span></div></div></a>
-                    <a href="gallery-item-27.html" class="gallery-card" data-year="2020"><div class="card-image"><img src="images/item27-main-1.jpg" alt="Placeholder Image 27"><span class="card-tag">Achievements</span></div><div class="card-content"><h3 class="card-title">Debate Team Victory</h3><p class="card-description">We won the state finals! All those hours of preparation paid off.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> May 2020</span><span><i class="fas fa-map-marker-alt"></i> State Capitol</span></div></div></a>
-                    <a href="gallery-item-28.html" class="gallery-card" data-year="2021"><div class="card-image"><img src="images/item28-main-1.jpg" alt="Placeholder Image 28"><span class="card-tag">Sports</span></div><div class="card-content"><h3 class="card-title">Tennis Match</h3><p class="card-description">A long singles match that went to a tie-breaker. Exhausting but fun.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> May 2021</span><span><i class="fas fa-map-marker-alt"></i> Tennis Courts</span></div></div></a>
-                    <a href="gallery-item-29.html" class="gallery-card" data-year="2022"><div class="card-image"><img src="images/item29-main-1.jpg" alt="Placeholder Image 29"><span class="card-tag">School Life</span></div><div class="card-content"><h3 class="card-title">Last Day of Classes</h3><p class="card-description">Signing yearbooks and saying goodbye to teachers. A bittersweet day.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> June 2022</span><span><i class="fas fa-map-marker-alt"></i> School Campus</span></div></div></a>
-                    <a href="gallery-item-30.html" class="gallery-card" data-year="2024"><div class="card-image"><img src="images/item30-main-1.jpg" alt="Placeholder Image 30"><span class="card-tag">Milestones</span></div><div class="card-content"><h3 class="card-title">University Move-in Day</h3><p class="card-description">Setting up my dorm room and officially starting my university life.</p><div class="card-meta"><span><i class="fas fa-calendar-alt"></i> August 2024</span><span><i class="fas fa-map-marker-alt"></i> University Dorms</span></div></div></a>
-                    
+        <section id="timeline" class="fade-in-on-scroll">
+            <h2>My Timeline</h2>
+            <p class="section-subtitle">My academic and personal development journey so far.</p>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2017</span>
+                        <h3>Math Competitions in Tashkent</h3>
+                        <p>I placed 1st in my school and 10th in Tashkent City. 🥇</p>
+                    </div>
                 </div>
-            </section>
-        </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019</span>
+                        <h3>Graduated Middle School with Full Marks</h3>
+                        <p>Graduated from middle school in Uzbekistan with top scores. 📚</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021</span>
+                        <h3>Elected as School Representative</h3>
+                        <p>Represented my school in Ankara among 1,900 student reps.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-item-hidden">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022</span>
+                        <h3>Founded High School Literature Club</h3>
+                        <p>Elected as president and organized numerous events.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-item-hidden">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>High School Valedictorian (Overall)</h3>
+                        <p>My final score was 95.53, graduating as valedictorian. 🗣️</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-button-container">
+                <button id="timeline-load-more" class="btn btn-primary">Show Full Timeline</button>
+            </div>
+        </section>
+        
+        <section id="gallery-preview" class="fade-in-on-scroll">
+            <div class="gallery-preview-header">
+                <h2>My Digital Gallery 📸</h2>
+                <p>Moments, certifications, and technical concepts that define my journey.</p>
+            </div>
+            <div class="gallery-preview-features">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Achievements</h4>
+                        <p>Valedictorian awards and competition certificates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Leadership</h4>
+                        <p>Moments from student council and club activities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h4>Tech & Projects</h4>
+                        <p>Snapshots of my coding projects and tech events.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-preview-cta">
+                <h3>See My Journey in Action</h3>
+                <p>Explore my high school memories, achievements, and the events that shaped me.</p>
+                <a href="gallery.html" class="btn btn-secondary">View Full Gallery</a>
+            </div>
+        </section>
+
+        <section id="project-preview" class="fade-in-on-scroll">
+            <h2>My Projects</h2>
+            <p class="section-subtitle">My work that showcases my skills and passion.</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/proje-1.jpg" alt="Project 1 Screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3>UniVerse Turkiye</h3>
+                        <p>A digital platform for university selection information and exam counseling for students in Turkey.</p>
+                        <a href="project-1-detail.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/proje-2.jpg" alt="Project 2 Screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3>High School Website</h3>
+                        <p>A centralized academic hub for my high school, providing study guides and sample exam questions.</p>
+                        <a href="project-2-detail.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/proje-3.jpg" alt="Project 3 Screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3>Basic AI Model (TR-LLM)</h3>
+                        <p>An R&D venture to build a professional-grade, sovereign large language model for Turkey.</p>
+                        <a href="project-3-detail.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-button-container">
+                <a href="projects.html" class="btn btn-primary">View All Projects</a>
+            </div>
+        </section>
+
+        <section id="testimonials" class="fade-in-on-scroll">
+            <h2>What Others Say</h2>
+            <p class="section-subtitle">Testimonials from colleagues, mentors, and students.</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"Asadbek's dedication to problem-solving is unparalleled. He's a quick learner and a true asset to any team."</p>
+                    <p class="author">John Doe</p>
+                    <p class="title">Senior Developer at TechCorp</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"I had the pleasure of mentoring Asadbek. His curiosity is infectious and his ability to grasp complex AI concepts is impressive."</p>
+                    <p class="author">Dr. Jane Smith</p>
+                    <p class="title">Professor of Computer Science</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Working alongside Asadbek on the high school website project was a fantastic experience. He is a natural leader."</p>
+                    <p class="author">Alex Johnson</p>
+                    <p class="title">Classmate & Project Partner</p>
+                </div>
+                 <div class="testimonial-card">
+                    <p class="quote">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                    <p class="author">Emily White</p>
+                    <p class="title">Mentee</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in-on-scroll">
+            <h2>Let's Get In Touch</h2>
+            <p class="section-subtitle">Find me on these platforms or send me an email.</p>
+            <div class="social-icons">
+                <a href="https://linkedin.com/in/asadnc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Asadgnc" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:a.kenja3683@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/asadnc/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/asadknc" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                <a href="http://www.youtube.com/@Asad-yz9zn" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </section>
+
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Asadbek Kenjaev. All rights reserved.</p>
-        </div>
-    </footer>
     
-    <script src="app.js"></script>
+    <footer class="container">
+        <p>&copy; 2025 Asadbek Kenjaev. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    
+    <script src="app.js"></script> 
 
 </body>
 </html>
