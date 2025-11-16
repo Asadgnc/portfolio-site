@@ -1,1532 +1,1525 @@
-/* --- 1. Temel Kurallar ve Tasarım Sistemi (CSS Değişkenleri) --- */
-/* "Berrak Su Teması" (Su Mavisi Arka Plan) */
+/* ===============================================
+   YENİ TEMA: ELEGANT DARK MODE (DÜZELTİLMİŞ YERLEŞİM)
+   =============================================== */
+
+/* --- 1. Fontları İçe Aktarma --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Great+Vibes&family=Roboto:wght@400;500&display=swap');
+
+/* --- 2. Tasarım Sistemi (CSS Değişkenleri) --- */
 :root {
-    --primary-color: #007BFF; /* Canlı Mavi */
-    --primary-hover: #0056B3; /* Koyu Mavi */
+    --text-dark: #0A0A0A;       
+    --text-light: #F5F5F5;      
+    --text-muted: #888888;      
     
-    --text-dark: #212529;     /* Ana Metin: Koyu Gri (Okunması kolay) */
-    --text-light: #495057;    /* İkincil Metin: Orta Gri */
+    --background-main: #0A0A0A; 
+    --background-alt: #111111;  
+    --border-elegant: #333333;  
     
-    --background-light: #E0F7FA; /* Ana Arka Plan: Su Mavisi (Çok açık turkuaz) */
-    --background-white: #FFFFFF; /* Bölüm/Kart Arka Planı: Tam Beyaz */
+    --logo-green: #2ECCA7; 
     
-    --border-light: #B2EBF2; /* Çerçeve/Sınır Rengi: Açık Turkuaz */
-    --hero-bg-dark: #007BFF; 
+    --btn-primary-bg: #FFFFFF;
+    --btn-primary-text: #0A0A0A;
+    --btn-primary-bg-hover: #E0E0E0;
+    
+    --btn-secondary-border: #FFFFFF;
+    --btn-secondary-text: #FFFFFF;
+    --btn-secondary-bg-hover: #FFFFFF;
+    --btn-secondary-text-hover: #0A0A0A;
     
     --font-main: 'Roboto', sans-serif;
+    --font-headings: 'Cormorant Garamond', serif; 
+    --font-signature: 'Great Vibes', cursive; 
     
-    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* --- 2. Global Sıfırlama (Reset) --- */
+/* --- 3. Global Sıfırlama (Reset) --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { 
+    /* scroll-behavior: smooth; tamamen kaldırıldı */
+}
 body {
     font-family: var(--font-main);
-    background-color: var(--background-light); 
-    color: var(--text-dark); 
+    background-color: var(--background-main); 
+    color: var(--text-light); 
+    background-image: radial-gradient(at top center, rgba(20, 80, 90, 0.25) 0%, transparent 60%);
+    background-repeat: no-repeat;
     line-height: 1.7; 
     position: relative;
     z-index: 0;
+    -webkit-font-smoothing: antialiased;
 }
-.container {
-    max-width: 1100px;
+.main-container {
+    max-width: 1280px;    /* önceki 1100 -> 1280 */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;  
-    padding-right: 20px; 
+    padding-left: 24px;  
+    padding-right: 24px; 
 }
-h1, h2, h3 { color: var(--text-dark); margin-bottom: 20px; font-weight: 700; line-height: 1.3; } 
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.5rem; } 
-p { color: var(--text-light); margin-bottom: 15px; }
-.section-subtitle { font-size: 1.1rem; color: var(--text-light); text-align: center; margin-top: -15px; margin-bottom: 40px; }
-a { color: var(--primary-color); text-decoration: none; transition: all 0.3s ease; }
-a:hover { color: var(--primary-hover); }
+h1, h2, h3 { 
+    color: var(--text-light); 
+    margin-bottom: 20px; 
+    font-weight: 700; 
+    line-height: 1.2; 
+    font-family: var(--font-headings); 
+} 
+h1 { font-size: 4.5rem; } 
+h2 { font-size: 3.5rem; } 
+h3 { font-size: 1.75rem; } 
+
+p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; } 
+a { color: var(--text-light); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--text-muted); }
+
+/* Sayfa Bölümleri */
+.page-section {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border-elegant);
+}
+.page-section.alt-bg {
+    background-color: var(--background-alt);
+    background-image: radial-gradient(at top center, rgba(20, 80, 90, 0.15) 0%, transparent 50%);
+    background-repeat: no-repeat;
+}
+main section:last-of-type {
+    border-bottom: none;
+}
 
 /* Buton Stilleri */
 .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 12px 28px;
     border-radius: 8px; 
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     transition: all 0.3s ease;
-    border: none; 
     cursor: pointer;
+    font-family: var(--font-main); 
+    font-size: 0.9rem;
 }
 .btn-primary {
-    background-color: var(--primary-color);
-    color: var(--background-white); 
-    box-shadow: var(--shadow-soft);
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text); 
+    border: 1px solid var(--btn-primary-bg);
 }
 .btn-primary:hover {
-    background-color: var(--primary-hover);
-    color: var(--background-white);
+    background-color: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-bg-hover);
+    color: var(--btn-primary-text);
     transform: translateY(-2px); 
-    box-shadow: var(--shadow-medium);
 }
 .btn-secondary {
     background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    color: var(--btn-secondary-text);
+    border: 1px solid var(--btn-secondary-border);
 }
 .btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: var(--background-white); 
+    background-color: var(--btn-secondary-bg-hover);
+    color: var(--btn-secondary-text-hover); 
     transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
 }
-.btn-back { 
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-    color: var(--text-light);
+.section-subtitle-left {
+    display: block;
+    font-size: 0.9rem;
     font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
 }
-.btn-back:hover {
-    color: var(--primary-color);
-}
-
-
-main, footer {
-    position: relative;
-    z-index: 2;
-}
-
-section { 
-    padding: 60px 40px; 
-    background-color: var(--background-white); 
-    margin-bottom: 20px; 
-    border-radius: 12px; 
-    box-shadow: var(--shadow-soft); 
-    position: relative;
-}
-
-/* Ana sayfadaki (index.html) section başlıklarını ortala */
-section > h2 {
+.section-button-container {
     text-align: center;
-}
-
-/* Ayrı sayfaların (about.html, contact.html) ana içeriği için */
-.page-content section {
-    box-shadow: none;
-    border-radius: 0;
-    margin-bottom: 0;
-    padding: 40px 0;
-}
-.page-content section > h2 {
-    text-align: left;
-}
-.page-content .section-subtitle {
-    text-align: left; 
+    margin-top: 50px;
 }
 
 
 /* ===============================================
-    BÖLÜM 4: Navigasyon (Menü) & Dil Değiştirici
+   BÖLÜM 4: Header (SADECE LOGO VE HAMBURGER)
 =============================================== */
 header { 
-    background-color: var(--background-white); 
-    padding: 15px 0; 
-    box-shadow: var(--shadow-soft); 
-    position: sticky; 
-    top: 0; 
+    background-color: transparent; 
+    padding: 20px 0; 
+    position: absolute; 
+    width: 100%;
+    top: 0;
+    left: 0;
     z-index: 1000; 
 }
-nav { 
-    display: flex; 
+.header-content {
+    display: flex;
     justify-content: space-between; 
     align-items: center; 
-    flex-wrap: wrap; 
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 .logo { 
-    font-size: 1.7rem; 
-    font-weight: 700; 
-    color: var(--primary-color); 
-    margin-bottom: 0; 
+    font-size: 2.5rem; 
+    font-weight: 400; 
+    color: var(--logo-green); 
+    font-family: var(--font-signature); 
+    text-decoration: none;
+    z-index: 1002; 
 }
-.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
-.nav-links li { margin: 0 15px; } 
-.nav-links li a { 
-    font-weight: 600; 
-    font-size: 1rem; 
-    display: block; 
-    padding: 8px 0; 
-    color: var(--text-dark); 
-    cursor: pointer;
-}
-.nav-links li a:hover {
-    color: var(--primary-color); 
-}
-.nav-links li a.nav-active {
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.lang-switcher { list-style: none; display: flex; margin: 0; padding: 0; }
-.lang-switcher li { margin-left: 10px; }
-.lang-switcher li a { 
-    font-weight: 700; 
-    font-size: 0.9rem; 
-    padding: 5px 10px; 
-    border-radius: 6px; 
-    text-decoration: none; 
-}
-.lang-inactive { 
-    background-color: transparent; 
-    color: var(--text-light); 
-}
-.lang-inactive:hover { 
-    background-color: var(--border-light); 
-    color: var(--primary-color); 
-}
-.lang-active { 
-    background-color: var(--primary-color); 
-    color: #ffffff; 
-}
-.lang-active:hover { 
-    background-color: var(--primary-hover); 
-    color: #ffffff; 
-}
-footer { 
-    text-align: center; 
-    padding: 30px 40px; 
-    color: var(--text-light); 
-    font-size: 0.9rem; 
-    background-color: var(--background-white); 
-    margin-top: 20px; 
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
-}
-.page-content + footer {
-    margin-top: 0;
-    border-radius: 0;
-}
-
 
 /* ===============================================
-    BÖLÜM 5: Hero (tsParticles) - Fotoğraf Stili Dahil
+   BÖLÜM 4.5: YENİ NAVİGASYON ÇUBUĞU (ANA MENÜ)
 =============================================== */
-section.hero { 
-    background-color: transparent; 
-    padding: 80px 40px; 
-    text-align: center; 
-    position: relative; 
-    overflow: hidden; 
-    color: var(--text-dark); 
-    border-radius: 12px; 
-    box-shadow: none; 
-    margin-bottom: 30px; 
-}
-
-#tsparticles { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index: 1; 
-}
-
-.hero-content { 
-    position: relative; 
-    z-index: 2; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-}
-.hero-text {
-    max-width: 650px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-.hero-image {
-    width: 150px; 
-    height: 150px;
-    border-radius: 50%; 
-    border: 5px solid var(--primary-color); 
-    overflow: hidden;
-    margin: 20px auto; 
-    z-index: 2;
-    box-shadow: var(--shadow-medium);
-}
-.hero-image img {
+/* NAV: başlangıçta fotoğrafın altında, kaydırınca üstte sabitlenir */
+.nav-bar-wrapper {
+    position: relative;
+    background: transparent; /* tam geniş beyaz kutu kaldırıldı */
+    z-index: 40;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
-@media (min-width: 768px) {
-    section.hero { padding: 120px 40px; }
-    .hero-content {
-        flex-direction: row; 
-        justify-content: space-between;
-        gap: 40px;
-        text-align: left;
-    }
-    .hero-text {
-        margin-bottom: 0;
-        margin-right: 0;
-        text-align: left;
-    }
-    .hero h1, .hero-subtitle, .hero-description {
-        text-align: left; 
-        margin-left: 0;
-    }
-    .hero-image {
-        margin: 0; 
-        width: 300px; 
-        height: 300px;
-        order: 2; 
-    }
-    .hero-text {
-        order: 1; 
-    }
+
+/* İçerik kısıtlı: main-container zaten genişlik sınırlıyor */
+.nav-bar-wrapper .nav-bar-content {
+    background: transparent;
+    padding: 0; /* kendi iç düzenlemelere uyumlu olsun */
 }
+
+/* Görsel kutu (içerideki menü) - normal akışta ana konteyner içinde */
+.nav-bar-wrapper .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* linkler ortada */
+    gap: 1.25rem;
+    padding: 0.8rem 0;
+    position: relative;
+}
+
+/* Linkler */
+.nav-links {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Top controls: dil + contact her zaman sağ üstte sabit --- */
+.top-controls {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1100;
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    pointer-events: auto;
+}
+
+/* top-controls içindeki liste ve butonun temel görünümü */
+.top-controls .lang-switcher {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.top-controls .lang-switcher a {
+    display: inline-block;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.03);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+.top-controls .lang-switcher a.lang-active {
+    background: rgba(46,204,167,0.12);
+    color: var(--logo-green);
+    border-color: rgba(46,204,167,0.12);
+}
+
+/* top-controls içindeki contact butonu */
+.top-controls .nav-contact-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-left: 6px;
+}
+
+/* Mobilde top-controls pozisyonu küçült */
+@media (max-width: 900px) {
+    .top-controls { top: 0.6rem; right: 0.6rem; gap: 0.4rem; }
+    .top-controls .lang-switcher a { padding: 5px 6px; font-size: 0.85rem; }
+}
+
+/* NAV: artık içinde sadece ana linkler var; sabitlendiğinde main-container ile kısıtlı kalır */
+.nav-bar-wrapper {
+    position: relative;
+    background: transparent;
+    z-index: 40;
+    width: 100%;
+}
+.nav-bar-wrapper .nav-bar-content { padding: 0; background: transparent; }
+.nav-bar-wrapper .nav-menu { display:flex; align-items:center; justify-content:center; padding:0.8rem 0; position:relative; }
+.nav-links { display:flex; gap:1.25rem; list-style:none; margin:0; padding:0; }
+
+/* fixed olduğunda navbar viewport üstüne yapışır (header ve top-controls üstünde gözükür) */
+.nav-bar-wrapper.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.01);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    backdrop-filter: blur(4px);
+}
+
+/* --- İnceltilmiş sabit navbar ve inline dil seçenekleri --- */
+.nav-bar-wrapper.fixed {
+    background: linear-gradient(180deg, rgba(8,10,10,0.85), rgba(8,10,10,0.55)) !important;
+    border-radius: 12px !important;           /* daha ince köşe */
+    margin: 10px auto !important;              /* daha küçük dış boşluk */
+    width: calc(100% - 60px) !important;       /* daraltılmış genişlik */
+    max-width: 1050px !important;
+    padding: 6px 12px !important;              /* daha ince yüksek */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* nav iç yüksekliğini azalt */
+.nav-bar-wrapper.fixed .nav-menu {
+    padding: 6px 0 !important;
+}
+
+/* Dil seçeneklerini yatay göster */
+.top-controls .lang-switcher {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+.top-controls .lang-switcher li {
+    display: inline-block !important;
+}
+.top-controls .lang-switcher a {
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+}
+
+/* Küçük ekranlarda kompakt koru */
+@media (max-width: 900px) {
+    .nav-bar-wrapper.fixed {
+        width: calc(100% - 24px) !important;
+        margin: 8px 12px !important;
+        border-radius: 10px !important;
+    }
+    .top-controls { right: 8px !important; top: 8px !important; }
+    .top-controls .lang-switcher a { padding: 5px 8px !important; font-size: 0.8rem !important; }
+}
+
+/* Küçük ekranlarda nav stilleri */
+@media (max-width: 768px) {
+    .nav-bar-wrapper { display: none; }
+    .nav-bar-wrapper.mobile-active { display: block; position: absolute; top: 100%; left:0; right:0; }
+}
+
+/* Küçük görsel efekt */
+@keyframes navFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================================
+   BÖLÜM 5: Hero (DÜZELTİLMİŞ YERLEŞİM)
+=============================================== */
+.hero-section {
+    padding-top: 200px; /* Header ve nav-bar'dan sonra başlaması için */
+    padding-bottom: 100px;
+    overflow: hidden; 
+    border-bottom: 1px solid var(--border-elegant);
+    background: none; 
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px;
+    align-items: center;
+    text-align: left;
+}
+.hero-text { order: 1; }
 .hero-subtitle { 
-    font-size: 1rem; 
-    font-weight: 600; 
-    color: var(--text-light); 
+    font-size: 0.9rem; 
+    font-weight: 500; 
+    color: var(--text-muted); 
     letter-spacing: 1.5px; 
     text-transform: uppercase; 
-    display: block; 
     margin-bottom: 15px; 
 }
 .hero h1 { 
-    font-size: 4rem; 
-    font-weight: 700; 
-    color: var(--text-dark); 
-    margin-bottom: 20px; 
-    line-height: 1.1; 
+    font-size: 4.5rem; 
+    margin-bottom: 25px; 
+    color: var(--text-light);
 }
 .hero-description { 
     font-size: 1.35rem; 
-    color: var(--text-light); 
-    max-width: 650px; 
+    color: var(--text-muted); 
+    max-width: 500px; 
     margin: 0 0 40px 0; 
 }
-.hero .btn-primary { 
-    background-color: var(--primary-color); 
-    color: var(--background-white); 
-    margin-right: 15px; 
-    border: 2px solid var(--primary-color);
-}
-.hero .btn-primary:hover { 
-    background-color: var(--primary-hover); 
-    border-color: var(--primary-hover);
-    color: var(--background-white);
-}
-.hero .btn-secondary { 
-    background-color: transparent; 
-    color: var(--primary-color); 
-    border: 2px solid var(--primary-color); 
-}
-.hero .btn-secondary:hover { 
-    background-color: var(--primary-color); 
-    color: var(--background-white); 
-}
-
-/* ===============================================
-    BÖLÜM 6: Hakkımda (YENİ "jonrodz.com" STİLİ)
-=============================================== */
-
-/* Ana sayfadaki (index.html) #about bölümü için stiller */
-a.about-preview-link, 
-a.about-preview-link:hover {
-    text-decoration: none;
-    color: inherit; 
-}
-
-.about-preview-box {
-    display: grid;
-    grid-template-columns: 1fr 2fr; 
-    gap: 2rem;
-    align-items: center;
-    background-color: var(--background-white); 
-    border-radius: 8px;
-    padding: 2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-light); 
-}
-
-.about-preview-box:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-
-#about h2, 
-#about .section-subtitle {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.about-preview-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; 
-    border-radius: 8px;
-}
-
-.about-preview-text p {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-light); 
-}
-.about-preview-text .btn {
-    display: inline-block; 
-}
-
-
-/* about.html sayfası için özel layout */
-.about-page-grid {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 40px;
-    padding-top: 20px;
-}
-
-.about-side-heading {
-    display: none; 
-}
-.about-side-heading h2 {
-    font-size: 6rem; 
-    font-weight: 900; 
-    color: var(--text-dark); 
-    opacity: 0.8; 
-    writing-mode: vertical-rl; 
-    transform: rotate(180deg);
-    line-height: 1;
-    text-align: right;
-    margin: 0;
-    position: sticky; 
-    top: 100px; 
-}
-
-.about-main-content {
-}
-
-.about-text-block {
-    margin-bottom: 40px;
-}
-.about-text-block h3 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-.about-text-block p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-light); 
-    margin-bottom: 20px;
-}
-
-.about-image-block {
-    margin-bottom: 40px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-soft);
-    background-color: var(--background-light); 
-}
-.about-image-block img {
-    width: 100%; 
-    height: 400px; 
-    object-fit: contain; 
-    border-radius: 8px;
-}
-
-.about-details-inline {
-    background-color: var(--background-light); 
-    padding: 30px;
-    border-radius: 10px; 
-    margin-top: 30px;
-}
-.about-details-inline h4 {
-    font-size: 1.5rem;
-    color: var(--text-dark); 
-    margin-bottom: 20px;
-}
-.tech-list-inline {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.hero-buttons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-.tech-list-inline li {
-    background-color: var(--border-light); 
-    color: var(--text-dark); 
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 0.95rem;
-}
-
-
-/* ===============================================
-    BÖLÜM 7.5: Timeline (DÜZELTİLDİ: Ortadan Çizgili, Yıl-İçerik Sorunu Giderildi)
-=============================================== */
-#timeline { 
-    background-color: var(--background-light); 
-    box-shadow: none; 
-    padding: 80px 0;
-}
-.timeline-container { 
-    position: relative; 
-    max-width: 900px; 
-    margin: 0 auto; 
-}
-.timeline-container::after { 
-    content: ''; 
-    position: absolute; 
-    width: 4px; 
-    background-color: var(--primary-color); 
-    top: 0; 
-    bottom: 0; 
-    left: 50%; 
-    margin-left: -2px; 
-}
-.timeline-item { 
-    padding: 10px 40px; 
-    position: relative; 
-    width: 50%; 
-}
-.timeline-dot { 
-    content: ''; 
-    position: absolute; 
-    width: 24px; 
-    height: 24px; 
-    background-color: var(--primary-color); 
-    border: 4px solid var(--background-white); 
-    top: 32px; 
-    border-radius: 50%; 
-    z-index: 1; 
-    box-shadow: var(--shadow-soft);
-}
-.timeline-content { 
-    padding: 25px 30px; 
-    background-color: var(--background-white); 
-    position: relative; 
-    border-radius: 10px; 
-    box-shadow: var(--shadow-soft); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-}
-.timeline-content:hover {
-    transform: translateY(-5px); 
-    box-shadow: var(--shadow-medium); 
-}
-.timeline-content h3 { 
-    margin-top: 0; 
-    font-size: 1.3rem; 
-    color: var(--primary-color); 
-    margin-bottom: 10px;
-}
-.timeline-content p {
-    font-size: 0.95rem;
-    margin-bottom: 0;
-}
-.timeline-date {
-    position: relative; 
-    display: block; 
-    font-weight: 700;
-    font-size: 1.2rem; 
-    color: var(--primary-hover); 
-    margin-bottom: 10px; 
-    text-align: inherit; 
-    padding-left: 0;
-    padding-right: 0;
-}
-.timeline-item:nth-child(odd) { 
-    left: 0; 
-    padding-right: 30px; 
-    text-align: right; 
-}
-.timeline-item:nth-child(even) { 
-    left: 50%; 
-    padding-left: 30px; 
-    text-align: left; 
-}
-.timeline-item:nth-child(odd) .timeline-dot { 
-    right: -12px; 
-    left: auto; 
-}
-.timeline-item:nth-child(even) .timeline-dot { 
-    left: -12px; 
-    right: auto; 
-}
-.timeline-item-hidden {
-    display: none;
-}
-.timeline-button-container {
-    text-align: center;
-    margin-top: 30px;
-    position: relative;
-    z-index: 2;
-}
-
-
-/* ===============================================
-    BÖLÜM 7.7: Galeri (YENİ STİLLER)
-=============================================== */
-#gallery-preview {
-    background-color: var(--background-light); 
-    box-shadow: none;
-    padding: 80px 40px;
-}
-.gallery-preview-header {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 50px auto;
-}
-.gallery-preview-header h2 {
-    color: var(--text-dark);
-}
-.gallery-preview-header p {
-    font-size: 1.15rem;
-    color: var(--text-light);
-    margin-bottom: 30px;
-}
-.gallery-preview-features {
-    text-align: center;
-    margin-bottom: 60px;
-}
-.gallery-preview-features h3 {
-    font-size: 1.8rem;
-    color: var(--text-dark);
-    margin-bottom: 40px;
-}
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-.feature-card {
-    background-color: var(--background-white);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
-    text-align: left;
-}
-.feature-card i {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-.feature-card h4 {
-    font-size: 1.3rem;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-}
-.feature-card p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    margin-bottom: 0;
-}
-.gallery-preview-cta {
-    text-align: center;
-    background-color: var(--primary-color);
-    border-radius: 12px;
-    padding: 50px 40px;
-    box-shadow: var(--shadow-medium);
-}
-.gallery-preview-cta h3 {
-    font-size: 2rem;
-    color: #ffffff;
-}
-.gallery-preview-cta p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 30px;
-}
-.gallery-preview-cta .btn-secondary {
-    background-color: var(--background-white);
-    color: var(--primary-color);
-    border-color: var(--background-white);
-}
-.gallery-preview-cta .btn-secondary:hover {
-    background-color: #f0f0f0;
-    border-color: #f0f0f0;
-}
-
-/* gallery.html - Ana Galeri Sayfası */
-.gallery-hero {
-    background-color: var(--primary-color);
-    padding: 60px 40px;
-    text-align: center;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-.gallery-hero h1 {
-    color: #ffffff;
-    font-size: 3rem;
-}
-.gallery-hero p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.15rem;
-    margin-bottom: 0;
-}
-
-.filter-bar {
-    text-align: center;
-    margin-bottom: 40px;
-}
-.filter-btn {
-    background: none;
-    border: 2px solid var(--border-light);
-    color: var(--text-light);
-    padding: 8px 16px;
-    margin: 5px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-.filter-btn:hover {
-    background-color: var(--border-light);
-    color: var(--text-dark);
-}
-.filter-btn.active {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-color: var(--primary-color);
-}
-
-.gallery-main-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.gallery-card {
-    text-decoration: none;
-    background-color: var(--background-white);
-    border-radius: 8px;
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-.gallery-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-.card-image {
-    position: relative;
-    width: 100%;
-    height: 250px; 
-    background-color: var(--background-light);
-}
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-}
-.card-tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-    padding: 4px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-.card-content {
-    padding: 20px;
-}
-.card-title {
-    font-size: 1.3rem;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-}
-.card-description {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    margin-bottom: 15px;
-}
-.card-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-.card-meta span {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.card-meta i {
-    color: var(--primary-color);
-}
-
-/* gallery-item-1.html - Galeri Detay Sayfası */
-.gallery-detail-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-}
-.gallery-detail-image {
-    background-color: var(--background-light);
-    border-radius: 8px;
-    box-shadow: var(--shadow-medium);
-}
-.gallery-detail-image img {
-    width: 100%;
-    max-height: 70vh; 
-    object-fit: contain; 
-    border-radius: 8px;
-    display: block; 
-}
-.gallery-detail-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-.gallery-detail-content .card-tag {
-    position: static; 
-    display: inline-block;
-    background-color: var(--border-light);
-    color: var(--primary-hover);
-    margin-bottom: 15px;
-}
-.gallery-detail-content .card-meta {
     flex-direction: row;
-    gap: 20px;
-    margin-bottom: 25px;
+    gap: 15px;
 }
-.gallery-detail-content p {
+.hero-image-wrapper {
+    order: 2; 
+    width: 100%;
+}
+.hero-image {
+    width: 100%;
+    height: 500px; /* FOTOĞRAF BOYUTU DÜZELTİLDİ */
+    aspect-ratio: 4 / 5; 
+    border-radius: 12px; 
+    object-fit: cover; /* FOTOĞRAFIN KONTEYNERİ DOLDURMA ŞEKLİ */
+    border: 1px solid var(--border-elegant);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===============================================
+   BÖLÜM 5.5: Marquee (Kayan Yazı)
+=============================================== */
+.marquee-wrapper {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-elegant);
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--background-alt);
+}
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    font-family: var(--font-main);
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+.marquee-content span { margin-right: 30px; }
+.marquee-content .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--text-muted);
+    border-radius: 50%;
+    margin-right: 30px;
+    vertical-align: middle;
+}
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } 
+}
+
+/* ===============================================
+   BÖLÜM 6: About (DÜZELTİLMİŞ YERLEŞİM)
+=============================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.about-image-wrapper img {
+    width: 100%;
+    height: 500px; /* FOTOĞRAF BOYUTU DÜZELTİLDİ */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-elegant);
+}
+.about-text-wrapper h2 {
+    font-size: 2.5rem;
+}
+.about-text-wrapper p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-light);
+    margin-bottom: 30px;
 }
-.gallery-detail-memory {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 30px;
-    font-weight: 600;
-    color: var(--text-light);
-}
-.gallery-detail-memory i {
-    color: var(--primary-color);
-}
-
 
 /* ===============================================
-    SECTION 10.5: Gallery Detail Page (Video)
+   BÖLÜM 7: Projects (DÜZELTİLMİŞ YERLEŞİM)
 =============================================== */
-.photo-gallery-bottom {
-    background-color: var(--background-light); 
-    box-shadow: none;
-    padding-top: 60px;
-    padding-bottom: 80px;
-}
-.photo-gallery-bottom h2 {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-/* 4-column grid for photos */
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 15px;
-}
-.photo-grid a {
-    display: block;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: var(--background-light);
-}
-.photo-grid img {
-    width: 100%;
-    height: 200px; 
-    object-fit: contain; 
-    display: block;
-    transition: transform 0.3s ease;
-}
-.photo-grid a:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-.photo-grid a:hover img {
-    transform: scale(1.05);
-}
-
-/* 4-column grid for videos */
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    justify-items: center;
-}
-
-/* Instagram Phone frame */
-.instagram-story-frame {
-    position: relative;
-    width: 250px; 
-    height: 445px; 
-    background-color: #1A1A1A;
-    border: 10px solid #111;
-    border-radius: 40px; 
-    box-shadow: var(--shadow-soft);
-    overflow: hidden; 
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.instagram-story-frame:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-.instagram-story-frame video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-}
-.story-header {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 3;
-}
-.story-header img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    object-fit: contain;
-}
-.story-header span {
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-.story-footer {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    z-index: 3;
-}
-.story-footer input {
-    flex-grow: 1;
-    background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
-    border-radius: 20px;
-    padding: 8px 12px;
-    color: #fff;
-    font-size: 0.9rem;
-}
-.story-footer input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-.story-footer i {
-    font-size: 1.5rem;
-    color: #fff;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-.story-play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2.5rem;
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    transition: opacity 0.3s ease;
-}
-
-/* Normal Video Grid (non-Instagram) */
-.video-grid-normal {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 30px;
-}
-.video-card {
-    background: var(--background-white);
-    border-radius: 8px;
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.video-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-.video-preview-wrapper {
-    position: relative;
-    width: 100%;
-    height: 400px; 
-    background-color: #000; 
-    border-radius: 8px 8px 0 0; 
-    overflow: hidden; 
-}
-.video-card video,
-.video-preview-wrapper img { /* DÜZELTME: img de eklendi */
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* KIRPMA YOK */
-    display: block;
-}
-.video-card .story-play-button {
-    /* Style already exists, will be applied */
-}
-.video-card p {
-    padding: 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    text-align: center;
-    margin-bottom: 0;
-}
-
-
-/* ===============================================
-    SECTION 10.6: Video Lightbox (Modal)
-=============================================== */
-.video-modal-overlay {
-    display: none; 
-    position: fixed; 
-    z-index: 2000; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); 
-    overflow: hidden; 
-    display: none;
-    align-items: center; 
-    justify-content: center; 
-    animation: fadeIn 0.3s ease-out;
-}
-.video-modal-content {
-    position: relative;
-    background-color: #000;
-    
-    /* Varsayılan olarak Dikey (9:16) video stilini ayarla */
-    width: auto;
-    height: 90vh;
-    max-width: 90vw;
-    aspect-ratio: 9 / 16;
-}
-
-/* YENİ: YouTube (16:9) videoları için stil */
-.video-modal-content[data-aspect-ratio="16:9"] {
-    width: 90vw;
-    height: auto;
-    max-height: 90vh;
-    aspect-ratio: 16 / 9;
-}
-
-.video-modal-content video,
-.video-modal-content iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    border: none;
-    object-fit: contain; /* Güvenlik için, ama aspect-ratio halletmeli */
-}
-.modal-close {
-    color: #FFFFFF; 
-    opacity: 0.8;
-    position: absolute; 
-    top: 25px;
-    right: 35px;
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-    z-index: 2001; 
-}
-.modal-close:hover,
-.modal-close:focus {
-    color: var(--primary-color);
-    transform: scale(1.1);
-    opacity: 1;
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-
-/* ===============================================
-    SECTION 8: Projects
-=============================================== */
-#project-preview { 
-    padding: 60px 40px; 
-}
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 .project-card {
-    background-color: var(--background-white); 
-    border-radius: 12px; 
-    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    border: 1px solid var(--border-elegant);
+    border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    background-color: var(--background-main); 
 }
 .project-card:hover {
-    transform: translateY(-8px); 
+    transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
+    border-color: #555; 
 }
 .project-image {
     width: 100%;
-    height: 200px; 
-    background-color: var(--background-light);
-    display: block;
-    border-bottom: 1px solid var(--border-light); 
+    height: 220px;
+    border-bottom: 1px solid var(--border-elegant);
+    overflow: hidden; 
+    background-color: #000;
 }
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: transform 0.4s ease;
+}
+.project-card:hover .project-image img {
+    transform: scale(1.05); 
 }
 .project-content {
     padding: 25px;
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 .project-content h3 {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: var(--text-light);
 }
 .project-content p {
     font-size: 0.95rem;
-    color: var(--text-light);
-    margin-bottom: 20px;
-    flex-grow: 1; 
-}
-.project-content .btn {
-    align-self: flex-start; 
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    border-radius: 6px;
-}
-.projects-button-container {
-    text-align: center;
-    margin-top: 30px;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 0;
 }
 
-
-/* ===============================================
-    SECTION 8.5: Testimonials
-=============================================== */
-#testimonials {
-    background-color: var(--background-light); 
-    box-shadow: none; 
-    padding: 80px 0;
-}
-.testimonial-grid {
+/* Projects preview grid (ana sayfada tüm 28 kart) */
+.projects-preview-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 22px;
+    align-items: stretch;
+    margin-top: 20px;
 }
-.testimonial-card {
-    background-color: var(--background-white); 
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
-    border-top: 4px solid var(--primary-color); 
+
+/* Project card styling (uyumlu, görsel odaklı) */
+.projects-preview-grid .project-card {
+    display: block;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    height: 320px;
     display: flex;
     flex-direction: column;
 }
-.testimonial-card .quote {
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--text-light);
-    flex-grow: 1; 
-    margin-bottom: 20px;
-}
-.testimonial-card .author {
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0;
-}
-.testimonial-card .title {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 0;
+.projects-preview-grid .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+
+/* görsel alanı */
+.projects-preview-grid .project-image {
+    height: 220px;
+    background-color: #0e0e0e;
+    overflow: hidden;
+    display: block;
 }
 
+/* Görseli <img> ile gösterme: object-fit kullan */
+.projects-preview-grid .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center;
+    transition: transform 0.4s ease;
+}
+
+.projects-preview-grid .project-card:hover .project-image img {
+    transform: scale(1.03);
+}
+
+/* içerik başlığı */
+.projects-preview-grid .project-content {
+    padding: 14px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.projects-preview-grid .project-content h3 {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* responsive: dar ekranlarda 1-2 sütun */
+@media (max-width: 1100px) {
+    .projects-preview-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+@media (max-width: 680px) {
+    .projects-preview-grid { grid-template-columns: 1fr; gap: 16px; }
+    .projects-preview-grid .project-card { height: auto; }
+}
+
+/* Görsel kartlar için placeholder arka plan rengi (yüklenmemiş resimlerde hoş görünür) */
+.projects-preview-grid .project-image { background-color: #0e0e0e; border-bottom: 1px solid rgba(255,255,255,0.02); }
+
+/* small tweak: projects section üstünde preview gözüksün ama "My Projects" bölümünü koru */
+#projects { margin-top: 40px; }
 
 /* ===============================================
-    SECTION 9: Contact (Social Icons)
+   BÖLÜM 8: Timeline (DÜZELTİLMİŞ YERLEŞİM)
 =============================================== */
-#contact {
+.timeline-simple-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    border-top: 1px solid var(--border-elegant);
+    padding-top: 40px;
+}
+.timeline-simple-item {
+    border-bottom: 1px solid var(--border-elegant);
+    padding-bottom: 30px;
+}
+.timeline-simple-date {
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.timeline-simple-item h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin: 5px 0 10px 0;
+}
+.timeline-simple-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ===============================================
+   BÖLÜM 10: Contact CTA
+=============================================== */
+.cta-section {
+    background-color: var(--background-alt);
+    color: var(--text-light);
     text-align: center;
-    padding: 60px 40px; 
-    margin-bottom: 0; 
+    padding: 100px 0;
+    border-bottom: none;
+}
+.cta-content h2 {
+    color: var(--text-light);
+}
+.cta-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
 }
 .social-icons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px; 
-    margin-top: 40px;
 }
 .social-icons a {
     display: inline-flex; 
     align-items: center;
     justify-content: center;
-    width: 60px;  
-    height: 60px; 
+    width: 50px;  
+    height: 50px; 
     border-radius: 50%; 
-    background-color: var(--background-white); 
-    border: 2px solid var(--border-light); 
-    color: var(--primary-color);
-    font-size: 1.5rem; 
-    text-decoration: none;
+    border: 1px solid var(--border-elegant); 
+    color: var(--text-light);
+    font-size: 1.2rem; 
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-soft);
 }
 .social-icons a:hover {
-    background-color: var(--primary-color);
-    color: var(--background-white); 
-    transform: translateY(-5px); 
-    box-shadow: var(--shadow-medium);
-}
-
-
-/* ===============================================
-    SECTION 10: Project Detail Page Styles
-=============================================== */
-.project-detail-page section { 
-    box-shadow: none; 
-    padding: 40px 0; 
-    margin-bottom: 0; 
-    border-bottom: 1px solid var(--border-light); 
-    border-radius: 0; 
-}
-.project-detail-header {
-    text-align: left;
-    padding-top: 60px;
-    border-bottom: none;
-}
-.project-detail-header h1 {
-    font-size: 3rem;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-.project-subtitle {
-    text-align: left;
-    font-size: 1.2rem;
-    color: var(--text-light);
-    margin-bottom: 40px;
-}
-.project-detail-main-image {
-    width: 100%;
-    max-height: 500px;
-    object-fit: contain;
-    border-radius: 12px;
-    box-shadow: var(--shadow-medium);
-    margin-bottom: 50px;
-    background-color: var(--background-light);
-}
-.project-detail-content {
-    padding-top: 0;
-    border-bottom: none;
-}
-.project-detail-grid { 
-    display: grid; 
-    grid-template-columns: 1fr; 
-    gap: 40px; 
-}
-.project-detail-text h2 {
-    font-size: 2rem;
+    background-color: var(--text-light);
     color: var(--text-dark); 
-    margin-top: 30px;
+    transform: translateY(-2px); 
+    border-color: var(--text-light);
 }
-.project-detail-text h3 {
-    font-size: 1.75rem;
-    color: var(--primary-color);
-    margin-top: 25px;
-    margin-bottom: 10px;
+
+/* ===============================================
+   BÖLÜM 11: Footer
+=============================================== */
+footer {
+    background-color: var(--background-main);
+    border-top: 1px solid var(--border-elegant);
+    padding: 30px 0;
 }
-.project-detail-text p {
-    font-size: 1rem;
-    line-height: 1.8;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.project-detail-text ul {
-    list-style-position: inside;
-    margin-left: 10px;
-    margin-bottom: 15px;
-}
-.project-detail-text ul li {
+.footer-content .logo { 
+    font-size: 1.7rem; 
     color: var(--text-light);
-    margin-bottom: 10px;
-    line-height: 1.7;
+    font-family: var(--font-headings); 
 }
-.project-detail-sidebar .tech-box {
-    background-color: var(--background-light); 
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-soft);
-    margin-bottom: 30px;
+.footer-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
 }
-.project-detail-sidebar .tech-box h3 {
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-.project-detail-sidebar .tech-list {
-    display: block; 
-}
-.project-detail-sidebar .tech-list li {
-    background-color: transparent; 
-    text-align: left;
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--border-light); 
-    border-radius: 0;
-    color: var(--text-light); 
-}
-.project-detail-sidebar .tech-list li:last-child {
-    border-bottom: none;
-}
-
 
 /* ===============================================
-    SECTION 11: Responsive Rules
+   BÖLÜM 12: Mobil Responsive (YENİ NAVİGASYON VE DÜZELTİLMİŞ FOTOĞRAFLAR)
 =============================================== */
-@media (max-width: 992px) {
-    .hero h1 { font-size: 3rem; }
-    .hero-description { font-size: 1.15rem; }
-    .nav-links { display: none; } 
-    nav { justify-content: center; } 
-    .logo { margin-bottom: 15px; }
-
-    .gallery-main-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 769px) {
-    .project-detail-grid { grid-template-columns: 2.5fr 1fr; }
-
-    /* about.html desktop grid */
-    .about-page-grid {
-        grid-template-columns: 200px 1fr; 
-        gap: 60px; 
-    }
-    .about-side-heading {
-        display: block; 
-    }
-    
-    .about-main-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr; 
-        gap: 40px 60px; 
-        align-items: start; 
-    }
-    .about-text-block {
-        grid-column: 1 / -1; 
-        margin-bottom: 0; 
-    }
-    .about-image-block {
-        grid-column: span 1;
-        margin-bottom: 0; 
-    }
-    .about-text-block:nth-of-type(1) {
-        grid-column: 1 / -1; 
-    }
-    .about-image-block:nth-of-type(2) {
-        grid-column: 1 / 2; 
-    }
-    .about-text-block:nth-of-type(3) { 
-         grid-column: 2 / -1; 
-         grid-row: 2; 
-    }
-    .about-image-block:nth-of-type(4) { 
-        grid-column: 2 / -1; 
-        grid-row: 3;
-    }
-    .about-text-block:nth-of-type(5) { 
-         grid-column: 1 / 2; 
-         grid-row: 3;
-    }
-    .about-image-block:nth-of-type(6) {
-        grid-column: 1 / 2; 
-        grid-row: 4;
-    }
-    .about-text-block:nth-of-type(7) {
-        grid-column: 1 / -1; 
-        grid-row: 5;
-    }
-
-    /* Gallery Detail Page Desktop */
-    .gallery-detail-grid {
-        grid-template-columns: 3fr 2fr; 
-    }
-}
 @media (max-width: 768px) {
-    .container {
-        padding-left: 20px;
-        padding-right: 20px;
+    .main-container {
+        padding-left: 15px;
+        padding-right: 15px;
     }
-    section, 
-    #project-preview, 
-    #contact {
-        padding-left: 20px;
-        padding-right: 20px;
+    .page-section {
+        padding: 60px 0;
     }
-    section.hero,
-    .page-content section {
-        padding-left: 20px;
-        padding-right: 20px;
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    
+    /* Mobil Header Ayarı */
+    header {
+        background-color: var(--background-main);
+        position: relative;
+        padding: 10px 0;
     }
-    #timeline, #gallery-preview, #testimonials {
-        padding-left: 20px;
-        padding-right: 20px;
+    .logo {
+        font-size: 2rem;
     }
     
-    h2 { font-size: 2rem; }
-    .section-subtitle { font-size: 1rem; }
-    .hero { padding-top: 60px; padding-bottom: 60px; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero-description { font-size: 1rem; }
-    .hero .btn { min-width: unset; width: 100%; margin: 10px 0; }
-    .hero .btn-primary { margin-right: 0; }
-
-    /* about.html responsive */
-    .about-text-block h3 {
-        font-size: 1.5rem;
+    /* Hamburger Menüsü */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 1002;
     }
-    .about-image-block img {
-        height: 300px; 
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-light);
+        margin: 5px 0;
+        transition: all 0.3s ease;
     }
-    .tech-list-inline {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    .nav-bar-wrapper {
+        display: none; /* Varsayılan olarak gizle */
     }
-
-    .about-preview-box {
-        grid-template-columns: 1fr; 
-        gap: 1.5rem;
-        padding: 1.5rem;
+    .nav-bar-wrapper.mobile-active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid var(--border-elegant);
+        padding: 20px 0;
+        z-index: 1000;
+        animation: slideDown 0.4s ease;
     }
-
-    /* Responsive Timeline */
-    .timeline-container::after { 
-        left: 20px; 
-        margin-left: 0; 
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
     }
-    .timeline-item { 
-        width: 100%; 
-        padding-left: 50px; 
-        padding-right: 10px; 
-        left: 0 !important; 
-        text-align: left !important; 
+    .lang-switcher {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
     }
-    .timeline-dot { 
-        left: 10px !important; 
-        right: auto !important; 
-        top: 35px;
+    .nav-contact-btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1rem;
     }
-    .timeline-date {
-        font-size: 1rem; 
-        margin-bottom: 5px; 
-    }
-    .timeline-content { 
-        padding: 15px 20px; 
-    }
-    .timeline-content h3 { 
-        font-size: 1.1rem; 
-    }
-
-    .project-grid { grid-template-columns: 1fr; }
-    
-    /* Responsive Gallery */
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
-    .gallery-main-grid { 
-        grid-template-columns: 1fr; 
-    }
-    .gallery-hero h1 {
-        font-size: 2.2rem;
-    }
-    .photo-grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-    .video-grid-normal {
-        grid-template-columns: 1fr;
-    }
-    .video-preview-wrapper {
-        height: 400px; 
-    }
-
-
-    /* Responsive Testimonials */
-    .testimonial-grid {
-        grid-template-columns: 1fr; 
-    }
-
-    .social-icons a {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-
-    .project-detail-header h1 { font-size: 2rem; }
-    .project-subtitle { font-size: 1rem; }
-    .project-detail-text h2 { font-size: 1.6rem; }
-    .project-detail-text h3 { font-size: 1.4rem; }
-    .project-detail-main-image { max-height: 300px; }
-
-    .hero-content { flex-direction: column; text-align: center; } 
-    .hero-text { text-align: center; }
-    .hero h1, .hero-subtitle, .hero-description { text-align: center; margin-left: auto; margin-right: auto; }
-    .hero-image { width: 150px; height: 150px; margin: 20px auto 0 auto; }
 }
+
+/* Menü açılırken kayma animasyonu */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Non-home: sabit header + top-controls her zaman üstte --- */
+body:not(.home) header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    /* hafif arka plan/blur, istersen tamamen transparent yap */
+    background: linear-gradient(180deg, rgba(8,10,10,0.92), rgba(8,10,10,0.75));
+    backdrop-filter: blur(6px);
+    padding: 14px 0;
+}
+
+/* header yüksekliğine göre içerik aşağı itilsin (header padding + iç yüksekliğe göre ayarla) */
+body:not(.home) .page-content,
+body:not(.home) main,
+body:not(.home) .container {
+    padding-top: 92px; /* header yüksekliği + 20px boşluk — ihtiyaç halinde küçült/büyüt */
+}
+
+/* top-controls zaten fixed; görünürlüğünü koru */
+body:not(.home) .top-controls { top: 12px; right: 18px; }
+
+/* Nav linkleri (About Me vb.) header içinde düzgün hizalansın */
+body:not(.home) header nav { display:flex; align-items:center; justify-content:space-between; }
+
+/* Mobile: header sabit iken içerik daha küçük padding alsın */
+@media (max-width: 900px) {
+    body:not(.home) header { padding: 10px 0; }
+    body:not(.home) .page-content,
+    body:not(.home) main,
+    body:not(.home) .container { padding-top: 76px; }
+}
+
+/* ===== UNIFORM COMPACT NAVBAR: make all pages use homepage navbar sizing ===== */
+
+/* Reduce header vertical size */
+header {
+    padding: 10px 0 !important;
+    height: auto !important;
+}
+
+/* Logo smaller and compact */
+header .logo {
+    font-size: 1.6rem !important;
+    line-height: 1 !important;
+    padding: 0 8px !important;
+}
+
+/* Compact nav-bar wrapper for both fixed and normal states */
+.nav-bar-wrapper,
+.nav-bar-wrapper.fixed {
+    padding: 6px 10px !important;
+    margin: 8px auto !important;
+    width: calc(100% - 60px) !important;
+    max-width: 1060px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45) !important;
+    background: linear-gradient(180deg, rgba(8,10,10,0.72), rgba(8,10,10,0.40)) !important;
+    backdrop-filter: blur(3px) !important;
+}
+
+/* Make inner menu more compact */
+.nav-bar-wrapper .nav-menu {
+    padding: 6px 0 !important;
+    gap: 1rem !important;
+}
+
+/* Nav links smaller, tighter spacing */
+.nav-links a {
+    font-size: 0.95rem !important;
+    padding: 6px 8px !important;
+    letter-spacing: 0.6px !important;
+}
+
+/* Reduce active/nav hover underline size */
+.nav-links a.nav-active,
+.nav-links a:hover {
+    padding-bottom: 6px !important;
+}
+
+/* Top-controls (lang + contact) compact and inline */
+.top-controls {
+    top: 10px !important;
+    right: 12px !important;
+    gap: 8px !important;
+    padding: 4px !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+}
+.top-controls .lang-switcher { gap: 6px !important; }
+.top-controls .lang-switcher a {
+    padding: 5px 8px !important;
+    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+}
+
+/* Ensure header nav layout remains horizontal and centered */
+header nav { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+
+/* Make sure these overrides have priority on small screens too */
+@media (max-width: 900px) {
+    .nav-bar-wrapper,
+    .nav-bar-wrapper.fixed { width: calc(100% - 24px) !important; margin: 6px 12px !important; padding: 6px 10px !important; }
+    .nav-links a { font-size: 0.9rem !important; padding: 6px 6px !important; }
+    .top-controls { right: 8px !important; top: 8px !important; }
+    header .logo { font-size: 1.5rem !important; }
+}
+
+/* --------- TRANSPARENT / GLASSOVERRIDE --------- */
+/* Make sections and usual containers transparent so top background shows through */
+.page-section,
+.cta-section,
+.hero-section,
+.marquee-wrapper,
+.nav-bar-wrapper.fixed,
+footer,
+footer .footer-content,
+.testimonials-wrap,
+.projects-preview-grid .project-card,
+.project-card,
+.about-image-wrapper,
+.hero-image-wrapper,
+.main-container {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Use very subtle borders (or remove) so layout remains but looks transparent */
+.page-section,
+.project-card,
+.projects-preview-grid .project-card,
+footer {
+    border-color: rgba(255,255,255,0.04) !important;
+}
+
+/* Slight glass effect if you still want contrast (optional) */
+.projects-preview-grid .project-card,
+.project-card,
+.testimonial-card,
+.contact-card,
+.cta-content,
+.footer-content {
+    background: linear-gradient(180deg, rgba(10,10,10,0.12), rgba(10,10,10,0.06));
+    backdrop-filter: blur(6px);
+}
+
+/* Ensure nav top-controls remains clearly visible on top */
+.top-controls {
+    background: transparent !important;
+}
+
+/* Buttons keep contrast */
+.btn-primary {
+    background-color: rgba(255,255,255,0.95);
+    color: var(--text-dark);
+}
+
+/* Make image containers keep transparency but images remain full-bleed */
+.hero-image, .about-image-wrapper img, .project-image img {
+    background: transparent;
+}
+
+/* Reduce section paddings slightly for cohesive look over background */
+.page-section { padding-top: 80px; padding-bottom: 80px; }
+
+/* Contact grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+}
+.contact-card {
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.04);
+    color: var(--text-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+    .projects-preview-grid { gap: 14px; }
+}
+@media (max-width: 680px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .page-section { padding-top: 56px; padding-bottom: 56px; }
+}
+
+/* ===== Gallery page sizing & layout fixes - make gallery match homepage look ===== */
+
+/* Make .container behave like .main-container used on homepage */
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+}
+
+/* Gallery hero (reduce oversize headings) */
+.gallery-hero {
+    padding: 48px 0 16px;
+}
+.gallery-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.gallery-hero p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 760px;
+}
+
+/* Filter bar compact */
+.filter-bar {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin: 18px 0;
+}
+.filter-btn {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.02);
+    color: var(--text-light);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+.filter-btn.active { background: linear-gradient(90deg, rgba(10,140,114,0.12), rgba(6,90,80,0.06)); color: var(--logo-green); }
+
+/* Grid: same sizing as homepage preview */
+.gallery-main-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 36px;
+}
+
+/* Individual card: compact, dark panel similar to homepage preview cards */
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(10,10,10,0.6), rgba(8,8,8,0.55));
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-decoration: none;
+    color: inherit;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.gallery-card:hover { transform: translateY(-6px); box-shadow: 0 18px 60px rgba(0,0,0,0.7); }
+
+/* Image area - fixed height to match preview style */
+.card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: #0b0b0b;
+    position: relative;
+}
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+.gallery-card:hover .card-image img { transform: scale(1.03); }
+
+/* Tag overlay */
+.card-tag {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    background: rgba(0,0,0,0.5);
+    color: #bfeee0;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    backdrop-filter: blur(4px);
+}
+
+/* Content */
+.card-content {
+    padding: 14px 16px 18px;
+}
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+.card-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+.card-meta {
+    display:flex;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    align-items: center;
+}
+
+/* Small screens: 2 columns then 1 column */
+@media (max-width: 1100px) {
+    .gallery-main-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card-image { height: 180px; }
+}
+@media (max-width: 680px) {
+    .gallery-main-grid { grid-template-columns: 1fr; gap: 14px; }
+    .gallery-hero { padding-top: 36px; }
+    .gallery-hero h1 { font-size: 1.6rem; }
+    .card-image { height: 220px; }
+    .card-content { padding: 12px; }
+}
+
+/* Ensure typography uses the same base sizes as homepage */
+h1, h2, h3 { font-family: var(--font-headings, 'Cormorant Garamond'), serif; }
+
+/* ===== Fix for non-home pages: smaller headings, normal header and responsive images ===== */
+
+/* Make header absolute only on homepage; default to relative on other pages */
+header { position: relative; background-color: transparent; }
+body.home header { position: absolute; top: 0; left: 0; width: 100%; z-index: 1000; }
+
+/* Target interior pages (any page that uses .page-content / .container) */
+.page-content h1,
+.container h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem) !important;
+    line-height: 1.12;
+    margin-bottom: 10px;
+}
+.page-content h2,
+.container h2 {
+    font-size: clamp(1.2rem, 3.2vw, 1.8rem) !important;
+    margin-bottom: 10px;
+}
+.page-content h3,
+.container h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 8px;
+}
+
+/* Reduce section paddings for internal pages so content doesn't crowd */
+.page-content .page-section,
+.container .page-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* ===== Non-home pages: normalize image/video sizes & zig-zag layout ===== */
+
+/* Genel: sadece home olmayan sayfalarda daha küçük, tutarlı medya boyutları */
+body:not(.home) img,
+body:not(.home) picture,
+body:not(.home) video,
+body:not(.home) iframe,
+body:not(.home) .project-image img,
+body:not(.home) .card-image img,
+body:not(.home) .about-image-block img,
+body:not(.home) .hero-image,
+body:not(.home) .gallery-card img,
+body:not(.home) .photo-grid img,
+body:not(.home) .testimonial-photo {
+    width: 100% !important;
+    max-width: 760px !important;        /* üst sınır; değiştirilebilir */
+    height: auto !important;
+    max-height: 480px !important;       /* büyük görseller için mantıklı sınır */
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+/* thumbnails / sub photos daha küçük */
+body:not(.home) .sub-photo,
+body:not(.home) .photo-grid img,
+body:not(.home) .projects-preview-grid .project-image,
+body:not(.home) .card-image {
+    max-width: 420px !important;
+    max-height: 220px !important;
+    height: auto !important;
+}
+
+/* Hero/large masthead guards: prevent them from occupying full viewport on inner pages */
+body:not(.home) .hero-section,
+body:not(.home) .hero-image-wrapper,
+body:not(.home) .hero-grid {
+    height: auto !important;
+    max-height: 520px !important;
+    overflow: hidden !important;
+}
+
+/* Embedded media (YouTube iframes) constrained */
+body:not(.home) iframe,
+body:not(.home) .embed-video,
+body:not(.home) video {
+    width: 100% !important;
+    max-width: 900px !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    display: block !important;
+    margin: 18px auto !important;
+}
+
+/* Background-images: keep cover but limit element height */
+body:not(.home) [style*="background-image"],
+body:not(.home) .bg-image {
+    background-size: cover !important;
+    background-position: center center !important;
+    max-height: 520px !important;
+    overflow: hidden !important;
+}
+
+/* Make paired zig-zag layout stable: force images to not overflow text blocks */
+body:not(.home) .pair .about-image-block img,
+body:not(.home) .pair.reverse .about-image-block img {
+    max-width: 440px !important;
+    max-height: 420px !important;
+}
+
+/* Strong fallback: if anything still overflows, cap container widths */
+body:not(.home) .container,
+body:not(.home) .main-container {
+    max-width: 1120px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+/* Reduce headings on inner pages if oversized */
+body:not(.home) h1 { font-size: clamp(1.6rem, 3.6vw, 2.4rem) !important; line-height:1.12 !important; }
+body:not(.home) h2 { font-size: clamp(1.1rem, 2.6vw, 1.8rem) !important; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    body:not(.home) img,
+    body:not(.home) .photo-grid img,
+    body:not(.home) .card-image img {
+        max-height: 380px !important;
+    }
+    body:not(.home) .sub-photo,
+    body:not(.home) .photo-grid img {
+        max-height: 220px !important;
+    }
+}
+
+/* End overrides */
 
 /* ===============================================
-    SECTION 12: Scroll Animation
+   ÖZEL SINIFLAR
 =============================================== */
-.fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(30px); 
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.text-center {
+    text-align: center;
+}
+.text-muted {
+    color: var(--text-muted) !important;
+}
+.bg-primary {
+    background-color: var(--background-main) !important;
+}
+.bg-alt {
+    background-color: var(--background-alt) !important;
+}
+.border-elegant {
+    border-color: var(--border-elegant) !important;
+}
+.shadow-medium {
+    box-shadow: var(--shadow-medium) !important;
+}
+.shadow-subtle {
+    box-shadow: var(--shadow-subtle) !important;
+}
+.rounded-lg {
+    border-radius: 12px !important;
+}
+.py-100 {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+}
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.max-w-1100 {
+    max-width: 1100px !important;
+}
+.position-relative {
+    position: relative !important;
+}
+.z-1000 {
+    z-index: 1000 !important;
+}
+.z-1002 {
+    z-index: 1002 !important;
+}
+.z-999 {
+    z-index: 999 !important;
+}
+.opacity-0 {
+    opacity: 0 !important;
+}
+.opacity-100 {
+    opacity: 1 !important;
+}
+.scale-105 {
+    transform: scale(1.05) !important;
+}
+.translate-y-2 {
+    transform: translateY(-2px) !important;
 }
 
-.fade-in-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Testimonials */
+.testimonials-wrap { padding: 56px 0; }
+.testimonials-wrap h2 { margin-top: 6px; margin-bottom: 22px; font-size: 2.25rem; }
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: stretch;
+    margin-top: 12px;
 }
+.testimonial-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-subtle);
+    transition: transform .22s ease, box-shadow .22s ease;
+}
+.testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+.testimonial-quote { font-style: italic; color: var(--text-muted); margin-bottom: 16px; line-height: 1.45; }
+.testimonial-meta { display:flex; gap:12px; align-items:center; }
+.testimonial-photo { width:48px; height:48px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,0.04); }
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-wrap { padding: 36px 0; }
+}
+
+/* --- FORCE: normalize media sizes on every non-home page (and act as safety for others) --- */
+/* Paste at end of style.css */
+
+html body:not(.home) img,
+html body:not(.home) picture,
+html body:not(.home) video,
+html body:not(.home) iframe,
+html body:not(.home) .project-thumb img,
+html body:not(.home) .project-image img,
+html body:not(.home) .card-image img,
+html body:not(.home) .about-image-block img,
+html body:not(.home) .hero-image,
+html body:not(.home) .gallery-card img,
+html body:not(.home) .photo-grid img,
+html body:not(.home) .testimonial-photo {
+    width: 100% !important;
+    max-width: 760px !important;        /* üst sınır; değiştirilebilir */
+    height: auto !important;
+    max-height: 480px !important;       /* büyük görseller için mantıklı sınır */
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+/* thumbnails / sub photos daha küçük */
+html body:not(.home) .sub-photo,
+html body:not(.home) .photo-grid img,
+html body:not(.home) .projects-preview-grid .project-image,
+html body:not(.home) .card-image {
+    max-width: 420px !important;
+    max-height: 220px !important;
+    height: auto !important;
+}
+
+/* Hero/large masthead guards: prevent them from occupying full viewport on inner pages */
+html body:not(.home) .hero-section,
+html body:not(.home) .hero-image-wrapper,
+html body:not(.home) .hero-grid {
+    height: auto !important;
+    max-height: 520px !important;
+    overflow: hidden !important;
+}
+
+/* Embedded media (YouTube iframes) constrained */
+html body:not(.home) iframe,
+html body:not(.home) .embed-video,
+html body:not(.home) video {
+    width: 100% !important;
+    max-width: 900px !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    display: block !important;
+    margin: 18px auto !important;
+}
+
+/* Background-images: keep cover but limit element height */
+html body:not(.home) [style*="background-image"],
+html body:not(.home) .bg-image {
+    background-size: cover !important;
+    background-position: center center !important;
+    max-height: 520px !important;
+    overflow: hidden !important;
+}
+
+/* Make paired zig-zag layout stable: force images to not overflow text blocks */
+html body:not(.home) .pair .about-image-block img,
+html body:not(.home) .pair.reverse .about-image-block img {
+    max-width: 440px !important;
+    max-height: 420px !important;
+}
+
+/* Strong fallback: if anything still overflows, cap container widths */
+html body:not(.home) .container,
+html body:not(.home) .main-container {
+    max-width: 1120px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+/* Reduce headings on inner pages if oversized */
+html body:not(.home) h1 { font-size: clamp(1.6rem, 3.6vw, 2.4rem) !important; line-height:1.12 !important; }
+html body:not(.home) h2 { font-size: clamp(1.1rem, 2.6vw, 1.8rem) !important; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    html body:not(.home) img,
+    html body:not(.home) .photo-grid img,
+    html body:not(.home) .card-image img {
+        max-height: 380px !important;
+    }
+    html body:not(.home) .sub-photo,
+    html body:not(.home) .photo-grid img {
+        max-height: 220px !important;
+    }
+}
+
+/* ---- Fix: sub-photo (photo-grid) overlap ve boyut düzeni ---- */
+/* Spesifik seçicilerle önceki global max-width / margin kurallarını geçersiz kılar */
+html body:not(.home) .photo-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 12px !important;
+    align-items: start !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+html body:not(.home) .photo-grid a {
+    display: block !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+}
+
+html body:not(.home) .photo-grid img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 120px !important;            /* thumbnail yüksekliği */
+    max-height: 160px !important;
+    object-fit: cover !important;
+    margin: 0 !important;                /* önceki margin:auto'yu kaldırır */
+    border-radius: 8px !important;
+}
+
+/* Mobilde biraz yüksek yap */
+@media (max-width: 680px) {
+    html body:not(.home) .photo-grid img {
+        height: 160px !important;
+        max-height: 200px !important;
+    }
+}
+
+/* ===== AUTO ZIG-ZAG FOR ABOUT / GALLERY ITEMS (applies to pages except .home) ===== */
+/* Tüm iç sayfalarda, about-main-content içindeki ardışık text/image çiftlerini
+   otomatik olarak zig-zag (alternating) yerleştirir. Metin görüntünün solunda,
+   sonraki çifti tersine çevirir. Yazı boyutu artırılmıştır; değerleri ihtiyaca göre değiştir. */
+
+:root {
+    --inner-image-width: 380px;      /* main foto genişliği (kolon) */
+    --inner-image-max-height: 420px; /* foto max yüksekliği */
+    --about-h1-scale: 1.9;           /* başlık için büyütme katı (kolay tweak) */
+    --about-p-scale: 1.25;           /* paragraf için büyütme katı */
+}
+
+/* container / pairing düzeni */
+body:not(.home) .about-main-content {
+    display: grid;
+    grid-template-columns: 1fr var(--inner-image-width);
+    gap: 36px;
+    align-items: start;
+    width: 100%;
+}
+
+/* varsayılan: tekil öğeler akışta gelir. 1=text,2=image => text=col1, image=col2 */
+body:not(.home) .about-main-content > :nth-child(4n+1) {
+    grid-column: 1;
+}
+body:not(.home) .about-main-content > :nth-child(4n+2) {
+    grid-column: 2;
+    justify-self: center;
+}
+
+/* ters çift: 3=text,4=image -> burada tersine koy (image left, text right) */
+body:not(.home) .about-main-content > :nth-child(4n+3) {
+    grid-column: 2; /* text placed in right column */
+}
+body:not(.home) .about-main-content > :nth-child(4n+4) {
+    grid-column: 1; /* image placed in left column */
+    justify-self: center;
+}
+
+/* Genel img kısıtlamaları (main görseller için) */
+body:not(.home) .about-main-content .about-image-block,
+body:not(.home) .about-main-content .about-image-block img {
+    width: 100%;
+    max-width: var(--inner-image-width);
+    max-height: var(--inner-image-max-height);
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Metin kutusunu görselin yanına koy ve yazıları büyüt */
+body:not(.home) .about-main-content .about-text-block {
+    padding: 4px 0;
+    align-self: start;
+    max-width: 100%;
+}
+
+/* Başlık/paragraf boyutlandırma (kolayca ayarlanabilir) */
+body:not(.home) .about-main-content .about-text-block h1,
+body:not(.home) .about-main-content .about-text-block h2 {
+    /* temel iç sayfa h1 max ~2.4rem ile çarpım */
+    font-size: calc(2.4rem * var(--about-h1-scale)) !important;
+    line-height: 1.06 !important;
+    margin-bottom: 12px !important;
+}
+body:not(.home) .about-main-content .about-text-block h3 {
+    font-size: calc(1.6rem * var(--about-h1-scale)) !important;
+    margin-bottom: 10px !important;
+}
+body:not(.home) .about-main-content .about-text-block p {
+    font-size: calc(1rem * var(--about-p-scale)) !important;
+    line-height: 1.45 !important;
+    margin-bottom: 14px !important;
+}
+
+/* Küçültülmüş main foto ayarı: görsel overflow / overlap engelle */
+body:not(.home) .about-main-content .about-image-block {
+    position: relative;
+    z-index: 1;
+}
+body:not(.home) .about-main-content .about-text-block {
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobil: tek sütun, metin üstte (ve font boyutları küçülür) */
+@media (max-width: 900px) {
+    body:not(.home) .about-main-content {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    /* Mobilde başlık/paragraf normal boyuta döner */
+    body:not(.home) .about-main-content .about-text-block h1 { font-size: 1.9rem !important; }
+    body:not(.home) .about-main-content .about-text-block h3 { font-size: 1.2rem !important; }
+    body:not(.home) .about-main-content .about-text-block p { font-size: 1rem !important; }
+    body:not(.home) .about-main-content .about-image-block img { max-width: 100% !important; max-height: 420px !important; }
+}
+
+/* Eğer HTML farklı sıradaysa (image önce text geliyorsa) yine çalışması için güvenlik kuralı:
+   image öğelerini zorla ilgili kolona çek */
+body:not(.home) .about-main-content > .about-image-block:nth-child(odd) { grid-column: 2; }
+body:not(.home) .about-main-content > .about-image-block:nth-child(even) { grid-column: 1; }
+
+/* Son olarak: ana sayfa stillerini bozmayacak şekilde specificity yüksek tutuldu */
